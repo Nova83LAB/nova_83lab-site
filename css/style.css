@@ -195,7 +195,7 @@ section{
 .logo-text{ font-family: var(--font-display); font-weight: 800; letter-spacing: .04em; font-size: 1rem; color: var(--text); }
 .logo-text .accent{ color: var(--magenta); }
 .logo-text .underscore{ color: var(--yellow); }
-.logo-text .lab-red{ color: var(--red); }
+.logo-text .lab-red{ color: var(--magenta); }
 
 .site-nav{ display:flex; gap: 36px; }
 .site-nav a{
@@ -275,8 +275,8 @@ section{
   text-shadow: 0 0 30px rgba(255,230,0,.55);
 }
 .hero h1.glitch .lab-red{
-  color: var(--red);
-  text-shadow: 0 0 30px rgba(255,59,59,.55);
+  color: var(--magenta);
+  text-shadow: 0 0 30px rgba(255,43,214,.55);
 }
 .glitch::before, .glitch::after{
   content: attr(data-text);
