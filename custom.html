@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUSTOM — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の各種カスタムメニュー。リフトアップ・サスペンション交換、ホイール・ドレスアップ、オリジナルパーツ製作、持ち込みパーツ取付まで対応します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+      <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+      <a href="index.html#contact"><span class="nav-idx">03</span>CONTACT</a>
+      <a href="profile.html"><span class="nav-idx">04</span>MESSAGE</a>
+      <a href="custom.html"><span class="nav-idx">05</span>CUSTOM</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="custom" style="padding-top:160px;">
+      <a href="index.html#services" class="back-link">← BACK TO SERVICES</a>
+
+      <div class="section-head">
+        <span class="section-index">05</span>
+        <h2>CUSTOM</h2>
+        <span class="section-sub">/ 各種カスタム</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:48px;">
+        <p>
+          クルマを、もっと自分好みに。<span class="hl">リフトアップやサスペンション交換</span>から、
+          ホイール・タイヤなどの外装ドレスアップ、既製品にはないオリジナルパーツの製作まで、
+          足回りを中心としたカスタムに対応しています。
+        </p>
+        <p>
+          ネットで購入したパーツや、お持ち込みのパーツ取付も歓迎です。
+          「こうしたい」というイメージだけでも構いません。まずはお気軽にご相談ください。
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">足回り</span>
+            <span class="service-no">01</span>
+          </div>
+          <h3>リフトアップ・サスペンション</h3>
+          <p>リフトアップやサスペンション交換など、走りと見た目を変える足回りカスタムに対応します。</p>
+          <ul class="service-tags">
+            <li>リフトアップ</li><li>サスペンション交換</li>
+          </ul>
+          <div class="service-card-foot">
+            <a href="index.html#contact" class="service-link">相談する <span class="arrow">→</span></a>
+            <button type="button" class="lightbox-trigger" data-full="images/custom-suspension.jpg" aria-label="写真を拡大表示">
+              <img src="images/custom-suspension.jpg" alt="サスペンション交換の作業の様子" class="service-link-photo">
+            </button>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">外装</span>
+            <span class="service-no">02</span>
+          </div>
+          <h3>ホイール・ドレスアップ</h3>
+          <p>ホイール・タイヤ・バンパーなど、外装パーツの取付・ドレスアップを承ります。</p>
+          <ul class="service-tags">
+            <li>ホイール・タイヤ</li><li>バンパー</li>
+          </ul>
+          <a href="index.html#contact" class="service-link">相談する <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">製作</span>
+            <span class="service-no">03</span>
+          </div>
+          <h3>オリジナルパーツ製作</h3>
+          <p>既製品では物足りない方へ。強化パーツ・オリジナルパーツの一品製作にも対応します。</p>
+          <ul class="service-tags">
+            <li>オリジナルパーツ</li><li>強化パーツ</li>
+          </ul>
+          <a href="index.html#contact" class="service-link">相談する <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">持ち込み</span>
+            <span class="service-no">04</span>
+          </div>
+          <h3>持ち込みパーツ取付</h3>
+          <p>マフラーや下回りのパーツなど、ネットで購入されたパーツやお持ち込みパーツの取付・交換も
+            一台一台丁寧に対応します。まずはお気軽にご相談ください。</p>
+          <ul class="service-tags">
+            <li>持ち込みOK</li>
+          </ul>
+          <div class="service-card-foot">
+            <a href="index.html#contact" class="service-link">相談する <span class="arrow">→</span></a>
+            <button type="button" class="lightbox-trigger" data-full="images/custom-bring-in.jpg" aria-label="写真を拡大表示">
+              <img src="images/custom-bring-in.jpg" alt="下回りのパーツ取付作業の様子" class="service-link-photo">
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

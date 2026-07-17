@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA_83LAB — Professional Car&amp;Design Lab</title>
+<meta name="description" content="Nova_83LAB — 好奇心を実装に変えるプロフェッショナルカー&amp;デザインラボ。実験的なツールとプロダクトをここに集積する。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- boot sequence -->
+  <div id="boot-screen">
+    <div class="boot-terminal">
+      <div id="boot-lines" aria-hidden="true"></div>
+    </div>
+    <button id="boot-skip" type="button">SKIP ▸</button>
+  </div>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="#top" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="#about"><span class="nav-idx">01</span>ABOUT</a>
+      <a href="#services"><span class="nav-idx">02</span>SERVICES</a>
+      <a href="#contact"><span class="nav-idx">03</span>CONTACT</a>
+      <a href="profile.html"><span class="nav-idx">04</span>MESSAGE</a>
+      <a href="custom.html"><span class="nav-idx">05</span>CUSTOM</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <div class="hero-hud">
+        <span class="hud-tag"><i class="dot"></i>SYSTEM // ONLINE</span>
+        <span class="hud-tag">BUILD 2026.07.16</span>
+        <span class="hud-tag hud-tag-right">SIGNAL <i class="bars"><b></b><b></b><b></b><b></b></i></span>
+      </div>
+
+      <div class="hero-mid">
+        <p class="hero-eyebrow">// PROFESSIONAL CAR&amp;DESIGN LAB</p>
+        <h1 class="glitch" data-text="NOVA_83LAB">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></h1>
+        <p class="hero-sub-jp">好奇心を実装に変える、プロフェッショナルカー&amp;デザインラボ。</p>
+        <p class="hero-sub-en">CURIOSITY&nbsp;&nbsp;&#47;&#47;&nbsp;&nbsp;COMPILED&nbsp;&nbsp;&#47;&#47;&nbsp;&nbsp;SHIPPED</p>
+
+        <div class="hero-shutter reveal">
+          <img src="images/shutter-mural.png" alt="Nova_83LAB ガレージシャッターアート">
+        </div>
+
+        <div class="hero-cta">
+          <a href="#services" class="btn btn-primary"><span>EXPLORE SERVICES</span></a>
+          <a href="#contact" class="btn btn-ghost"><span>GET IN TOUCH</span></a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="line"></span>SCROLL
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about reveal" id="about">
+      <div class="section-head">
+        <span class="section-index">01</span>
+        <h2>ABOUT</h2>
+        <span class="section-sub">/ WHO IS BEHIND THE LAB</span>
+      </div>
+
+      <div class="about-grid">
+        <div class="terminal-window reveal">
+          <div class="terminal-bar">
+            <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+            <p>whoami.sh</p>
+          </div>
+          <div class="terminal-body" id="terminal-body"></div>
+        </div>
+
+        <div class="about-text reveal">
+          <p>
+            Nova_83LABは、日常の「これ、こうだったら面白いのに」を<br class="br-pc">
+            クルマの整備・改造、コード、デザイン、それぞれの形にしていくラボ兼ショップです。
+          </p>
+          <p>
+            <span class="hl">一般整備・点検・車検・改造</span>まで手を動かす整備士としての顔、
+            ツールを自分で組んで検証する開発者としての顔、そしてロゴやグラフィックを形にする
+            デザイナーとしての顔。設計・実装・検証をすべて自分の手で回しながら、
+            クルマも道具もデザインも「動くところ」まで一気に持っていくスタイルです。
+          </p>
+
+          <div class="stat-grid">
+            <div class="stat">
+              <span class="stat-num" data-count="12">0</span>
+              <span class="stat-label">EXPERIMENTS</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="100" data-suffix="%">0</span>
+              <span class="stat-label">SELF-BUILT</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="83">0</span>
+              <span class="stat-label">LAB CODE</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="24" data-suffix="/7">0</span>
+              <span class="stat-label">CURIOSITY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services reveal" id="services">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2>SERVICES</h2>
+        <span class="section-sub">/ 整備・車検メニュー</span>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">整備</span>
+            <span class="service-no">01</span>
+          </div>
+          <h3>一般整備・日常点検</h3>
+          <p>オイル・消耗品交換から異音・不調の診断まで、日々の「ちょっと気になる」に
+            エンジニアの視点で向き合います。</p>
+          <ul class="service-tags">
+            <li>オイル交換</li><li>消耗品交換</li><li>不具合診断</li>
+          </ul>
+          <div class="service-card-foot">
+            <a href="#contact" class="service-link">相談する <span class="arrow">→</span></a>
+            <button type="button" class="lightbox-trigger" data-full="images/general-maintenance.jpg" aria-label="写真を拡大表示">
+              <img src="images/general-maintenance.jpg" alt="エンジンルーム整備の様子" class="service-link-photo">
+            </button>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">車検</span>
+            <span class="service-no">02</span>
+          </div>
+          <h3>車検代行</h3>
+          <p>面倒な車検のお手続きも代行いたします。必要な整備だけを分かりやすくご提案し、
+            安心して次の車検までお乗りいただけるようサポートします。</p>
+          <ul class="service-tags">
+            <li>車検代行</li>
+          </ul>
+          <a href="#contact" class="service-link">相談する <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">カスタム</span>
+            <span class="service-no">03</span>
+          </div>
+          <h3>各種カスタム</h3>
+          <p>サスペンションなど社外パーツの取付から、足回りを中心としたカスタムまで対応。
+            理想の乗り心地・スタイルをご提案します。</p>
+          <ul class="service-tags">
+            <li>サスペンション</li><li>社外パーツ取付</li><li>足回りカスタム</li>
+          </ul>
+          <a href="custom.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">デザイン</span>
+            <span class="service-no">04</span>
+          </div>
+          <h3>ロゴ・グラフィックデザイン</h3>
+          <p>ロゴ制作からポスター、Webサイトのグラフィックまで、ブランドや世界観に合わせた
+            デザインを制作します。整備・改造以外のご相談もお気軽に。</p>
+          <ul class="service-tags">
+            <li>ロゴ制作</li><li>グラフィックデザイン</li>
+          </ul>
+          <a href="#contact" class="service-link">相談する <span class="arrow">→</span></a>
+        </article>
+      </div>
+      <p class="skills-note">※ メニュー内容・料金は準備中です。実際の対応内容に合わせて書き換えてください。</p>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact reveal" id="contact">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <div class="section-head center">
+        <span class="section-index">03</span>
+        <h2>CONTACT</h2>
+        <span class="section-sub">/ START A CONVERSATION</span>
+      </div>
+
+      <h3 class="contact-cta">整備のご相談も、改造のご相談も。</h3>
+      <p class="contact-sub">クルマの点検・車検のご予約から、改造等、雑談まで歓迎です。</p>
+
+      <div class="shop-info-grid">
+        <div class="shop-info">
+          <span class="shop-info-label">営業時間</span>
+          <span class="shop-info-value">9:00 - 19:00<br>定休日：なし</span>
+        </div>
+        <div class="shop-info">
+          <span class="shop-info-label">所在地</span>
+          <span class="shop-info-value">京都府木津川市</span>
+        </div>
+        <div class="shop-info">
+          <span class="shop-info-label">電話</span>
+          <span class="shop-info-value"><a href="tel:08042339923">080-4233-9923</a></span>
+        </div>
+      </div>
+
+      <a href="mailto:recto.ad.finem@gmail.com" class="btn btn-primary btn-large">
+        <span>SEND MESSAGE</span>
+      </a>
+
+      <div class="social-links">
+        <a href="#" class="social-link">GITHUB</a>
+        <a href="https://www.instagram.com/nova_83lab/" class="social-link" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="#" class="social-link">NOTE</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
