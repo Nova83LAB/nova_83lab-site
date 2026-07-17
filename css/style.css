@@ -193,7 +193,7 @@ section{
   box-shadow: 0 0 12px rgba(0,240,255,.6);
 }
 .logo-text{ font-family: var(--font-display); font-weight: 800; letter-spacing: .04em; font-size: 1rem; color: var(--text); }
-.logo-text .accent{ color: var(--magenta); }
+.logo-text .accent{ color: var(--cyan); }
 .logo-text .underscore{ color: var(--yellow); }
 .logo-text .lab-red{ color: var(--magenta); }
 
