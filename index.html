@@ -38,10 +38,11 @@
     <nav class="site-nav" id="site-nav">
       <a href="#about"><span class="nav-idx">01</span>ABOUT</a>
       <a href="#services"><span class="nav-idx">02</span>SERVICES</a>
-      <a href="#contact"><span class="nav-idx">03</span>CONTACT</a>
-      <a href="profile.html"><span class="nav-idx">04</span>MESSAGE</a>
-      <a href="custom.html"><span class="nav-idx">05</span>CUSTOM</a>
-      <a href="design.html"><span class="nav-idx">06</span>DESIGN</a>
+      <a href="#events"><span class="nav-idx">03</span>EVENTS</a>
+      <a href="#contact"><span class="nav-idx">04</span>CONTACT</a>
+      <a href="profile.html"><span class="nav-idx">05</span>MESSAGE</a>
+      <a href="custom.html"><span class="nav-idx">06</span>CUSTOM</a>
+      <a href="design.html"><span class="nav-idx">07</span>DESIGN</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -207,10 +208,41 @@
           <ul class="service-tags">
             <li>ロゴ制作</li><li>グラフィックデザイン</li>
           </ul>
-          <a href="design.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+          <div class="service-card-foot">
+            <a href="design.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+            <button type="button" class="lightbox-trigger" data-full="images/design-illustration.jpg" aria-label="写真を拡大表示">
+              <img src="images/design-illustration.jpg" alt="デザイン制作のイメージ" class="service-link-photo">
+            </button>
+          </div>
         </article>
       </div>
       <p class="skills-note">※ メニュー内容・料金は準備中です。実際の対応内容に合わせて書き換えてください。</p>
+    </section>
+
+    <!-- ============ EVENTS ============ -->
+    <section class="events reveal" id="events">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2>EVENTS</h2>
+        <span class="section-sub">/ 開催予定・過去のイベント</span>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <span class="service-tag">開催予定</span>
+            <span class="service-no">DATE TBD</span>
+          </div>
+          <h3>ALL Japan Jimny Meetingに参加</h3>
+          <p>長野県で開催される「ALL Japan Jimny Meeting」に参加予定です。全国のジムニーオーナーが
+            集まる大型イベント。会場でお会いできるのを楽しみにしています。詳細が決まり次第、
+            Instagramやこのページでお知らせします。</p>
+          <ul class="service-tags">
+            <li>長野県</li>
+          </ul>
+          <a href="#contact" class="service-link">問い合わせる <span class="arrow">→</span></a>
+        </article>
+      </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
@@ -221,7 +253,7 @@
       <div class="corner corner-br"></div>
 
       <div class="section-head center">
-        <span class="section-index">03</span>
+        <span class="section-index">04</span>
         <h2>CONTACT</h2>
         <span class="section-sub">/ START A CONVERSATION</span>
       </div>
