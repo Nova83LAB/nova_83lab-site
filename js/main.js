@@ -237,6 +237,20 @@
     });
   }
 
+  /* ------------------------------ visitor counter ------------------------------ */
+  const counterValue = document.getElementById("counter-value");
+  if (counterValue){
+    fetch("https://abacus.jasoncameron.dev/hit/nova83lab-site/visits")
+      .then(res => res.json())
+      .then(data => {
+        const n = String(data.value).padStart(6, "0");
+        counterValue.textContent = n;
+      })
+      .catch(() => {
+        counterValue.textContent = "------";
+      });
+  }
+
   /* ------------------------------ particle network background ------------------------------ */
   const canvas = document.getElementById("bg-canvas");
   if (canvas && canvas.getContext){
