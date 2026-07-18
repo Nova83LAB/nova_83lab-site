@@ -237,35 +237,6 @@
     });
   }
 
-  /* ------------------------------ blog feed ------------------------------ */
-  const blogGrid = document.getElementById("blog-grid");
-  if (blogGrid){
-    fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?number=3")
-      .then(res => res.json())
-      .then(data => {
-        const posts = data.posts || [];
-        if (!posts.length) return;
-
-        blogGrid.innerHTML = posts.map(p => {
-          const d = new Date(p.date);
-          const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-          let excerpt = (p.excerpt || "").replace(/<[^>]+>/g, "").trim();
-          if (excerpt.length > 90) excerpt = excerpt.slice(0, 90) + "…";
-          return `
-            <article class="service-card reveal in-view">
-              <div class="service-card-top">
-                <span class="service-tag">BLOG</span>
-                <span class="service-no">${dateStr}</span>
-              </div>
-              <h3>${p.title}</h3>
-              <p>${excerpt}</p>
-              <a href="${p.URL}" class="service-link" target="_blank" rel="noopener">続きを読む <span class="arrow">→</span></a>
-            </article>`;
-        }).join("");
-      })
-      .catch(() => { /* keep the placeholder card on failure */ });
-  }
-
   /* ------------------------------ visitor counter ------------------------------ */
   const counterValue = document.getElementById("counter-value");
   if (counterValue){
