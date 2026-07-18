@@ -469,8 +469,9 @@ section{
 .contact-cta{ font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--text); margin: 10px 0 8px; font-family: var(--font-body); font-weight: 800; }
 .contact-sub{ font-size: .9rem; margin-bottom: 36px; }
 
-.shop-info-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 720px; margin: 0 auto 40px; }
-@media (max-width: 640px){ .shop-info-grid{ grid-template-columns: 1fr; } }
+.shop-info-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 900px; margin: 0 auto 40px; }
+@media (max-width: 860px){ .shop-info-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px){ .shop-info-grid{ grid-template-columns: 1fr; } }
 .shop-info{
   border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px;
   background: var(--panel); transition: border-color .25s, box-shadow .25s;
@@ -479,6 +480,8 @@ section{
 .shop-info:hover{ border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,240,255,.12); }
 .shop-info-label{ font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; color: var(--magenta); }
 .shop-info-value{ font-size: .85rem; color: var(--text); line-height: 1.6; }
+.shop-info-qr{ align-items: center; }
+.shop-info-qr-img{ width: 64px; height: 64px; background: #fff; padding: 4px; border-radius: 4px; margin-top: 2px; }
 
 .map-embed{
   max-width: 720px; margin: 0 auto 40px; aspect-ratio: 16/9;
