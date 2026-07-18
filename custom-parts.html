@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オリジナルパーツ製作 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB のオリジナルパーツ製作。強化パーツ・オリジナルパーツの一品製作に対応します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+      <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+      <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+      <a href="index.html#contact"><span class="nav-idx">04</span>CONTACT</a>
+      <a href="profile.html"><span class="nav-idx">05</span>MESSAGE</a>
+      <a href="custom.html"><span class="nav-idx">06</span>CUSTOM</a>
+      <a href="design.html"><span class="nav-idx">07</span>DESIGN</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="parts" style="padding-top:160px;">
+      <a href="custom.html" class="back-link">← BACK TO CUSTOM</a>
+
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2>オリジナルパーツ製作</h2>
+        <span class="section-sub">/ 一品製作</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p>
+          既製品では物足りない方へ。<span class="hl">強化パーツ・オリジナルパーツ</span>の一品製作にも対応します。
+          溶接・加工から仕上げまで、一台一台に合わせて製作します。
+        </p>
+        <p>
+          このページには、これまで手がけた制作例を少しずつ追加していく予定です。
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><span class="plus">+</span>WORK 01</div>
+        <div class="gallery-item"><span class="plus">+</span>WORK 02</div>
+        <div class="gallery-item"><span class="plus">+</span>WORK 03</div>
+        <div class="gallery-item"><span class="plus">+</span>WORK 04</div>
+        <div class="gallery-item"><span class="plus">+</span>WORK 05</div>
+        <div class="gallery-item"><span class="plus">+</span>WORK 06</div>
+      </div>
+
+      <div class="hero-cta" style="margin-top:56px;">
+        <a href="index.html#contact" class="btn btn-primary"><span>相談する</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
