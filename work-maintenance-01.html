@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: エアコン不調修理（コンプレッサー交換） — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。日産セレナ（C25）のエアコン不調をコンプレッサー交換で修理した事例を写真付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="maintenance.html" class="back-link" data-en="← BACK TO MAINTENANCE">← BACK TO 一般整備・日常点検</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 01</span>
+        <h2 data-en="A/C Trouble Repair (Compressor Replacement)">エアコン不調修理（コンプレッサー交換）</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <img src="images/general-maintenance.jpg" alt="エンジンルーム整備の様子">
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Nissan Serena (C25)">日産セレナ（C25）</span></span>
+        <span class="work-meta-item"><b data-en="Symptom">症状</b> <span data-en="A/C not cooling">エアコンが効かない</span></span>
+        <span class="work-meta-item" data-en="Category: A/C Repair">分類：エアコン修理</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A customer brought in a Nissan Serena (C25) with the complaint &quot;the A/C isn't cooling at all!&quot; We first checked around the piping with fluorescent leak-detection dye, but found nothing unusual there.">
+          日産セレナ（C25）のオーナー様より「エアコンが効かない！」とのご相談。
+          まずは蛍光剤を使って配管まわりを点検しましたが、配管自体に異常は見つかりませんでした。
+        </p>
+        <p data-en="Digging further, we found the compressor itself was leaking oil and refrigerant gas heavily &mdash; the real cause of the problem. We installed a rebuilt compressor, vacuum-purged the system, and recharged it with refrigerant.">
+          さらに調べていくと、コンプレッサーからオイルとガスがだだ漏れになっていることが判明。これが不調の原因でした。
+          さっそくリビルトコンプレッサーを装着し、真空引きのうえガスを補充しました。
+        </p>
+        <p data-en="The result: ice-cold A/C again, and the customer was extremely happy with it.">
+          結果、エアコンはめちゃくちゃ冷えるようになり、オーナー様にも大満足していただけました。
+        </p>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Leak inspection around A/C piping using fluorescent dye">蛍光剤によるエアコン配管まわりの漏れ点検</li>
+        <li data-en="Diagnosed oil/gas leak at the compressor as the root cause">コンプレッサーからのオイル・ガス漏れを特定</li>
+        <li data-en="Replaced with a rebuilt A/C compressor">リビルトコンプレッサーへの交換</li>
+        <li data-en="Vacuum purge and refrigerant recharge, then confirmed cooling performance">真空引き・ガス補充後、冷却性能を確認</li>
+      </ul>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="maintenance.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

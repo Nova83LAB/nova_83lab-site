@@ -547,6 +547,28 @@ section{
 }
 .gallery-item.filled img{ width: 100%; height: 100%; object-fit: contain; display: block; }
 
+/* --------------------------------- work report --------------------------------- */
+.work-hero{
+  max-width: 900px; margin: 0 auto 40px; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--line-strong); box-shadow: 0 0 50px rgba(0,240,255,.12);
+  background: var(--bg-2);
+}
+.work-hero img{ width: 100%; height: auto; max-height: 560px; object-fit: contain; display: block; margin: 0 auto; }
+
+.work-meta{ display:flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 32px; }
+.work-meta-item{
+  font-family: var(--font-mono); font-size: .72rem; color: var(--text-dim);
+  border: 1px solid var(--line); padding: 7px 15px; border-radius: 999px;
+  display:flex; align-items:center; gap: 7px;
+}
+.work-meta-item b{ color: var(--cyan); font-weight: 700; }
+
+.work-checklist{ list-style: none; margin: 20px 0 0; padding: 0; display:grid; gap: 13px; max-width: 640px; }
+.work-checklist li{
+  display:flex; align-items:flex-start; gap: 11px; font-size: .94rem; color: var(--text); line-height: 1.65;
+}
+.work-checklist li::before{ content: "✓"; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
 /* --------------------------------- reveal fx --------------------------------- */
 .reveal{ opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.in-view{ opacity: 1; transform: translateY(0); }
