@@ -35,19 +35,22 @@
       <span class="logo-mark">N83</span>
       <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
     </a>
-    <nav class="site-nav" id="site-nav">
-      <a href="#about"><span class="nav-idx">01</span>ABOUT</a>
-      <a href="#services"><span class="nav-idx">02</span>SERVICES</a>
-      <a href="#events"><span class="nav-idx">03</span>EVENTS</a>
-      <a href="#blog"><span class="nav-idx">04</span>BLOG</a>
-      <a href="#contact"><span class="nav-idx">05</span>CONTACT</a>
-      <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
-      <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
-      <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main id="top">
@@ -68,7 +71,7 @@
       <div class="hero-mid">
         <p class="hero-eyebrow">// PROFESSIONAL CAR&amp;DESIGN LAB</p>
         <h1 class="glitch" data-text="NOVA_83LAB">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></h1>
-        <p class="hero-sub-jp">好奇心を実装に変える、プロフェッショナルカー&amp;デザインラボ。</p>
+        <p class="hero-sub-jp" data-en="Turning curiosity into code — a professional car &amp; design lab.">好奇心を実装に変える、プロフェッショナルカー&amp;デザインラボ。</p>
         <p class="hero-sub-en">CURIOSITY&nbsp;&nbsp;&#47;&#47;&nbsp;&nbsp;COMPILED&nbsp;&nbsp;&#47;&#47;&nbsp;&nbsp;SHIPPED</p>
 
         <div class="hero-shutter reveal">
@@ -104,11 +107,11 @@
         </div>
 
         <div class="about-text reveal">
-          <p>
+          <p data-en="Nova_83LAB is a lab-slash-shop that turns everyday &quot;wouldn't it be cool if&hellip;&quot; moments into car maintenance &amp; customization, code, and design &mdash; each in its own form.">
             Nova_83LABは、日常の「これ、こうだったら面白いのに」を<br class="br-pc">
             クルマの整備・改造、コード、デザイン、それぞれの形にしていくラボ兼ショップです。
           </p>
-          <p>
+          <p data-en="A mechanic who gets hands-on with <span class=&quot;hl&quot;>everything from general maintenance and inspections to shaken and customization</span>, a developer who builds and tests his own tools, and a designer who shapes logos and graphics. Handling design, implementation, and testing entirely on his own, he pushes cars, tools, and designs alike all the way to &quot;working.&quot;">
             <span class="hl">一般整備・点検・車検・改造</span>まで手を動かす整備士としての顔、
             ツールを自分で組んで検証する開発者としての顔、そしてロゴやグラフィックを形にする
             デザイナーとしての顔。設計・実装・検証をすべて自分の手で回しながら、
@@ -142,23 +145,23 @@
       <div class="section-head">
         <span class="section-index">02</span>
         <h2>SERVICES</h2>
-        <span class="section-sub">/ 整備・車検メニュー</span>
+        <span class="section-sub" data-en="/ MAINTENANCE &amp; SHAKEN MENU">/ 整備・車検メニュー</span>
       </div>
 
       <div class="services-grid">
         <article class="service-card reveal">
           <div class="service-card-top">
-            <span class="service-tag">整備</span>
+            <span class="service-tag" data-en="Maintenance">整備</span>
             <span class="service-no">01</span>
           </div>
-          <h3>一般整備・日常点検</h3>
-          <p>オイル・消耗品交換から異音・不調の診断まで、日々の「ちょっと気になる」に
+          <h3 data-en="General Maintenance &amp; Inspection">一般整備・日常点検</h3>
+          <p data-en="From oil and consumable changes to diagnosing unusual noises and rough running, we tackle everyday concerns with an engineer's eye.">オイル・消耗品交換から異音・不調の診断まで、日々の「ちょっと気になる」に
             エンジニアの視点で向き合います。</p>
           <ul class="service-tags">
-            <li>オイル交換</li><li>消耗品交換</li><li>不具合診断</li>
+            <li data-en="Oil Change">オイル交換</li><li data-en="Consumables">消耗品交換</li><li data-en="Diagnostics">不具合診断</li>
           </ul>
           <div class="service-card-foot">
-            <a href="maintenance.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+            <a href="maintenance.html" class="service-link"><span data-en="Learn More">詳しく見る</span> <span class="arrow">→</span></a>
             <button type="button" class="lightbox-trigger" data-full="images/general-maintenance.jpg" aria-label="写真を拡大表示">
               <img src="images/general-maintenance.jpg" alt="エンジンルーム整備の様子" class="service-link-photo">
             </button>
@@ -167,17 +170,17 @@
 
         <article class="service-card reveal">
           <div class="service-card-top">
-            <span class="service-tag">車検</span>
+            <span class="service-tag" data-en="Shaken">車検</span>
             <span class="service-no">02</span>
           </div>
-          <h3>車検代行</h3>
-          <p>面倒な車検のお手続きも代行いたします。必要な整備だけを分かりやすくご提案し、
+          <h3 data-en="Shaken Agency Service">車検代行</h3>
+          <p data-en="We handle the hassle of shaken paperwork for you, proposing only the maintenance you actually need so you can drive on to the next inspection with peace of mind.">面倒な車検のお手続きも代行いたします。必要な整備だけを分かりやすくご提案し、
             安心して次の車検までお乗りいただけるようサポートします。</p>
           <ul class="service-tags">
-            <li>車検代行</li>
+            <li data-en="Shaken Agency">車検代行</li>
           </ul>
           <div class="service-card-foot">
-            <a href="shaken.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+            <a href="shaken.html" class="service-link"><span data-en="Learn More">詳しく見る</span> <span class="arrow">→</span></a>
             <button type="button" class="lightbox-trigger" data-full="images/shaken-daiko.png" aria-label="写真を拡大表示">
               <img src="images/shaken-daiko.png" alt="車検代行サービス" class="service-link-photo">
             </button>
@@ -186,17 +189,17 @@
 
         <article class="service-card reveal">
           <div class="service-card-top">
-            <span class="service-tag">カスタム</span>
+            <span class="service-tag" data-en="Custom">カスタム</span>
             <span class="service-no">03</span>
           </div>
-          <h3>各種カスタム</h3>
-          <p>サスペンションなど社外パーツの取付から、足回りを中心としたカスタムまで対応。
+          <h3 data-en="Various Customization">各種カスタム</h3>
+          <p data-en="From fitting aftermarket parts like suspensions to suspension-focused customization, we propose the ride and style you're after.">サスペンションなど社外パーツの取付から、足回りを中心としたカスタムまで対応。
             理想の乗り心地・スタイルをご提案します。</p>
           <ul class="service-tags">
-            <li>サスペンション</li><li>社外パーツ取付</li><li>足回りカスタム</li>
+            <li data-en="Suspension">サスペンション</li><li data-en="Aftermarket Parts">社外パーツ取付</li><li data-en="Suspension Custom">足回りカスタム</li>
           </ul>
           <div class="service-card-foot">
-            <a href="custom.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+            <a href="custom.html" class="service-link"><span data-en="Learn More">詳しく見る</span> <span class="arrow">→</span></a>
             <button type="button" class="lightbox-trigger" data-full="images/custom-wheel-dressup.jpg" aria-label="写真を拡大表示">
               <img src="images/custom-wheel-dressup.jpg" alt="リフトアップ・カスタムの様子" class="service-link-photo">
             </button>
@@ -205,24 +208,24 @@
 
         <article class="service-card reveal">
           <div class="service-card-top">
-            <span class="service-tag">デザイン</span>
+            <span class="service-tag" data-en="Design">デザイン</span>
             <span class="service-no">04</span>
           </div>
-          <h3>ロゴ・グラフィックデザイン</h3>
-          <p>ロゴ制作からポスター、Webサイトのグラフィックまで、ブランドや世界観に合わせた
+          <h3 data-en="Logo &amp; Graphic Design">ロゴ・グラフィックデザイン</h3>
+          <p data-en="From logo design to posters and web graphics, we create designs that match your brand and world view. Feel free to reach out even outside of maintenance and customization.">ロゴ制作からポスター、Webサイトのグラフィックまで、ブランドや世界観に合わせた
             デザインを制作します。整備・改造以外のご相談もお気軽に。</p>
           <ul class="service-tags">
-            <li>ロゴ制作</li><li>グラフィックデザイン</li>
+            <li data-en="Logo Design">ロゴ制作</li><li data-en="Graphic Design">グラフィックデザイン</li>
           </ul>
           <div class="service-card-foot">
-            <a href="design.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+            <a href="design.html" class="service-link"><span data-en="Learn More">詳しく見る</span> <span class="arrow">→</span></a>
             <button type="button" class="lightbox-trigger" data-full="images/design-illustration.jpg" aria-label="写真を拡大表示">
               <img src="images/design-illustration.jpg" alt="デザイン制作のイメージ" class="service-link-photo">
             </button>
           </div>
         </article>
       </div>
-      <p class="skills-note">※ メニュー内容・料金は準備中です。実際の対応内容に合わせて書き換えてください。</p>
+      <p class="skills-note" data-en="※ Menu details and pricing are still being finalized. Please update this to match your actual offerings.">※ メニュー内容・料金は準備中です。実際の対応内容に合わせて書き換えてください。</p>
     </section>
 
     <!-- ============ EVENTS ============ -->
@@ -230,25 +233,25 @@
       <div class="section-head">
         <span class="section-index">03</span>
         <h2>EVENTS</h2>
-        <span class="section-sub">/ 開催予定・過去のイベント</span>
+        <span class="section-sub" data-en="/ UPCOMING &amp; PAST EVENTS">/ 開催予定・過去のイベント</span>
       </div>
 
       <div class="services-grid">
         <article class="service-card reveal">
           <div class="service-card-top">
-            <span class="service-tag">開催予定</span>
+            <span class="service-tag" data-en="Upcoming">開催予定</span>
             <span class="service-no">DATE TBD</span>
           </div>
-          <h3>ALL Japan Jimny Meetingに参加</h3>
-          <p>長野県で開催される「ALL Japan Jimny Meeting」に参加予定です。全国のジムニーオーナーが
+          <h3 data-en="Attending ALL Japan Jimny Meeting">ALL Japan Jimny Meetingに参加</h3>
+          <p data-en="We're planning to attend &quot;ALL Japan Jimny Meeting,&quot; held in Nagano Prefecture. A major event bringing together Jimny owners from across Japan. Looking forward to seeing you there. We'll share more details on Instagram and this page once they're finalized.">長野県で開催される「ALL Japan Jimny Meeting」に参加予定です。全国のジムニーオーナーが
             集まる大型イベント。会場でお会いできるのを楽しみにしています。詳細が決まり次第、
             Instagramやこのページでお知らせします。</p>
           <ul class="service-tags">
-            <li>長野県</li>
+            <li data-en="Nagano Prefecture">長野県</li>
           </ul>
           <div class="service-card-foot">
             <div class="service-card-links">
-              <a href="event-jimny-meeting.html" class="service-link">詳しく見る <span class="arrow">→</span></a>
+              <a href="event-jimny-meeting.html" class="service-link"><span data-en="Learn More">詳しく見る</span> <span class="arrow">→</span></a>
               <a href="https://www.instagram.com/alljapanjimnymeeting/" class="service-link" target="_blank" rel="noopener">Instagram <span class="arrow">→</span></a>
             </div>
             <button type="button" class="lightbox-trigger" data-full="images/event-jimny-meeting.png" aria-label="写真を拡大表示">
@@ -268,7 +271,7 @@
       </div>
 
       <div class="about-text reveal" style="max-width:760px;margin-bottom:40px;">
-        <p>
+        <p data-en="We write about maintenance logs and behind-the-scenes stories on cars and design over on our <span class=&quot;hl&quot;>blog</span>. New posts will be added here too.">
           整備の記録やクルマ・デザインのこぼれ話などを、<span class="hl">ブログ</span>で綴っています。
           新しい記事を書いたら、ここにも追加していく予定です。
         </p>
@@ -277,11 +280,11 @@
       <div class="services-grid" id="blog-grid">
         <article class="service-card service-card-placeholder reveal">
           <div class="service-card-top">
-            <span class="service-tag service-tag-wip">準備中</span>
+            <span class="service-tag service-tag-wip" data-en="Coming Soon">準備中</span>
             <span class="service-no">NEW</span>
           </div>
           <h3>NEXT POST</h3>
-          <p>次の記事を準備中です。投稿したら、ここに追加していきます。</p>
+          <p data-en="The next post is in the works. Once it's published, it'll appear here.">次の記事を準備中です。投稿したら、ここに追加していきます。</p>
           <ul class="service-tags">
             <li>TBD</li>
           </ul>
@@ -303,20 +306,20 @@
         <span class="section-sub">/ START A CONVERSATION</span>
       </div>
 
-      <h3 class="contact-cta">整備のご相談も、改造のご相談も。</h3>
-      <p class="contact-sub">クルマの点検・車検のご予約から、改造等、雑談まで歓迎です。</p>
+      <h3 class="contact-cta" data-en="For maintenance and for custom builds alike.">整備のご相談も、改造のご相談も。</h3>
+      <p class="contact-sub" data-en="From inspection and shaken bookings to customization and just chatting — all welcome.">クルマの点検・車検のご予約から、改造等、雑談まで歓迎です。</p>
 
       <div class="shop-info-grid">
         <div class="shop-info">
-          <span class="shop-info-label">営業時間</span>
-          <span class="shop-info-value">9:00 - 19:00<br>定休日：なし</span>
+          <span class="shop-info-label" data-en="Hours">営業時間</span>
+          <span class="shop-info-value" data-en="9:00 - 19:00<br>Closed: None">9:00 - 19:00<br>定休日：なし</span>
         </div>
         <div class="shop-info">
-          <span class="shop-info-label">所在地</span>
-          <span class="shop-info-value">京都府木津川市山城町平尾東古川35-1</span>
+          <span class="shop-info-label" data-en="Address">所在地</span>
+          <span class="shop-info-value" data-en="35-1 Higashifurukawa, Hirao, Yamashiro-cho, Kizugawa-shi, Kyoto">京都府木津川市山城町平尾東古川35-1</span>
         </div>
         <div class="shop-info">
-          <span class="shop-info-label">電話</span>
+          <span class="shop-info-label" data-en="Phone">電話</span>
           <span class="shop-info-value"><a href="tel:08042339923">080-4233-9923</a></span>
         </div>
         <div class="shop-info shop-info-qr">

@@ -4,6 +4,35 @@
 (() => {
   "use strict";
 
+  /* ------------------------------ language toggle ------------------------------ */
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle){
+    const STORAGE_KEY = "nova83lab-lang";
+    const translatable = document.querySelectorAll("[data-en]");
+
+    function applyLang(lang){
+      translatable.forEach(el => {
+        if (lang === "en"){
+          if (el.dataset.ja === undefined) el.dataset.ja = el.innerHTML;
+          el.innerHTML = el.dataset.en;
+        } else if (el.dataset.ja !== undefined){
+          el.innerHTML = el.dataset.ja;
+        }
+      });
+      langToggle.textContent = lang === "en" ? "日本語" : "EN";
+      document.documentElement.lang = lang;
+    }
+
+    const saved = localStorage.getItem(STORAGE_KEY) || "ja";
+    applyLang(saved);
+
+    langToggle.addEventListener("click", () => {
+      const next = document.documentElement.lang === "en" ? "ja" : "en";
+      applyLang(next);
+      localStorage.setItem(STORAGE_KEY, next);
+    });
+  }
+
   /* ------------------------------ boot sequence ------------------------------ */
   const bootScreen = document.getElementById("boot-screen");
   const bootLines = document.getElementById("boot-lines");
@@ -159,7 +188,7 @@
 
   /* ------------------------------ terminal typing (about) ------------------------------ */
   const terminalBody = document.getElementById("terminal-body");
-  const TERMINAL_LINES = [
+  const TERMINAL_LINES_JA = [
     { prompt: "$ ", text: "whoami", cls: "val" },
     { prompt: "> ", text: "nova_83lab // mechanic, developer & designer", cls: "comment" },
     { prompt: "$ ", text: "cat mission.txt", cls: "val" },
@@ -169,6 +198,17 @@
     { prompt: "$ ", text: "status --check", cls: "val" },
     { prompt: "> ", text: "BUILDING SOMETHING NEW...", cls: "ok-text" },
   ];
+  const TERMINAL_LINES_EN = [
+    { prompt: "$ ", text: "whoami", cls: "val" },
+    { prompt: "> ", text: "nova_83lab // mechanic, developer & designer", cls: "comment" },
+    { prompt: "$ ", text: "cat mission.txt", cls: "val" },
+    { prompt: "> ", text: "Turning curiosity into code. Cars, code, and design.", cls: "comment" },
+    { prompt: "$ ", text: "services --list", cls: "val" },
+    { prompt: "> ", text: "Maintenance / Shaken / Custom / Design", cls: "comment" },
+    { prompt: "$ ", text: "status --check", cls: "val" },
+    { prompt: "> ", text: "BUILDING SOMETHING NEW...", cls: "ok-text" },
+  ];
+  const TERMINAL_LINES = document.documentElement.lang === "en" ? TERMINAL_LINES_EN : TERMINAL_LINES_JA;
 
   async function typeTerminal(){
     if (!terminalBody) return;
