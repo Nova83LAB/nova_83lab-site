@@ -472,11 +472,14 @@ section{
 .service-link-disabled{ color: var(--text-dimmer); }
 
 .skills-note{ font-family: var(--font-mono); font-size: .68rem; color: var(--text-dimmer); margin-top: 38px; }
+.skills-note.flush-top{ margin-top: 0; }
+.skills-note.warning{ color: var(--red); font-weight: 700; }
 .skills-note.center{ text-align: center; }
 
 /* --------------------------------- contact --------------------------------- */
 .contact{ text-align: center; padding-bottom: 160px; }
 .contact-cta{ font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--text); margin: 10px 0 8px; font-family: var(--font-body); font-weight: 800; }
+.contact-cta.section-label{ font-size: 1.2rem; text-align: left; margin: 32px 0 6px; }
 .contact-sub{ font-size: .9rem; margin-bottom: 36px; }
 
 .shop-info-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 900px; margin: 0 auto 40px; }
@@ -555,6 +558,21 @@ section{
   font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em;
   color: var(--text-dim); text-align: center; line-height: 1.4;
 }
+
+/* --------------------------------- price list --------------------------------- */
+.price-list{
+  max-width: 640px; margin: 8px 0 32px; border: 1px solid var(--line-strong);
+  border-radius: 8px; overflow: hidden; background: var(--panel);
+}
+.price-row{
+  display:flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 16px 20px; border-bottom: 1px solid var(--line); transition: background .2s;
+}
+.price-row:last-child{ border-bottom: none; }
+.price-row:hover{ background: rgba(255,255,255,.03); }
+.price-vehicle{ font-size: .92rem; color: var(--text); }
+.price-vehicle small{ display:block; font-family: var(--font-mono); font-size: .68rem; color: var(--text-dimmer); margin-top: 3px; }
+.price-amount{ font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--cyan); white-space: nowrap; }
 
 /* --------------------------------- work report --------------------------------- */
 .work-hero{
