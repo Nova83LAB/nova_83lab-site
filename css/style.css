@@ -480,6 +480,20 @@ section{
 .skills-note.warning{ color: var(--red); font-weight: 700; }
 .skills-note.center{ text-align: center; }
 
+.access-note{
+  max-width: 640px; margin: 20px auto 40px; padding: 18px 22px;
+  border: 1px solid var(--line-strong); border-left: 3px solid var(--cyan);
+  border-radius: 6px; background: var(--panel);
+  display: flex; gap: 16px; align-items: flex-start; text-align: left;
+}
+.access-note-tag{
+  flex-shrink: 0; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em;
+  color: var(--cyan); border: 1px solid var(--cyan); border-radius: 999px;
+  padding: 4px 11px; white-space: nowrap; margin-top: 2px;
+}
+.access-note p{ margin: 0; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
+.access-note .hl{ color: var(--cyan); }
+
 /* --------------------------------- contact --------------------------------- */
 .contact{ text-align: center; padding-bottom: 160px; }
 .contact-cta{ font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--text); margin: 10px 0 8px; font-family: var(--font-body); font-weight: 800; }
