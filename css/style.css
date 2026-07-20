@@ -494,6 +494,41 @@ section{
 .access-note p{ margin: 0; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
 .access-note .hl{ color: var(--cyan); }
 
+/* --------------------------------- pricing --------------------------------- */
+.pricing-group{ margin-top: 8px; }
+.pricing-group h3{
+  font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; color: var(--text);
+  margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--line);
+  display:flex; align-items:center; gap:10px;
+}
+.pricing-group h3 .tag{
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; font-weight: 700;
+  color: var(--bg); background: var(--magenta); padding: 3px 9px; border-radius: 3px;
+}
+.pricing-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 860px){ .pricing-grid{ grid-template-columns: 1fr; } }
+
+.pricing-card{
+  border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px;
+  background: linear-gradient(160deg, var(--panel), transparent); text-align: center;
+  transition: border-color .3s, transform .3s, box-shadow .3s; display:flex; flex-direction:column;
+}
+.pricing-card:hover{ border-color: var(--cyan); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,240,255,.1); }
+.pricing-card.featured{ border-color: var(--magenta); box-shadow: 0 0 26px rgba(255,43,214,.08); }
+.pricing-card.featured:hover{ box-shadow: 0 10px 34px rgba(255,43,214,.18); }
+.pricing-card .plan-name{ font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; color: var(--magenta); margin-bottom: 10px; }
+.pricing-card .plan-price{ font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--cyan); margin-bottom: 18px; line-height: 1.3; }
+.pricing-card .plan-includes{
+  list-style: none; padding: 0; margin: 0; text-align: left; font-size: .82rem;
+  color: var(--text-dim); line-height: 1.9;
+}
+.pricing-card .plan-includes li{ padding-left: 16px; position: relative; }
+.pricing-card .plan-includes li::before{ content: "・"; color: var(--cyan); position: absolute; left: 0; }
+
+.pricing-perks{ list-style: none; margin: 18px 0 0; padding: 0; display:grid; gap: 12px; max-width: 640px; }
+.pricing-perks li{ display:flex; align-items:flex-start; gap: 11px; font-size: .9rem; color: var(--text); line-height: 1.6; }
+.pricing-perks li::before{ content: "+"; color: var(--magenta); font-weight: 700; flex-shrink: 0; }
+
 /* --------------------------------- contact --------------------------------- */
 .contact{ text-align: center; padding-bottom: 160px; }
 .contact-cta{ font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--text); margin: 10px 0 8px; font-family: var(--font-body); font-weight: 800; }
