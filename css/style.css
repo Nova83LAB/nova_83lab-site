@@ -611,6 +611,11 @@ section{
   font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em;
   color: var(--text-dim); text-align: center; line-height: 1.4;
 }
+.gallery-caption-no{
+  display:block; font-size: .6rem; letter-spacing: .14em; color: var(--cyan);
+  font-weight: 700; margin-bottom: 3px;
+}
+.gallery-caption-title{ display:block; color: var(--text); font-size: .74rem; }
 
 /* --------------------------------- price list --------------------------------- */
 .price-list{
@@ -629,11 +634,24 @@ section{
 
 /* --------------------------------- work report --------------------------------- */
 .work-hero{
-  max-width: 900px; margin: 0 auto 40px; border-radius: 10px; overflow: hidden;
-  border: 1px solid var(--line-strong); box-shadow: 0 0 50px rgba(0,240,255,.12);
-  background: var(--bg-2);
+  position: relative; max-width: 900px; margin: 0 auto 40px; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--line-strong); background: var(--bg-2);
+  animation: work-hero-glow 4s ease-in-out infinite;
+}
+@keyframes work-hero-glow{
+  0%, 100%{ box-shadow: 0 0 50px rgba(0,240,255,.12); }
+  50%{ box-shadow: 0 0 70px rgba(255,43,214,.18); }
 }
 .work-hero img{ width: 100%; height: auto; max-height: 560px; object-fit: contain; display: block; margin: 0 auto; }
+.work-hero .corner{ width: 34px; height: 34px; opacity: .9; }
+.work-hero-tag{
+  position: absolute; top: 16px; left: 16px; z-index: 3;
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .12em; font-weight: 700;
+  color: var(--cyan); background: rgba(5,6,10,.72); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  border: 1px solid var(--cyan); border-radius: 999px; padding: 5px 13px;
+  text-shadow: 0 0 8px rgba(0,240,255,.6); display:flex; align-items:center; gap:7px;
+}
+.work-hero-tag .dot{ width:6px; height:6px; border-radius:50%; background:#4dffb8; box-shadow:0 0 6px #4dffb8; display:inline-block; }
 
 .work-meta{ display:flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 32px; }
 .work-meta-item{
