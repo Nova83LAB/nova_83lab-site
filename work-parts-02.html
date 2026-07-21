@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: JB23リアフレーム加工 + King コイルオーバー取付 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。ジムニーJB23のリアフレーム加工とKingコイルオーバー取付の様子を写真付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="custom-parts.html" class="back-link" data-en="← BACK TO ORIGINAL PARTS">← BACK TO オリジナルパーツ製作</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 02</span>
+        <h2 data-en="JB23 Rear Frame Fabrication + King Coilover Install">JB23リアフレーム加工 King コイルオーバー取付</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <span class="work-hero-tag"><i class="dot"></i><span data-en="FABRICATION LOG // JB23">製作記録 // JB23</span></span>
+        <img src="images/custom-rear-frame.jpg" alt="JB23リアフレーム加工・Kingコイルオーバー取付の様子">
+      </div>
+
+      <div class="gallery-grid reveal" style="grid-template-columns:repeat(3, 1fr);margin-top:16px;margin-bottom:40px;">
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-rear-frame-process-01.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-rear-frame-process-01.jpg" alt="リアフレーム加工 作業工程 1（フェンダー内クリアランス加工）">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-rear-frame-process-02.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-rear-frame-process-02.jpg" alt="リアフレーム加工 作業工程 2（Kingコイルオーバー取付部）">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-rear-frame-process-03.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-rear-frame-process-03.jpg" alt="リアフレーム加工 作業工程 3（リアデフ・ブレーキ周り）">
+        </button>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Suzuki Jimny (JB23)">スズキ ジムニー（JB23）</span></span>
+        <span class="work-meta-item"><b data-en="Content">内容</b> <span data-en="Rear frame fabrication + King coilover install">リアフレーム加工・Kingコイルオーバー取付</span></span>
+        <span class="work-meta-item" data-en="Category: Original Fabrication">分類：オリジナル製作</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="We reworked the rear frame and fender clearance of a <span class=&quot;hl&quot;>JB23</span> to fit long-stroke <span class=&quot;hl&quot;>King coilovers</span>. Mounting brackets were fabricated and welded on both sides, with careful attention to suspension geometry and travel.">
+          <span class="hl">JB23</span>のリアフレーム・フェンダー内のクリアランスを加工し、ロングストロークの<span class="hl">Kingコイルオーバー</span>を取付けました。
+          左右それぞれにマウントブラケットを製作・溶接し、サスペンションジオメトリとストロークを考慮しながら仕上げています。
+        </p>
+        <p data-en="Combined with the sway bar and control arm setup, we tuned the whole rear end for a balance of on-road stability and off-road articulation.">
+          スウェイバーやコントロールアームとの組み合わせも含め、オンロードの安定性とオフロードでの可動域のバランスを取りながら
+          リア周り全体をセッティングしています。
+        </p>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Measured and cut the rear frame / fender for coilover clearance">リアフレーム・フェンダーの採寸・加工（コイルオーバークリアランス確保）</li>
+        <li data-en="Fabricated and welded coilover mount brackets (both sides)">コイルオーバーマウントブラケットの製作・溶接（左右）</li>
+        <li data-en="Installed King coilovers and sway bar / control arms">Kingコイルオーバー・スウェイバー・コントロールアームの取付</li>
+        <li data-en="Ride height and geometry check, final operation check">車高・ジオメトリ確認、動作確認</li>
+      </ul>
+
+      <p class="skills-note" data-en="※ This is a sample write-up. Replace it with the actual work details.">※ このページはサンプル原稿です。実際の作業内容に合わせて書き換えてください。</p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="custom-parts.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
