@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: JA11エンジン不調でリビルトエンジンに載せ替え — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。ジムニーJA11のエンジン不調をリビルトエンジンへの載せ替えで修理した事例を写真付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="maintenance.html" class="back-link" data-en="← BACK TO MAINTENANCE">← BACK TO 一般整備・日常点検</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 02</span>
+        <h2 data-en="JA11 Engine Trouble → Rebuilt Engine Swap">JA11エンジン不調でリビルトエンジンに載せ替え</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <span class="work-hero-tag"><i class="dot"></i><span data-en="MAINTENANCE LOG // JA11">整備記録 // JA11</span></span>
+        <img src="images/maintenance-ja11-engine.jpg" alt="JA11 エンジン不調診断・リビルトエンジン載せ替えの様子">
+      </div>
+
+      <div class="gallery-grid reveal" style="grid-template-columns:repeat(2, 1fr);margin-top:16px;margin-bottom:40px;">
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/maintenance-ja11-engine-before.jpg" aria-label="写真を拡大表示">
+          <img src="images/maintenance-ja11-engine-before.jpg" alt="載せ替え前のオリジナルエンジン">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/maintenance-ja11-engine-after.jpg" aria-label="写真を拡大表示">
+          <img src="images/maintenance-ja11-engine-after.jpg" alt="載せ替え後のリビルトエンジン">
+        </button>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Suzuki Jimny (JA11)">スズキ ジムニー（JA11）</span></span>
+        <span class="work-meta-item"><b data-en="Symptom">症状</b> <span data-en="Engine trouble / rough running">エンジン不調</span></span>
+        <span class="work-meta-item" data-en="Category: Engine Replacement">分類：エンジン載せ替え</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A <span class=&quot;hl&quot;>JA11</span> came in with persistent engine trouble that couldn't be resolved by adjustment alone. After checking compression and internal condition, we judged the original engine had reached its limit and proposed a swap to a <span class=&quot;hl&quot;>rebuilt engine</span>.">
+          <span class="hl">JA11</span>が調整だけでは改善しないエンジン不調でご入庫。圧縮や内部の状態を確認したところ、
+          オリジナルエンジンが限界に近い状態だったため、<span class="hl">リビルトエンジン</span>への載せ替えをご提案しました。
+        </p>
+        <p data-en="We pulled the original engine, mounted the rebuilt unit, and carefully redid all wiring, piping, and linkages one by one to bring it back to a reliable, everyday-usable state.">
+          オリジナルエンジンを降ろしてリビルトエンジンを搭載。配線・配管・リンケージ類を一つひとつ組み直し、
+          安心して日常使いできる状態に仕上げました。
+        </p>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Diagnosed engine trouble (compression / internal condition check)">エンジン不調の原因診断（圧縮・内部状態の確認）</li>
+        <li data-en="Removed the original engine">オリジナルエンジンの取り下ろし</li>
+        <li data-en="Mounted the rebuilt engine and reconnected wiring / piping / linkages">リビルトエンジンの搭載、配線・配管・リンケージの接続</li>
+        <li data-en="Test run and final operation check">試運転・動作確認</li>
+      </ul>
+
+      <p class="skills-note" data-en="※ This is a sample write-up. Replace it with the actual work details.">※ このページはサンプル原稿です。実際の作業内容に合わせて書き換えてください。</p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="maintenance.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
