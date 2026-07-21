@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: JB23フロントフレーム加工 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。ジムニーJB23のフロントフレーム加工・オリジナルバンパー製作の様子を写真付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="custom-parts.html" class="back-link" data-en="← BACK TO ORIGINAL PARTS">← BACK TO オリジナルパーツ製作</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 01</span>
+        <h2 data-en="JB23 Front Frame Fabrication">JB23フロントフレーム加工</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <img src="images/custom-original-parts.jpg" alt="JB23フロントフレーム加工・オリジナルバンパー製作の様子">
+      </div>
+
+      <div class="gallery-grid reveal" style="grid-template-columns:repeat(3, 1fr);margin-top:16px;margin-bottom:40px;">
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-original-parts-process-01.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-original-parts-process-01.jpg" alt="フロントフレーム加工 作業工程 1">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-original-parts-process-02.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-original-parts-process-02.jpg" alt="フロントフレーム加工 作業工程 2">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-original-parts-process-03.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-original-parts-process-03.jpg" alt="フロントフレーム加工 作業工程 3">
+        </button>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Suzuki Jimny (JB23)">スズキ ジムニー（JB23）</span></span>
+        <span class="work-meta-item"><b data-en="Content">内容</b> <span data-en="Front frame fabrication">フロントフレーム加工</span></span>
+        <span class="work-meta-item" data-en="Category: Original Fabrication">分類：オリジナル製作</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A <span class=&quot;hl&quot;>JB23</span>'s front frame was cut and reworked to fit an original bumper and a winch mount. We fabricated and welded a custom bracket to hold the winch securely, then wired it in.">
+          <span class="hl">JB23</span>のフロントフレームを加工し、オリジナルバンパーとウインチマウントを取り付けました。
+          ウインチをしっかり固定するための専用ブラケットを製作・溶接し、配線まで仕上げています。
+        </p>
+        <p data-en="One-off fabrication like this needs careful measuring and test-fitting so the finished part holds up to real off-road use, not just looks the part.">
+          この手の一品製作は、見た目だけでなく実際のオフロード走行に耐える強度が出るよう、採寸と現物合わせを重ねて仕上げています。
+        </p>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Measured and cut the front frame for the bumper mount">フロントフレームの採寸・切断（バンパー取付部）</li>
+        <li data-en="Fabricated and welded a custom winch mount bracket">ウインチマウント用ブラケットの製作・溶接</li>
+        <li data-en="Installed the original bumper and winch">オリジナルバンパー・ウインチの取付</li>
+        <li data-en="Wiring and final operation check">配線・動作確認</li>
+      </ul>
+
+      <p class="skills-note" data-en="※ This is a sample write-up. Replace it with the actual work details.">※ このページはサンプル原稿です。実際の作業内容に合わせて書き換えてください。</p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="custom-parts.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
