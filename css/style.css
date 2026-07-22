@@ -494,6 +494,34 @@ section{
 .access-note p{ margin: 0; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
 .access-note .hl{ color: var(--cyan); }
 
+/* --------------------------------- notice bar --------------------------------- */
+.notice-bar{
+  max-width: var(--container); margin: 0 auto; padding: 20px clamp(20px,4vw,40px);
+  border: 1px solid var(--line-strong); border-left: 3px solid var(--yellow);
+  border-radius: 6px; background: var(--panel);
+}
+.notice-bar-head{ margin-bottom: 12px; }
+.notice-bar-tag{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+  color: var(--yellow); border: 1px solid var(--yellow); border-radius: 999px;
+  padding: 4px 12px;
+}
+.notice-bar-tag .dot{
+  width: 6px; height: 6px; border-radius: 50%; background: var(--yellow);
+  box-shadow: 0 0 6px var(--yellow); display: inline-block;
+}
+.notice-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.notice-item{
+  display: flex; gap: 16px; align-items: baseline; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.notice-item:last-child{ border-bottom: none; padding-bottom: 0; }
+.notice-item-date{ flex-shrink: 0; font-family: var(--font-mono); font-size: .72rem; color: var(--text-dimmer); }
+.notice-item-title{ font-size: .88rem; color: var(--text-dim); line-height: 1.6; }
+a.notice-item-title{ color: var(--text); text-decoration: none; }
+a.notice-item-title:hover{ color: var(--cyan); }
+
 /* --------------------------------- pricing --------------------------------- */
 .pricing-group{ margin-top: 8px; }
 .pricing-group h3{

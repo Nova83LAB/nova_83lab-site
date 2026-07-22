@@ -306,6 +306,28 @@
       .catch(() => { /* keep the placeholder card on failure */ });
   }
 
+  /* ------------------------------ notice feed ------------------------------ */
+  const noticeList = document.getElementById("notice-list");
+  if (noticeList){
+    fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?category=%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B&number=3")
+      .then(res => res.json())
+      .then(data => {
+        const posts = data.posts || [];
+        if (!posts.length) return;
+
+        noticeList.innerHTML = posts.map(p => {
+          const d = new Date(p.date);
+          const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+          return `
+            <li class="notice-item">
+              <span class="notice-item-date">${dateStr}</span>
+              <a href="${p.URL}" class="notice-item-title" target="_blank" rel="noopener">${p.title}</a>
+            </li>`;
+        }).join("");
+      })
+      .catch(() => { /* keep the placeholder on failure */ });
+  }
+
   /* ------------------------------ visitor counter ------------------------------ */
   const counterValue = document.getElementById("counter-value");
   if (counterValue){
