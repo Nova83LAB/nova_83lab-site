@@ -280,7 +280,7 @@
   /* ------------------------------ blog feed ------------------------------ */
   const blogGrid = document.getElementById("blog-grid");
   if (blogGrid){
-    fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?number=3")
+    fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?category=%E9%80%9A%E5%B8%B8%E3%83%96%E3%83%AD%E3%82%B0&number=3")
       .then(res => res.json())
       .then(data => {
         const posts = data.posts || [];
