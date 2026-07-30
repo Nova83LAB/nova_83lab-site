@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: JB23フロントショックマウント加工 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。ジムニーJB23のフロントショックマウント加工の様子を写真付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">03</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">04</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">05</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">06</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">07</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">08</span>DESIGN</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="custom-parts.html" class="back-link" data-en="← BACK TO ORIGINAL PARTS">← BACK TO オリジナルパーツ製作</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 03</span>
+        <h2 data-en="JB23 Front Shock Mount Fabrication">JB23フロントショックマウント加工</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <span class="work-hero-tag"><i class="dot"></i><span data-en="FABRICATION LOG // JB23">製作記録 // JB23</span></span>
+        <img src="images/custom-shockmount.jpg" alt="JB23フロントショックマウント加工の様子">
+      </div>
+
+      <div class="gallery-grid reveal" style="grid-template-columns:repeat(3, 1fr);margin-top:16px;margin-bottom:40px;">
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-shockmount-process-01.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-shockmount-process-01.jpg" alt="作業工程 1（取付位置の採寸・マーキング）">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-shockmount-process-02.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-shockmount-process-02.jpg" alt="作業工程 2（ダンボールでの現物合わせ・型取り）">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/custom-shockmount-process-03.jpg" aria-label="写真を拡大表示">
+          <img src="images/custom-shockmount-process-03.jpg" alt="作業工程 3（取付作業の様子）">
+        </button>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Suzuki Jimny (JB23)">スズキ ジムニー（JB23）</span></span>
+        <span class="work-meta-item"><b data-en="Content">内容</b> <span data-en="Front shock mount fabrication">フロントショックマウント加工</span></span>
+        <span class="work-meta-item" data-en="Category: Original Fabrication">分類：オリジナル製作</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A lifted <span class=&quot;hl&quot;>JB23</span> needed a custom front shock mount to properly fit a longer shock. We marked the mounting position on the frame, made a cardboard mock-up to nail down the shape, then fabricated and welded the final steel bracket.">
+          リフトアップされた<span class="hl">JB23</span>に、ロングストロークのショックを正しく収めるための
+          専用フロントショックマウントを製作しました。フレームに取付位置をマーキングし、
+          ダンボールで現物合わせをしたうえで、鉄板を加工・溶接して仕上げています。
+        </p>
+        <p data-en="After fabrication we double-checked clearance and dimensions with a tape measure, painted the bracket, and confirmed everything before final installation.">
+          製作後はメジャーで寸法・クリアランスを再確認し、ブラケットを塗装したうえで本組みし、
+          最終確認を行いました。
+        </p>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Marked the mounting position on the frame">フレーム上の取付位置をマーキング</li>
+        <li data-en="Made a cardboard mock-up to check the shape">ダンボールでの現物合わせ・型取り</li>
+        <li data-en="Fabricated and welded the steel bracket">鋼材の加工・溶接によるブラケット製作</li>
+        <li data-en="Checked clearance/dimensions and completed final installation">クリアランス・寸法確認のうえ本組み</li>
+      </ul>
+
+      <p class="skills-note" data-en="※ This is a sample write-up. Replace it with the actual work details.">※ このページはサンプル原稿です。実際の作業内容に合わせて書き換えてください。</p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="custom-parts.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
