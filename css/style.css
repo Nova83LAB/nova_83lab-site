@@ -316,7 +316,7 @@ section{
   color: var(--text-dimmer); margin-top: 4px;
 }
 
-.hero-shutter{ margin: 36px auto 0; max-width: 560px; width: 100%; }
+.hero-shutter{ margin: 36px auto 0; max-width: 760px; width: 100%; }
 .hero-shutter img{
   width: 100%; height: auto; display: block; border-radius: 8px;
   border: 1px solid var(--line-strong);
