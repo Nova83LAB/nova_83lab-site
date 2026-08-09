@@ -4,9 +4,9 @@
    ========================================================================== */
 
 :root{
-  --bg:            #05060a;
-  --bg-2:          #0a0d16;
-  --bg-3:          #0d1220;
+  --bg:            #0a0616;
+  --bg-2:          #130b26;
+  --bg-3:          #1b0f34;
   --panel:         rgba(255,255,255,0.03);
   --line:          rgba(255,255,255,0.09);
   --line-strong:   rgba(255,255,255,0.18);
@@ -55,7 +55,7 @@ p{ margin: 0 0 1em; color: var(--text-dim); }
 a{ color: inherit; text-decoration: none; }
 ul{ list-style: none; margin: 0; padding: 0; }
 img{ max-width: 100%; display:block; }
-::selection{ background: var(--magenta); color: #05060a; }
+::selection{ background: var(--magenta); color: var(--bg); }
 
 /* thin neon scrollbar */
 ::-webkit-scrollbar{ width: 10px; }
@@ -86,9 +86,10 @@ img{ max-width: 100%; display:block; }
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
   width: 100%; height: 100%;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(123,47,247,.20), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(0,240,255,.10), transparent 60%),
-    radial-gradient(ellipse 55% 40% at 0% 75%, rgba(255,61,154,.12), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(123,47,247,.30), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(0,240,255,.18), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 0% 75%, rgba(255,61,154,.20), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 85% 12%, rgba(255,122,26,.14), transparent 60%),
     var(--bg);
 }
 
@@ -128,7 +129,7 @@ body::after{
 /* ------------------------------ boot screen ------------------------------ */
 #boot-screen{
   position: fixed; inset: 0; z-index: 1000;
-  background: #05060a;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 24px;
   transition: opacity .6s var(--ease), visibility .6s var(--ease);
