@@ -120,6 +120,15 @@
     });
   }
 
+  /* ------------------------------ cursor spotlight on cards ------------------------------ */
+  document.addEventListener("mousemove", (e) => {
+    const card = e.target.closest(".service-card, .pricing-card, .stat, .shop-info");
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  });
+
   /* ------------------------------ header state ------------------------------ */
   const header = document.getElementById("site-header");
   const navToggle = document.getElementById("nav-toggle");

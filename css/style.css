@@ -92,6 +92,12 @@ img{ max-width: 100%; display:block; }
     var(--bg);
 }
 
+/* cinematic vignette — deepens the edges so neon accents pop harder */
+body::after{
+  content: ""; position: fixed; inset: 0; z-index: 4; pointer-events: none;
+  background: radial-gradient(ellipse 100% 85% at 50% 45%, transparent 55%, rgba(0,0,0,.6) 100%);
+}
+
 /* custom cursor */
 .cursor-dot, .cursor-ring{
   position: fixed; top:0; left:0; z-index: 999; pointer-events: none;
@@ -288,9 +294,13 @@ section{
   text-shadow: 0 0 30px rgba(0,240,255,.25);
 }
 .hero h1.glitch .accent{
-  color: var(--cyan);
-  text-shadow: 0 0 30px rgba(0,240,255,.55);
+  background: linear-gradient(100deg, var(--cyan), var(--pink) 50%, var(--cyan) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  filter: drop-shadow(0 0 22px rgba(0,240,255,.45));
+  animation: accent-shimmer 5s linear infinite;
 }
+@keyframes accent-shimmer{ to{ background-position: -220% center; } }
 .hero h1.glitch .underscore{
   color: var(--yellow);
   text-shadow: 0 0 30px rgba(255,230,0,.55);
@@ -343,8 +353,15 @@ section{
   padding: 15px 30px; border-radius: var(--radius); overflow: hidden;
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), color .2s;
   border: 1px solid transparent;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
 }
 .btn:active{ transform: scale(.97); }
+.btn::before{
+  content: ""; position: absolute; top: 0; left: -60%; width: 35%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+  transform: skewX(-20deg); transition: left .55s var(--ease); pointer-events: none;
+}
+.btn:hover::before{ left: 130%; }
 .btn-primary{
   background: linear-gradient(100deg, var(--cyan), var(--pink) 55%, var(--orange) 120%);
   color: #05060a; font-weight: 700;
@@ -404,6 +421,7 @@ section{
 .stat-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 36px; }
 @media (max-width: 560px){ .stat-grid{ grid-template-columns: repeat(2, 1fr); } }
 .stat{
+  position: relative; overflow: hidden;
   border: 1px solid var(--line); padding: 18px 14px; border-radius: var(--radius);
   text-align:center; background: var(--panel);
   transition: border-color .25s, box-shadow .25s;
@@ -549,6 +567,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
 @media (max-width: 860px){ .pricing-grid{ grid-template-columns: 1fr; } }
 
 .pricing-card{
+  position: relative; overflow: hidden;
   border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px;
   background: linear-gradient(160deg, var(--panel), transparent); text-align: center;
   transition: border-color .3s, transform .3s, box-shadow .3s; display:flex; flex-direction:column;
@@ -579,6 +598,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
 @media (max-width: 860px){ .shop-info-grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px){ .shop-info-grid{ grid-template-columns: 1fr; } }
 .shop-info{
+  position: relative; overflow: hidden;
   border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px;
   background: var(--panel); transition: border-color .25s, box-shadow .25s;
   display:flex; flex-direction: column; gap: 8px;
@@ -716,6 +736,14 @@ a.notice-item-title:hover{ color: var(--cyan); }
   display:flex; align-items:flex-start; gap: 11px; font-size: .94rem; color: var(--text); line-height: 1.65;
 }
 .work-checklist li::before{ content: "✓"; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+/* --------------------------------- cursor spotlight --------------------------------- */
+.service-card::before, .pricing-card::before, .stat::before, .shop-info::before{
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(0,240,255,.16), transparent 70%);
+  transition: opacity .35s;
+}
+.service-card:hover::before, .pricing-card:hover::before, .stat:hover::before, .shop-info:hover::before{ opacity: 1; }
 
 /* --------------------------------- reveal fx --------------------------------- */
 .reveal{ opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
