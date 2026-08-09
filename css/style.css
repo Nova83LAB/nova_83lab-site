@@ -446,6 +446,7 @@ section{
   border: 1px solid var(--line); padding: 18px 14px; border-radius: var(--radius);
   text-align:center; background: var(--panel);
   transition: border-color .25s, box-shadow .25s;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 }
 .stat:hover{ border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,240,255,.12); }
 .stat-num{ display:block; font-family: var(--font-display); font-size: 1.8rem; color: var(--cyan); font-weight: 800; }
@@ -573,6 +574,27 @@ section{
 a.notice-item-title{ color: var(--text); text-decoration: none; }
 a.notice-item-title:hover{ color: var(--cyan); }
 
+/* --------------------------------- marquee --------------------------------- */
+.marquee-band{
+  position: relative; z-index: 1; overflow: hidden;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(0,240,255,.07), rgba(255,61,154,.07));
+  padding: 16px 0;
+  transform: skewY(-1.2deg); margin: -1px 0 0;
+}
+.marquee-track{
+  display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content;
+  transform: skewY(1.2deg);
+  animation: marquee-scroll 22s linear infinite;
+}
+.marquee-item{
+  font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: .04em;
+  color: var(--text-dim);
+}
+.marquee-sep{ color: var(--cyan); font-size: .7rem; }
+@keyframes marquee-scroll{ to{ transform: skewY(1.2deg) translateX(-50%); } }
+@media (prefers-reduced-motion: reduce){ .marquee-track{ animation: none; } }
+
 /* --------------------------------- pricing --------------------------------- */
 .pricing-group{ margin-top: 8px; }
 .pricing-group h3{
@@ -592,6 +614,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
   border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px;
   background: linear-gradient(160deg, var(--panel), transparent); text-align: center;
   transition: border-color .3s, transform .3s, box-shadow .3s; display:flex; flex-direction:column;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
 }
 .pricing-card:hover{ border-color: var(--cyan); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,240,255,.1); }
 .pricing-card.featured{ border-color: var(--orange); box-shadow: 0 0 26px rgba(255,122,26,.1); }
@@ -623,6 +646,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
   border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px;
   background: var(--panel); transition: border-color .25s, box-shadow .25s;
   display:flex; flex-direction: column; gap: 8px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 }
 .shop-info:hover{ border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,240,255,.12); }
 .shop-info-label{ font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: .02em; color: var(--magenta); line-height: 1.5; }
