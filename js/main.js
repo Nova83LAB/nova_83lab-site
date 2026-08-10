@@ -421,9 +421,13 @@
         }
       }
 
-      if (!reduceMotion) requestAnimationFrame(step);
+      if (!reduceMotion && !document.hidden) requestAnimationFrame(step);
     }
     step();
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !reduceMotion) requestAnimationFrame(step);
+    });
   }
 
 })();
