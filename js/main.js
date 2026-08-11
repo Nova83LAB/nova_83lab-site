@@ -84,7 +84,7 @@
     if (!bootScreen || bootScreen.classList.contains("hidden")) return;
     bootScreen.classList.add("hidden");
     document.body.style.overflow = "";
-    setTimeout(openShutter, 350);
+    setTimeout(openShutter, 550);
   }
 
   if (bootScreen){
