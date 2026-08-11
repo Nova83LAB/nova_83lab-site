@@ -75,10 +75,16 @@
     finishBoot();
   }
 
+  function openShutter(){
+    const shutter = document.querySelector(".hero-shutter");
+    if (shutter) shutter.classList.add("is-open");
+  }
+
   function finishBoot(){
     if (!bootScreen || bootScreen.classList.contains("hidden")) return;
     bootScreen.classList.add("hidden");
     document.body.style.overflow = "";
+    setTimeout(openShutter, 350);
   }
 
   if (bootScreen){
@@ -87,6 +93,8 @@
     // safety net: never trap the user
     setTimeout(finishBoot, 4500);
     runBoot();
+  } else {
+    openShutter();
   }
 
   /* ------------------------------ custom cursor ------------------------------ */
