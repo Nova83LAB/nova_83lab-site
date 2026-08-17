@@ -805,6 +805,20 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 .work-meta-item b{ color: var(--cyan); font-weight: 700; }
 
+.work-video{ max-width: 360px; margin: 8px auto 40px; text-align: center; }
+.work-video-label{
+  display: inline-flex; align-items: center; gap: 7px; margin-bottom: 14px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; color: var(--cyan);
+}
+.work-video-label .dot{
+  width: 6px; height: 6px; border-radius: 50%; background: #4dffb8; box-shadow: 0 0 6px #4dffb8;
+  display: inline-block; animation: dot-pulse 1.8s ease-in-out infinite;
+}
+.work-video video{
+  width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line-strong);
+  background: var(--bg-2); box-shadow: 0 0 40px rgba(0,240,255,.15), 0 16px 40px rgba(0,0,0,.5);
+}
+
 .work-checklist{ list-style: none; margin: 20px 0 0; padding: 0; display:grid; gap: 13px; max-width: 640px; }
 .work-checklist li{
   display:flex; align-items:flex-start; gap: 11px; font-size: .94rem; color: var(--text); line-height: 1.65;
