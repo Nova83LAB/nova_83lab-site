@@ -815,6 +815,9 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .torque-quickref li:last-child{ border-bottom:none; }
 .torque-quickref .t-val{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); min-width:64px; }
 .torque-quickref .t-name{ color:var(--text-dim); }
+.torque-table .t-val.t-flag, .torque-quickref .t-val.t-flag{ color: var(--red); }
+.torque-table tr.t-flag-row{ background: rgba(255,59,59,.06); }
+.torque-table tr.t-flag-row td{ color: var(--text); }
 
 /* --------------------------------- work report --------------------------------- */
 .work-hero{

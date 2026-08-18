@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: JB64 ジムニー 締め付けトルク一覧 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。JB64ジムニー（JB74W共通）の締め付けトルクを、ホイール・ブレーキ・エンジン周り・ステアリング・足回り・ボディマウント・駆動系までジャンル別にまとめた整備用リファレンスです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 02</span>
+        <h2 data-en="JB64 Jimny Torque Spec Reference">JB64 ジムニー 締め付けトルク一覧</h2>
+        <span class="section-sub" data-en="/ MAINTENANCE REFERENCE">/ 整備用リファレンス</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny (JB64W, shared with JB74W)">スズキ ジムニー（JB64W／JB74W共通）</span></span>
+        <span class="work-meta-item"><b data-en="Unit">単位</b> N·m（ニュートンメートル）</span>
+        <span class="work-meta-item" data-en="1 N·m ≈ 10.2 kgf·cm ≈ 0.102 kgf·m">1 N·m ≒ 10.2 kgf·cm ≒ 0.102 kgf·m</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="JB64 Jimny tightening torques, organized by area. Handy for a quick check before you tighten something during maintenance or a custom install. <span class=&quot;hl&quot;>Always use a torque wrench</span> — too little torque leads to loosening, too much can stretch or seize bolts and damage parts.">
+          JB64ジムニーの締め付けトルクを、部位ごとに整理しました。整備やカスタム取付の際、締める前にサッと確認できるようまとめています。
+          <span class="hl">必ずトルクレンチを使用</span>してください。トルク不足は緩みの原因に、オーバートルクはネジの伸び・焼き付き・部品破損の原因になります。
+        </p>
+        <p data-en="Note: JB64 covers a wide torque range from 7.4 to 160N·m, so <span class=&quot;hl&quot;>two torque wrenches</span> are needed — one for the ~10–70N·m range (engine area) and one for the ~28–210N·m range (suspension). One wrench alone can't cover both ends accurately.">
+          JB64は7.4〜160N·mと範囲が広いため、<span class="hl">トルクレンチは2本必要</span>です。エンジン周り用に10〜70N·mクラス、
+          足回り用に28〜210N·mクラスを用意してください。1本ではすべての範囲を正確にカバーできません。
+        </p>
+      </div>
+
+      <!-- ホイール -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Wheels">ホイール</h3>
+          <span class="torque-section-count" data-en="1 item">1項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Wheel nuts (all 4 wheels)">ホイールナット（4輪共通）</td><td class="t-val">100N·m</td><td class="t-tool">19mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="torque-callout" data-en="<b>Re-torquing required:</b> after replacing wheels, drive about 100km and be sure to recheck — the wheel seats in as it initially settles, causing loosening. Tighten in a star (crisscross) pattern.">
+          <b data-en="Re-torquing required:">増し締め必須：</b>交換後 100km ほど走行したら必ず再確認。初期なじみでホイールが座り、緩みが出る。対角締めで。
+        </p>
+      </div>
+
+      <!-- ブレーキ -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Brakes">ブレーキ</h3>
+          <span class="torque-section-count" data-en="3 items">3項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Caliper pin bolt (front)">キャリパーピンボルト（フロント）</td><td class="t-val">22N·m</td><td class="t-tool">12mm</td></tr>
+              <tr><td class="t-part" data-en="Bleeder plug, front (both sides)">ブリーダープラグ フロント（左右）</td><td class="t-val">11N·m</td><td class="t-tool">10mm</td></tr>
+              <tr><td class="t-part"><span data-en="Bleeder plug, rear (both sides)">ブリーダープラグ リア（左右）</span><small data-en="Rear uses drum brakes">リアはドラムブレーキ</small></td><td class="t-val">7.4N·m</td><td class="t-tool">8mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="torque-callout" data-en="<b>Bleed order:</b> rear-left → front-right → rear-right → front-left (as specified in the service manual).">
+          <b data-en="Bleed order:">エア抜き順序：</b>左リア → 右フロント → 右リア → 左フロント（サービスマニュアル指定）
+        </p>
+      </div>
+
+      <!-- エンジン周り -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Around the Engine">エンジン周り</h3>
+          <span class="torque-section-count" data-en="5 items">5項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Oil drain bolt">オイルドレンボルト</td><td class="t-val">35N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part"><span data-en="Oil filter">オイルフィルター</span><small data-en="or 3/4 turn from gasket seating">またはパッキン着座から 3/4 回転</small></td><td class="t-val">14N·m</td><td class="t-tool" data-en="Filter wrench">フィルターレンチ</td></tr>
+              <tr><td class="t-part" data-en="Spark plug">スパークプラグ</td><td class="t-val">18N·m</td><td class="t-tool" data-en="16mm plug wrench">16mm プラグ</td></tr>
+              <tr><td class="t-part" data-en="Muffler, rear piece to intermediate pipe">マフラー リアピース〜中間パイプ</td><td class="t-val">50N·m</td><td class="t-tool" data-en="14mm, nut">14mm ナット</td></tr>
+              <tr><td class="t-part" data-en="Muffler, intermediate to front pipe">マフラー 中間〜フロントパイプ</td><td class="t-val">50N·m</td><td class="t-tool" data-en="14mm, nut">14mm ナット</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ステアリング -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Steering">ステアリング</h3>
+          <span class="torque-section-count" data-en="6 items">6項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Steering wheel">ステアリングホイール</td><td class="t-val">32N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Steering rod, knuckle side">ステアリングロッド ナックル側</td><td class="t-val">43N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Steering rod, pitman arm side">ステアリングロッド ピットマンアーム側</td><td class="t-val">43N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Steering rod lock nut">ステアリングロッド ロックナット</td><td class="t-val">65N·m</td><td class="t-tool" data-en="24mm (locking 21mm)">24mm（止め21mm）</td></tr>
+              <tr><td class="t-part" data-en="Steering damper, body side">ステアリングダンパー 車体側</td><td class="t-val">50N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Steering damper, rod side">ステアリングダンパー ロッド側</td><td class="t-val">43N·m</td><td class="t-tool">17mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 足回り・サスペンション -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Suspension">足回り・サスペンション</h3>
+          <span class="torque-section-count" data-en="13 items">13項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Front shock, upper">フロントショック 上側</td><td class="t-val">35N·m</td><td class="t-tool" data-en="12mm, nut">12mm ナット</td></tr>
+              <tr><td class="t-part" data-en="Front shock, lower">フロントショック 下側</td><td class="t-val">60N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Rear shock, upper">リアショック 上側</td><td class="t-val">70N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Rear shock, lower">リアショック 下側</td><td class="t-val">45N·m</td><td class="t-tool">17mm</td></tr>
+              <tr class="t-flag-row"><td class="t-part"><span data-en="Front lateral rod (both sides)">フロントラテラルロッド（両側）</span><small data-en="Highest torque point in this list">最大トルク箇所</small></td><td class="t-val t-flag">160N·m</td><td class="t-tool">19mm</td></tr>
+              <tr><td class="t-part" data-en="Rear lateral rod, passenger side">リアラテラルロッド 助手席側</td><td class="t-val">95N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Rear lateral rod, driver side">リアラテラルロッド 運転席側</td><td class="t-val">95N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Leading arm, frame side">リーディングアーム フレーム側</td><td class="t-val">73N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Leading arm, housing side">リーディングアーム ホーシング側</td><td class="t-val">95N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Trailing arm, frame side">トレーリングアーム フレーム側</td><td class="t-val">73N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Trailing arm, housing side">トレーリングアーム ホーシング側</td><td class="t-val">95N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="Stabilizer joint (both sides)">スタビライザージョイント（両側）</td><td class="t-val">50N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="Stabilizer mount">スタビライザーマウント</td><td class="t-val">23N·m</td><td class="t-tool">12mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="torque-callout" data-en="<b>Tighten at 1G:</b> arms with rubber bushings (leading / trailing / lateral) should be final-tightened with the vehicle's weight on the wheels (1G). Tightening while still jacked up leaves the bushing twisted under load.">
+          <b data-en="Tighten at 1G:">1G締め：</b>ゴムブッシュを使うアーム類（リーディング／トレーリング／ラテラル）は、車重をかけた1G状態で本締めする。ジャッキアップのまま締めるとブッシュがねじれた状態で固定される。
+        </p>
+      </div>
+
+      <!-- ボディマウント -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Body Mounts">ボディマウント</h3>
+          <span class="torque-section-count" data-en="4 points">4箇所</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Position (front to rear)">部位（車体前から）</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="1st">1番目</td><td class="t-val">60N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="2nd">2番目</td><td class="t-val">60N·m</td><td class="t-tool">14mm</td></tr>
+              <tr class="t-flag-row"><td class="t-part"><span data-en="3rd">3番目</span><small data-en="This one alone is high-torque">ここだけ高トルク</small></td><td class="t-val t-flag">113N·m</td><td class="t-tool">17mm</td></tr>
+              <tr><td class="t-part" data-en="4th">4番目</td><td class="t-val">60N·m</td><td class="t-tool">14mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ドライブトレイン -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Drivetrain (Fluid Plugs)">ドライブトレイン（油脂プラグ）</h3>
+          <span class="torque-section-count" data-en="4 systems">4系統</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Drain">ドレン</th><th data-en="Filler">フィラー</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="5-speed manual transmission">5MTミッション</td><td class="t-val">23N·m</td><td class="t-val">23N·m</td><td class="t-tool" data-en="10mm square">10mmスクエア</td></tr>
+              <tr><td class="t-part" data-en="Transfer">トランスファー</td><td class="t-val">23N·m</td><td class="t-val">23N·m</td><td class="t-tool" data-en="10mm square">10mmスクエア</td></tr>
+              <tr><td class="t-part" data-en="Front differential">フロントデフ</td><td class="t-val">55N·m</td><td class="t-val">50N·m</td><td class="t-tool" data-en="Drain 17mm / Filler 10mm square">ドレン17mm／フィラー10mm□</td></tr>
+              <tr><td class="t-part" data-en="Rear differential">リアデフ</td><td class="t-val">55N·m</td><td class="t-val">50N·m</td><td class="t-tool" data-en="Drain 17mm / Filler 10mm square">ドレン17mm／フィラー10mm□</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="torque-callout" data-en="<b>Caution (cracked cases):</b> the transmission/transfer plugs are tapered-thread, not seated bolts. Depending on thread condition, even 23N·m can be over-torque and there are known cases of cracked cases.">
+          <b data-en="Caution (cracked cases):">要注意（ケース割れ）：</b>ミッション／トランスファーのプラグは座面で締結する通常ボルトではなくテーパーネジ。ネジ山の状態によっては23N·mでもオーバートルクになり、ケースを破損した事例あり。
+        </p>
+      </div>
+
+      <!-- プロペラシャフト -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Propeller Shaft">プロペラシャフト</h3>
+          <span class="torque-section-count" data-en="5 items">5項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">部位</th><th data-en="Torque">トルク</th><th data-en="Tool">工具</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="No.1, transfer side">No.1 トランスファー側</td><td class="t-val">50N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="No.2, front diff side">No.2 フロントデフ側</td><td class="t-val">50N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="No.2, transfer side">No.2 トランスファー側</td><td class="t-val">50N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="No.3, rear diff side">No.3 リアデフ側</td><td class="t-val">50N·m</td><td class="t-tool">14mm</td></tr>
+              <tr><td class="t-part" data-en="No.3, transfer side">No.3 トランスファー側</td><td class="t-val">33N·m</td><td class="t-tool">12mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 数値順早見表 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Quick Reference by Value">数値順 早見表</h3>
+          <span class="torque-section-count" data-en="for torque wrench setting">トルクレンチ設定用</span>
+        </div>
+        <ul class="torque-quickref">
+          <li><span class="t-val">7.4N·m</span><span class="t-name" data-en="Rear bleeder plug">リアブリーダープラグ</span></li>
+          <li><span class="t-val">11N·m</span><span class="t-name" data-en="Front bleeder plug">フロントブリーダープラグ</span></li>
+          <li><span class="t-val">14N·m</span><span class="t-name" data-en="Oil filter">オイルフィルター</span></li>
+          <li><span class="t-val">18N·m</span><span class="t-name" data-en="Spark plug">スパークプラグ</span></li>
+          <li><span class="t-val">22N·m</span><span class="t-name" data-en="Front caliper pin bolt">フロントキャリパーピンボルト</span></li>
+          <li><span class="t-val">23N·m</span><span class="t-name" data-en="Transmission &amp; transfer plugs / stabilizer mount">ミッション・トランスファープラグ／スタビマウント</span></li>
+          <li><span class="t-val">32N·m</span><span class="t-name" data-en="Steering wheel">ステアリングホイール</span></li>
+          <li><span class="t-val">33N·m</span><span class="t-name" data-en="Propeller shaft No.3, transfer side">プロペラシャフト No.3 トランスファー側</span></li>
+          <li><span class="t-val">35N·m</span><span class="t-name" data-en="Engine oil drain bolt / front shock upper">エンジンオイル ドレンボルト／フロントショック上側</span></li>
+          <li><span class="t-val">43N·m</span><span class="t-name" data-en="Steering rod ends / steering damper rod side">ステアリングロッドエンド／ステアリングダンパー ロッド側</span></li>
+          <li><span class="t-val">45N·m</span><span class="t-name" data-en="Rear shock, lower">リアショック 下側</span></li>
+          <li><span class="t-val">50N·m</span><span class="t-name" data-en="Stabilizer joint / diff filler / prop shaft / muffler / steering damper body side">スタビジョイント／デフフィラー／プロペラシャフト／マフラー／ステアリングダンパー車体側</span></li>
+          <li><span class="t-val">55N·m</span><span class="t-name" data-en="Differential drain plug">デフ ドレンプラグ</span></li>
+          <li><span class="t-val">60N·m</span><span class="t-name" data-en="Front shock lower / body mounts (1st, 2nd, 4th)">フロントショック下側／ボディマウント（1・2・4番目）</span></li>
+          <li><span class="t-val">65N·m</span><span class="t-name" data-en="Steering rod lock nut">ステアリングロッド ロックナット</span></li>
+          <li><span class="t-val">70N·m</span><span class="t-name" data-en="Rear shock, upper">リアショック 上側</span></li>
+          <li><span class="t-val">73N·m</span><span class="t-name" data-en="Leading &amp; trailing arm, frame side">リーディング・トレーリングアーム フレーム側</span></li>
+          <li><span class="t-val">95N·m</span><span class="t-name" data-en="Rear lateral rod / leading &amp; trailing arm housing side">リアラテラルロッド／リーディング・トレーリングアーム ホーシング側</span></li>
+          <li><span class="t-val">100N·m</span><span class="t-name" data-en="Wheel nuts">ホイールナット</span></li>
+          <li><span class="t-val t-flag">113N·m</span><span class="t-name" data-en="Body mount (3rd)">ボディマウント（3番目）</span></li>
+          <li><span class="t-val t-flag">160N·m</span><span class="t-name" data-en="Front lateral rod">フロントラテラルロッド</span></li>
+        </ul>
+      </div>
+
+      <!-- 作業時の注意 -->
+      <ul class="work-checklist reveal" style="max-width:760px;">
+        <li data-en="Two torque wrenches are needed. JB64 spans 7.4–160N·m, too wide a range for one wrench — prepare a 10–70N·m class for the engine area and a 28–210N·m class for suspension. Under-torque causes loosening, over-torque causes thread stretch, seizing, and part damage.">トルクレンチは2本必要。JB64は7.4〜160N·mと範囲が広く1本ではカバーできない。エンジン周り用に10〜70N·m、足回り用に28〜210N·mクラスを用意する。トルク不足は緩み、オーバートルクはネジの伸び・焼き付き・部品破損の原因。</li>
+        <li data-en="Arms with rubber bushings are final-tightened at 1G (vehicle weight on the wheels).">ゴムブッシュを介するアーム類は1G状態（車重をかけた状態）で本締めする。</li>
+        <li data-en="Transmission/transfer plugs are tapered-thread. Even at the specified value, thread condition can crack the case. Marking the tightened position helps keep it safe.">ミッション・トランスファーのプラグはテーパーネジ。規定値でもネジ山の状態次第でケースを割る。締め込み位置に合いマークを付けておくと安全。</li>
+        <li data-en="After replacing steering rod ends, check toe and steering center before torquing the lock nut (65N·m).">ステアリングロッドエンド交換後は、トー調整とステアリングセンターの確認を行ってからロックナット（65N·m）を締める。</li>
+        <li data-en="Re-torque wheel nuts after about 100km of driving.">ホイールナットは走行100km程度で増し締めする。</li>
+        <li data-en="These figures come from the JB74W service manual. JB64W shares the same suspension, drivetrain, and brakes, but engine-related figures may differ — cross-check against the actual manual. Brakes, steering, and suspension are safety-critical parts.">数値の出典はJB74Wサービスマニュアル。JB64Wは足回り・駆動系・ブレーキとも同一だが、エンジン関係は差異の可能性があるため現物のマニュアルでも照合すること。ブレーキ・ステアリング・足回りは保安部品。</li>
+      </ul>
+
+      <p class="skills-note" data-en="Source: 48rider.com &quot;JB64/JB74 Jimny tightening torque reference&quot; / Reference: Suzuki service manual (JB74W). Provided for reference only — please cross-check important figures against the official service manual.">
+        出典：48rider.com「JB64/JB74ジムニー 各部締め付けトルク一覧」／ 参考：スズキ サービスマニュアル（JB74W）。掲載内容は参考情報です。重要な数値は必ずサービスマニュアル等でご確認ください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
