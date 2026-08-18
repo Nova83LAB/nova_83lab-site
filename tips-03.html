@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: JA11 ジムニー 締付トルク一覧 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。ジムニーJA11（F6A 660ccターボ）の締付トルクを、エンジン本体・駆動系・アクスル・足回り・ステアリング・ブレーキ・車体までまとめた整備用リファレンスです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 03</span>
+        <h2 data-en="JA11 Jimny Torque Spec Reference">JA11 ジムニー 締付トルク一覧</h2>
+        <span class="section-sub" data-en="/ MAINTENANCE REFERENCE">/ 整備用リファレンス</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Model">型式</b> <span data-en="JA11V / JA11C (1990.3–1995.11)">JA11V／JA11C（1990.3〜1995.11）</span></span>
+        <span class="work-meta-item"><b data-en="Engine">エンジン</b> <span data-en="F6A 657cc inline-3 SOHC turbo">F6A 657cc 直3 SOHC ターボ</span></span>
+        <span class="work-meta-item"><b data-en="Drivetrain">駆動</b> <span data-en="Part-time 4WD with sub-transmission">副変速機付パートタイム4WD</span></span>
+        <span class="work-meta-item"><b data-en="Suspension">足回り</b> <span data-en="Leaf-spring rigid axles, front &amp; rear">前後リーフリジッド（板バネ）</span></span>
+      </div>
+
+      <div class="torque-callout reveal" style="margin-top:20px;">
+        <div class="torque-callout-title">⚠ <span data-en="Please read before use (important)">必ずお読みください（重要）</span></div>
+        <p data-en="<b>This chart is a compilation of commonly circulated reference values — it is not a reprint of Suzuki's official service manual.</b> For actual work, always treat the figures in the service manual for your model year (JA11 workshop manual and supplements) as the final authority.">
+          <b>本表は一般に流通している参考値をまとめたものであり、スズキ純正サービスマニュアルの転載ではありません。</b>
+          実作業では必ず該当年式のサービスマニュアル（JA11 整備書・追補版）の数値を最終根拠としてください。
+        </p>
+        <p data-en="Brakes, steering, suspension, and wheels in particular: under- or over-tightening can directly lead to a serious accident. For any row marked &quot;○&quot; or &quot;△&quot; in the confidence column, always cross-check against the actual vehicle's manual before starting work.">
+          特にブレーキ・ステアリング・サスペンション・ホイールは、締付不足／過大がそのまま重大事故につながります。確度欄が「○」「△」の項目は着手前に必ず実車マニュアルで照合してください。
+        </p>
+        <p data-en="Specified values may differ depending on year/spec (early/late, soft-top/van, 5MT/3AT) or bolt size changes. For aftermarket or reinforced parts, prioritize the value specified by that part's manufacturer.">
+          年式・仕様（前期／後期、幌／バン、5MT／3AT）やボルトのサイズ変更により規定値が異なる場合があります。社外品・強化部品は当該メーカー指定値を優先してください。
+        </p>
+      </div>
+
+      <p class="torque-legend reveal" data-en="Confidence legend: ◎ Standard value consistent across multiple sources / ○ Common reference value (verify) / △ Wide variation between sources (always check the manual)">
+        確度の凡例： <b>◎</b> 複数資料で一致する定番値 ／ <b>○</b> 一般的な参考値（要照合） ／ <b>△</b> 資料によりばらつき大（必ずマニュアル確認）
+      </p>
+
+      <!-- 1. エンジン本体 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="1. Engine Body (F6A)">1. エンジン本体（F6A）</h3>
+          <span class="torque-section-count" data-en="unless noted, cold engine with clean threads">※特記なき限り冷間・ねじ山清掃後</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Cylinder head bolt (1st pass)">シリンダヘッドボルト（1次）</td><td class="t-val">30N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Diagonal order from center outward. Basic 3-stage tightening.">中央から外側へ対角順。3段階締めが基本</td></tr>
+              <tr><td class="t-part" data-en="Cylinder head bolt (2nd pass)">シリンダヘッドボルト（2次）</td><td class="t-val">60N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Same order, again">同順序で再度</td></tr>
+              <tr><td class="t-part" data-en="Cylinder head bolt (final pass)">シリンダヘッドボルト（最終）</td><td class="t-val">70N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Some sources list 65–75. Check the manual on whether stretch bolts can be reused.">65〜75の記載あり。伸びボルトは再使用可否をマニュアルで確認</td></tr>
+              <tr><td class="t-part" data-en="Cylinder head small bolt (M8)">シリンダヘッド 小径ボルト（M8）</td><td class="t-val">25N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Auxiliary bolt on the front side">フロント側の補助ボルト</td></tr>
+              <tr><td class="t-part" data-en="Rocker arm cover (head cover)">ロッカアームカバー（ヘッドカバー）</td><td class="t-val">10N·m</td><td class="t-conf t-conf-high">◎</td><td class="t-note" data-en="Over-tightening crushes the gasket and causes leaks">締めすぎるとパッキンが潰れて漏れる</td></tr>
+              <tr><td class="t-part" data-en="Camshaft cap / housing">カムシャフトキャップ／ハウジング</td><td class="t-val">11N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Tighten evenly over several passes">数回に分けて均等に</td></tr>
+              <tr><td class="t-part" data-en="Camshaft timing pulley bolt">カムシャフトタイミングプーリボルト</td><td class="t-val">60N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Use a rotation-stop tool">回り止め治具を使用</td></tr>
+              <tr><td class="t-part" data-en="Timing belt tensioner">タイミングベルトテンショナ</td><td class="t-val">25N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Final-tighten after adjusting belt tension">張り調整後に本締め</td></tr>
+              <tr><td class="t-part" data-en="Crankshaft pulley bolt">クランクシャフトプーリボルト</td><td class="t-val">120N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="High torque. Crankshaft must be locked">高トルク。クランク固定必須</td></tr>
+              <tr><td class="t-part" data-en="Crankshaft main bearing cap">クランクシャフト メインベアリングキャップ</td><td class="t-val">55N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Center to outside, in 2–3 passes">中央→外側へ2〜3回に分けて</td></tr>
+              <tr><td class="t-part" data-en="Connecting rod cap nut">コネクティングロッドキャップナット</td><td class="t-val">33N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Apply engine oil to the threads">ねじ部にエンジンオイル塗布</td></tr>
+              <tr><td class="t-part" data-en="Flywheel mounting bolt">フライホイール取付ボルト</td><td class="t-val">60N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Diagonal order. Thread locker may be specified">対角順。ねじロック剤指定の場合あり</td></tr>
+              <tr><td class="t-part" data-en="Oil pan mounting bolt">オイルパン取付ボルト</td><td class="t-val">11N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Follow the specified order if using liquid gasket">液状ガスケット使用時は規定順で</td></tr>
+              <tr><td class="t-part" data-en="Oil pan drain plug">オイルパン ドレンプラグ</td><td class="t-val">35N·m</td><td class="t-conf t-conf-high">◎</td><td class="t-note" data-en="Recommend replacing the drain washer every time">ドレンワッシャは毎回交換推奨</td></tr>
+              <tr><td class="t-part" data-en="Oil pump mounting bolt">オイルポンプ取付ボルト</td><td class="t-val">11N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Oil filter">オイルフィルタ</td><td class="t-val">—</td><td class="t-conf t-conf-high">◎</td><td class="t-note" data-en="After the gasket contacts: hand-tighten + about 3/4 turn (do not use a tool)">パッキン接触後 手締め＋約3/4回転（工具締め不可）</td></tr>
+              <tr><td class="t-part" data-en="Oil pressure switch">オイルプレッシャスイッチ</td><td class="t-val">14N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Use seal tape / sealant">シールテープ／シール剤使用</td></tr>
+              <tr><td class="t-part" data-en="Water pump mounting bolt">ウォータポンプ取付ボルト</td><td class="t-val">11N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Spark plug">スパークプラグ</td><td class="t-val">25N·m</td><td class="t-conf t-conf-high">◎</td><td class="t-note" data-en="Range 20–30. Aluminum head — never over-tighten">20〜30。アルミヘッドのため過大締付厳禁</td></tr>
+              <tr><td class="t-part" data-en="Intake manifold nuts/bolts">インテークマニホールド ナット／ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Evenly, from center outward">中央から外へ均等に</td></tr>
+              <tr><td class="t-part" data-en="Exhaust manifold nut">エキゾーストマニホールド ナット</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Watch for seizing — anti-seize compound recommended">焼付き注意。カジリ防止剤推奨</td></tr>
+              <tr><td class="t-part" data-en="Turbocharger mounting nut">ターボチャージャ 取付ナット</td><td class="t-val">25N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Oil piping has a separate spec">オイル配管は別途規定値</td></tr>
+              <tr><td class="t-part" data-en="Exhaust pipe flange nut">エキゾーストパイプ フランジナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Engine mount bolt/nut">エンジンマウント ボルト／ナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Final-tighten with the vehicle grounded and loaded">車両を接地させ荷重をかけた状態で本締め</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. 駆動系 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="2. Drivetrain (Clutch / Transmission / Transfer / Prop Shaft)">2. 駆動系（クラッチ・ミッション・トランスファ・プロペラシャフト）</h3>
+          <span class="torque-section-count" data-en="8 items">8項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Clutch cover (pressure plate) bolt">クラッチカバー（プレッシャプレート）ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Diagonal order, several passes">対角順に数回に分けて</td></tr>
+              <tr><td class="t-part" data-en="Clutch housing / transmission mounting bolt">クラッチハウジング／ミッション取付ボルト</td><td class="t-val">55N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Varies by bolt diameter — verify">ボルト径により異なる。要確認</td></tr>
+              <tr><td class="t-part" data-en="Propeller shaft flange bolt/nut">プロペラシャフト フランジボルト／ナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Same front &amp; rear. Prone to loosening — check periodically">前後共通。緩みやすいため定期点検</td></tr>
+              <tr><td class="t-part" data-en="Transfer mounting bolt">トランスファ 取付ボルト</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Transmission/transfer mount">ミッション／トランスファ マウント</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Transmission drain/fill plug">ミッション ドレン／フィラプラグ</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Check gasket/sealant">ガスケット／シール剤確認</td></tr>
+              <tr><td class="t-part" data-en="Transfer drain/fill plug">トランスファ ドレン／フィラプラグ</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Differential drain/fill plug">デファレンシャル ドレン／フィラプラグ</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Same front &amp; rear diff">前後デフ共通</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. アクスル・デファレンシャル -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="3. Axle / Differential">3. アクスル・デファレンシャル</h3>
+          <span class="torque-section-count" data-en="9 items">9項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Diff carrier mounting nut">デフキャリア 取付ナット</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Diagonal order. Use liquid gasket">対角順。液状ガスケット使用</td></tr>
+              <tr><td class="t-part" data-en="Ring gear (final gear) bolt">リングギヤ（ファイナルギヤ）ボルト</td><td class="t-val">85N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Thread locker specified — check the manual">ねじロック剤指定。要マニュアル確認</td></tr>
+              <tr><td class="t-part" data-en="Bearing cap bolt">ベアリングキャップ ボルト</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Final-tighten after backlash adjustment">バックラッシュ調整後に本締め</td></tr>
+              <tr><td class="t-part" data-en="King pin bearing cap bolt">キングピンベアリングキャップ ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Must confirm preload (rotational resistance)">プリロード（回転抵抗）確認必須</td></tr>
+              <tr><td class="t-part" data-en="Knuckle/spindle mounting bolt">ナックル／スピンドル 取付ボルト</td><td class="t-val">25N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Free wheel hub mounting bolt">フリーホイールハブ 取付ボルト</td><td class="t-val">25N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="For aftermarket hubs, use the value specified for that part">社外ハブは付属指定値を優先</td></tr>
+              <tr><td class="t-part" data-en="Wheel hub lock nut (front)">ホイールハブ ロックナット（フロント）</td><td class="t-val">—</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Preload management item. See the manual for the specified procedure (tighten → back off → re-tighten)">プリロード管理項目。規定手順（締付→戻し→再締付）をマニュアル参照</td></tr>
+              <tr><td class="t-part" data-en="Drive shaft flange bolt">ドライブシャフト フランジボルト</td><td class="t-val">25N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Rear axle shaft mounting nut">リヤアクスルシャフト 取付ナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. サスペンション・ホイール -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="4. Suspension &amp; Wheels — safety-critical">4. サスペンション・ホイール ※安全最重要項目</h3>
+          <span class="torque-section-count" data-en="8 items">8項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr class="t-flag-row"><td class="t-part" data-en="Wheel nuts">ホイールナット</td><td class="t-val t-flag">85N·m</td><td class="t-conf t-conf-high">◎</td><td class="t-note" data-en="M12×P1.25 / 5-hole / PCD139.7. Guideline 75–95. Star pattern; re-torque after 50–100km">M12×P1.25／5穴／PCD139.7。目安75〜95。対角順、走行50〜100km後に増し締め</td></tr>
+              <tr><td class="t-part" data-en="Leaf spring U-bolt nuts">リーフスプリング Uボルトナット</td><td class="t-val">80N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Evenly, diagonally, with the vehicle grounded (1G). Re-torque after driving is required">接地（1G）状態で対角均等に。走行後の増し締め必須</td></tr>
+              <tr><td class="t-part" data-en="Spring pin (front eye) nut">スプリングピン（フロントアイ）ナット</td><td class="t-val">100N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Final-tighten at 1G to prevent bushing twist">ブッシュのねじれ防止のため1G状態で本締め</td></tr>
+              <tr><td class="t-part" data-en="Shackle pin nut">シャックルピン ナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Large variation between sources — always check the manual">資料により差が大きい。必ずマニュアル確認</td></tr>
+              <tr><td class="t-part" data-en="Shock absorber, upper nut">ショックアブソーバ 上側ナット</td><td class="t-val">30N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Sometimes managed by bushing compression amount instead">ブッシュの潰し量で管理する場合あり</td></tr>
+              <tr><td class="t-part" data-en="Shock absorber, lower nut">ショックアブソーバ 下側ナット</td><td class="t-val">30N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Same as above">同上</td></tr>
+              <tr><td class="t-part" data-en="Stabilizer mounting bolt/nut">スタビライザ 取付ボルト／ナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Vehicles so equipped only">装着車のみ</td></tr>
+              <tr><td class="t-part" data-en="Steering damper mounting nut">ステアリングダンパ 取付ナット</td><td class="t-val">30N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5. ステアリング -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="5. Steering — safety-critical">5. ステアリング ※安全最重要項目</h3>
+          <span class="torque-section-count" data-en="7 items">7項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Steering wheel nut">ステアリングホイール ナット</td><td class="t-val">40N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Some sources list 35–45">35〜45の記載あり</td></tr>
+              <tr><td class="t-part" data-en="Steering gearbox mounting bolt">ステアリングギヤボックス 取付ボルト</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Also check the frame side for cracks">フレーム側クラック有無も点検</td></tr>
+              <tr class="t-flag-row"><td class="t-part" data-en="Pitman arm retaining nut">ピットマンアーム 固定ナット</td><td class="t-val t-flag">150N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Very high torque. Some sources list 130–160">非常に高トルク。130〜160の記載あり</td></tr>
+              <tr><td class="t-part" data-en="Drag link ball stud nut">ドラッグリンク ボールスタッドナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Tighten further until the cotter pin hole lines up (never back off)">割ピン穴が合うまで増し締め（緩める方向へは戻さない）</td></tr>
+              <tr><td class="t-part" data-en="Tie rod end ball stud nut">タイロッドエンド ボールスタッドナット</td><td class="t-val">50N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Use a new cotter pin">割ピン新品使用</td></tr>
+              <tr><td class="t-part" data-en="Tie rod clamp bolt/nut">タイロッド クランプボルト／ナット</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Tighten after toe adjustment; watch the slit position">トー調整後に締結、スリット位置に注意</td></tr>
+              <tr><td class="t-part" data-en="Steering shaft joint bolt">ステアリングシャフト ジョイントボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Serration alignment is essential">セレーション位置合わせ必須</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 6. ブレーキ -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="6. Brakes — safety-critical">6. ブレーキ ※安全最重要項目</h3>
+          <span class="torque-section-count" data-en="10 items">10項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Front caliper bracket mounting bolt">フロントキャリパ ブラケット取付ボルト</td><td class="t-val">85N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Knuckle side. Thread locker may be specified">ナックル側。ねじロック剤指定の場合あり</td></tr>
+              <tr><td class="t-part" data-en="Caliper slide pin bolt">キャリパ スライドピンボルト</td><td class="t-val">30N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Watch for boot pinching">ブーツの噛み込み注意</td></tr>
+              <tr><td class="t-part" data-en="Brake hose union bolt">ブレーキホース ユニオンボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Replace washers (gaskets) on both sides with new ones">ワッシャ（ガスケット）は両面新品交換</td></tr>
+              <tr><td class="t-part" data-en="Brake pipe flare nut">ブレーキパイプ フレアナット</td><td class="t-val">16N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Use a flare nut wrench. Over-tightening deforms the seat">フレアナットレンチ使用。過大締付でシート変形</td></tr>
+              <tr><td class="t-part" data-en="Master cylinder mounting nut">マスタシリンダ 取付ナット</td><td class="t-val">13N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Brake booster mounting nut">ブレーキブースタ 取付ナット</td><td class="t-val">13N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="At the pedal bracket, inside the cabin">室内側ペダルブラケット部</td></tr>
+              <tr><td class="t-part" data-en="Wheel cylinder mounting bolt (rear)">ホイールシリンダ 取付ボルト（リヤ）</td><td class="t-val">10N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Brake backing plate mounting bolt">ブレーキバックプレート 取付ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Air bleeder plug">エアブリーダプラグ</td><td class="t-val">8N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Snaps easily — never over-tighten">折損しやすい。締めすぎ厳禁</td></tr>
+              <tr><td class="t-part" data-en="Load-sensing proportioning valve">ロードセンシングプロポーショニングバルブ</td><td class="t-val">16N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Vehicles so equipped only. Check brake force distribution after installation">装着車のみ。取付後は制動力配分の確認を</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 7. 車体・その他 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="7. Body &amp; Other">7. 車体・その他</h3>
+          <span class="torque-section-count" data-en="5 items">5項目</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">締結部位</th><th data-en="Torque">N·m</th><th data-en="Conf.">確度</th><th data-en="Notes">備考</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="Body mount bolt">ボディマウント ボルト</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note" data-en="Between ladder frame and body. Also check mount rubber for degradation">ラダーフレーム⇔ボディ間。マウントゴム劣化も点検</td></tr>
+              <tr><td class="t-part" data-en="Seatbelt anchor bolt">シートベルト アンカボルト</td><td class="t-val">42N·m</td><td class="t-conf t-conf-mid">○</td><td class="t-note" data-en="Safety-standard related. Only the specified bolt may be used">保安基準関連。指定ボルト以外の使用不可</td></tr>
+              <tr><td class="t-part" data-en="Seat mounting bolt">シート 取付ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Spare tire carrier mounting bolt">スペアタイヤキャリア 取付ボルト</td><td class="t-val">23N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+              <tr><td class="t-part" data-en="Tow hook / bumper mounting bolt">牽引フック／バンパ 取付ボルト</td><td class="t-val">50N·m</td><td class="t-conf t-conf-low">△</td><td class="t-note">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 8. 締付作業の基本 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="8. Tightening Basics">8. 締付作業の基本</h3>
+        </div>
+        <ul class="work-checklist">
+          <li data-en="<b>Clean the threads:</b> remove oil, rust, and grit before tightening. A dirty thread changes friction, so the same torque produces very different clamping force."><b>ねじ山の清掃：</b>油分・錆・砂を落としてから締める。汚れたねじは摩擦が変わり、同じトルクでも軸力が大きくずれる。</li>
+          <li data-en="<b>Follow dry/oiled specs:</b> tightening an oil-specified point dry (or vice versa) can shift clamping force by 20–30%."><b>乾燥／給油の指定を守る：</b>オイル塗布指定の箇所に無給油、またはその逆で締めると軸力が20〜30%変動する。</li>
+          <li data-en="<b>Diagonal, multiple passes:</b> heads, carriers, and flanges should be brought to half torque, then to spec, in the specified order."><b>対角・複数回に分けて：</b>ヘッド、キャリア、フランジ類は規定順序で半分→規定値の順に。</li>
+          <li data-en="<b>Final-tighten at 1G (grounded):</b> leaf springs, shackles, shock lower ends, engine mounts, and other rubber-bushed points. Tightening while jacked up leaves the bushing permanently twisted and it fails early."><b>1G（接地）状態で本締め：</b>リーフスプリング、シャックル、ショック下端、エンジンマウントなどゴムブッシュを含む部位。ジャッキアップのまま締めるとブッシュが常時ねじれて早期に切れる。</li>
+          <li data-en="<b>Re-torque check:</b> wheel nuts and U-bolts must be rechecked after driving 50–100km following removal/installation."><b>増し締め点検：</b>ホイールナットとUボルトは、脱着後50〜100km走行してから必ず再点検。</li>
+          <li data-en="<b>Non-reusable parts:</b> cotter pins, drain washers, brake hose gaskets, self-locking nuts, and stretch bolts should be replaced with new ones."><b>再使用不可部品：</b>割ピン、ドレンワッシャ、ブレーキホースのガスケット、セルフロックナット、伸びボルトは新品交換。</li>
+          <li data-en="<b>Using a torque wrench:</b> use one where the spec value falls within 20–80% of the wrench's capacity. After use, return it to its lowest setting for storage."><b>トルクレンチの扱い：</b>規定値がレンチ容量の20〜80%の範囲に入るものを使う。使用後は最低目盛りに戻して保管。</li>
+          <li data-en="<b>Rusted bolts:</b> don't force them loose — use penetrating oil and heat. If the threads get damaged, torque control is no longer valid, so replace the part."><b>錆びついたボルト：</b>無理に緩めず浸透潤滑剤＋加熱。ねじ山を痛めた場合はトルク管理が成立しないので交換する。</li>
+        </ul>
+        <p class="torque-callout" data-en="<b>Unit conversion:</b> 1 kgf·m = 9.80665 N·m / 1 N·m = 0.10197 kgf·m = 0.7376 ft·lb / 1 ft·lb = 1.3558 N·m. Quick estimate: N·m ÷ 10 ≈ kgf·m, N·m × 0.74 ≈ ft·lb.">
+          <b>単位換算：</b>1 kgf·m = 9.80665 N·m ／ 1 N·m = 0.10197 kgf·m = 0.7376 ft·lb ／ 1 ft·lb = 1.3558 N·m　簡易換算：N·m ÷ 10 ≒ kgf·m、N·m × 0.74 ≒ ft·lb
+        </p>
+      </div>
+
+      <p class="skills-note" data-en="Suzuki Jimny JA11 tightening torque reference / Compiled 2026-08-18 / This is a reference compilation, not a substitute for the official service manual. The author is not responsible for the outcome of any work performed using these figures. For anything safety-related, always follow a qualified technician and the genuine service manual.">
+        スズキ ジムニー JA11 締付トルク一覧／作成日 2026-08-18／参考資料としての整理であり、公式サービスマニュアルの代替ではありません。
+        本表の数値を用いた作業の結果について作成者は責任を負いません。安全に関わる部位は必ず有資格者・純正整備書の指示に従ってください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -802,11 +802,24 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .torque-table .t-part small{ display:block; color:var(--text-dimmer); font-size:.68rem; margin-top:2px; font-weight:400; }
 .torque-table .t-val{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); white-space:nowrap; }
 .torque-table .t-tool{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); white-space:nowrap; }
+.torque-table .t-note{ font-size:.76rem; color:var(--text-dimmer); line-height:1.6; }
+.torque-table .t-conf{ text-align:center; font-size:.9rem; }
+.torque-table .t-conf-high{ color:#4dffb8; }
+.torque-table .t-conf-mid{ color:var(--amber); }
+.torque-table .t-conf-low{ color:var(--red); }
 .torque-callout{
   margin:12px 0 4px; padding:13px 18px; border-radius:6px; border:1px solid var(--line-strong);
   border-left:3px solid var(--amber); background:var(--panel); font-size:.84rem; color:var(--text-dim); line-height:1.7;
 }
 .torque-callout b{ color:var(--amber); }
+.torque-callout p{ margin:0 0 .7em; }
+.torque-callout p:last-child{ margin-bottom:0; }
+.torque-callout-title{
+  display:flex; align-items:center; gap:8px; font-family:var(--font-body); font-weight:700;
+  color:var(--amber); font-size:.92rem; margin-bottom:8px;
+}
+.torque-legend{ font-family:var(--font-mono); font-size:.68rem; color:var(--text-dimmer); margin:10px 0 20px; line-height:1.9; }
+.torque-legend b{ color:var(--text-dim); }
 
 .torque-quickref{ list-style:none; margin:0; padding:0; display:grid; gap:0; border:1px solid var(--line-strong); border-radius:8px; overflow:hidden; background:var(--panel); }
 .torque-quickref li{
