@@ -230,6 +230,11 @@ section{
   transition: color .2s;
 }
 .nav-idx{ color: var(--text-dimmer); font-size: .68rem; }
+@media (max-width: 1300px){
+  .site-nav{ gap: 14px; }
+  .site-nav a{ font-size: .66rem; }
+  .nav-idx{ font-size: .6rem; }
+}
 .site-nav a::after{
   content:""; position:absolute; left:0; bottom:0; height:1px; width:0;
   background: linear-gradient(90deg, var(--cyan), var(--pink), var(--orange));
@@ -773,6 +778,41 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .price-vehicle{ font-size: .92rem; color: var(--text); }
 .price-vehicle small{ display:block; font-family: var(--font-mono); font-size: .68rem; color: var(--text-dimmer); margin-top: 3px; }
 .price-amount{ font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--cyan); white-space: nowrap; }
+
+/* --------------------------------- torque reference table --------------------------------- */
+.torque-section{ margin-bottom: 36px; }
+.torque-section-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding-bottom:9px; margin-bottom:2px; border-bottom:1px solid var(--line-strong);
+}
+.torque-section-head h3{ font-size:1.05rem; color:var(--text); font-family:var(--font-body); font-weight:700; }
+.torque-section-count{ font-family:var(--font-mono); font-size:.62rem; color:var(--text-dimmer); letter-spacing:.06em; white-space:nowrap; }
+.torque-table-wrap{ overflow-x:auto; }
+.torque-table{ width:100%; min-width:420px; border-collapse:collapse; font-size:.85rem; }
+.torque-table th{
+  text-align:left; font-family:var(--font-mono); font-size:.6rem; letter-spacing:.06em;
+  color:var(--text-dimmer); font-weight:500; padding:9px 8px; border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+.torque-table td{ padding:11px 8px; border-bottom:1px solid var(--line); color:var(--text-dim); vertical-align:top; }
+.torque-table tr:last-child td{ border-bottom:none; }
+.torque-table .t-part{ color:var(--text); }
+.torque-table .t-part small{ display:block; color:var(--text-dimmer); font-size:.68rem; margin-top:2px; font-weight:400; }
+.torque-table .t-val{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); white-space:nowrap; }
+.torque-table .t-tool{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); white-space:nowrap; }
+.torque-callout{
+  margin:12px 0 4px; padding:13px 18px; border-radius:6px; border:1px solid var(--line-strong);
+  border-left:3px solid var(--amber); background:var(--panel); font-size:.84rem; color:var(--text-dim); line-height:1.7;
+}
+.torque-callout b{ color:var(--amber); }
+
+.torque-quickref{ list-style:none; margin:0; padding:0; display:grid; gap:0; border:1px solid var(--line-strong); border-radius:8px; overflow:hidden; background:var(--panel); }
+.torque-quickref li{
+  display:flex; align-items:baseline; gap:14px; padding:10px 18px; border-bottom:1px solid var(--line); font-size:.84rem;
+}
+.torque-quickref li:last-child{ border-bottom:none; }
+.torque-quickref .t-val{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); min-width:64px; }
+.torque-quickref .t-name{ color:var(--text-dim); }
 
 /* --------------------------------- work report --------------------------------- */
 .work-hero{
