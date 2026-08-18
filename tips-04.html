@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: ジムニー JB23 の豆知識 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。JB23ジムニーの成り立ちやメカ的な特徴、中古車選びのポイントなど、整備士目線の雑学をまとめました。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 04</span>
+        <h2 data-en="JB23 Jimny — Trivia &amp; Background">ジムニー JB23 の豆知識</h2>
+        <span class="section-sub" data-en="/ TRIVIA &amp; HISTORY">/ 雑学・豆知識</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny (JB23W)">スズキ ジムニー（JB23W）</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A collection of trivia and background knowledge about the <span class=&quot;hl&quot;>JB23 Jimny</span> — from a mechanic's-eye view of its structural quirks to points worth knowing when buying a used one, with a few fairly nerdy details mixed in.">
+          <span class="hl">JB23ジムニー</span>にまつわる豆知識・雑学をまとめました。整備士目線で見た構造の特徴から、
+          中古車選びの際に知っておきたいポイントまで、少しマニアックな話も交えてご紹介します。
+        </p>
+      </div>
+
+      <!-- 成り立ち・キャラクター -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Origin &amp; Character">成り立ち・キャラクター</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>Debuted October 1998, produced until 2018</b> — an unusually long 20-year run for a kei car. The running changes along the way are conventionally counted as &quot;1st gen&quot; through &quot;10th gen&quot; facelifts.">
+            <b>1998年10月デビュー〜2018年</b>。約20年の超ロングライフモデルで、軽自動車としては異例の長寿。途中の改良は「1型〜10型」と数えるのが定番。
+          </li>
+          <li data-en="<b>Almost the only kei car with a ladder frame and a longitudinal FR-based layout.</b> While every other kei car is a transverse-FF monocoque, structurally the JB23 is simply a scaled-down 4x4.">
+            <b>軽自動車でほぼ唯一のラダーフレーム＋エンジン縦置きFRベース</b>。他の軽が横置きFFのモノコックなのに対し、構造だけ見ると完全に「小さいクロカン」。
+          </li>
+          <li data-en="<b>Its ancestor is the 1970 LJ10</b> — the world's first mass-produced kei 4WD. Trace it back further and it started as Hope Motor Company's &quot;HopeStar ON360,&quot; which Suzuki took over.">
+            <b>祖先は1970年のLJ10</b>＝世界初の量産軽4WD。元をたどるとホープ自動車の「ホープスターON360」をスズキが引き取ったのが始まり。
+          </li>
+          <li data-en="The name is often said to be a coined blend of <b>&quot;Jeep + mini + many.&quot;</b>">
+            車名は<b>"Jeep + mini + many" の造語</b>、という説がよく語られる。
+          </li>
+        </ul>
+      </div>
+
+      <!-- メカ的なネタ -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Mechanical Trivia">メカ的なネタ</h3>
+          <span class="torque-section-count" data-en="6 facts">6件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="The engine is a <b>K6A 658cc inline-3 DOHC intercooled turbo, 64PS</b> (the max allowed under the kei-car self-imposed limit). Timing chain, not belt — no belt replacement to worry about, but chain-stretch noise is a well-known symptom as they age.">
+            エンジンは<b>K6A 658cc 直3 DOHC インタークーラーターボ／64PS</b>（軽の自主規制枠いっぱい）。タイミングチェーンなのでベルト交換の概念がない反面、チェーンの伸びによる異音は経年の定番ネタ。
+          </li>
+          <li data-en="Suspension is a <b>3-link, front and rear rigid axle with coil springs</b>. Great wheel travel for off-road, but the trade-off is a tendency toward steering <b>shimmy</b> (especially noticeable on lifted vehicles).">
+            足回りは<b>前後リジッドアクスル＋コイルスプリングの3リンク</b>。ストロークが稼げてクロカンには最高だけど、その代償として舵が振れる<b>シミー現象</b>が起きやすい（リフトアップ車で特に顕著）。
+          </li>
+          <li data-en="<b>Part-time 4WD with a sub-transmission (2H / 4H / 4L)</b>. Suzuki's &quot;Drive Action 4×4&quot; lets you shift between 2H and 4H on the fly, which is a handy feature.">
+            <b>パートタイム4WD＋副変速機（2H／4H／4L）</b>。「ドライブアクション4×4」で、走行中でも2H⇔4Hの切り替えができるのが便利ポイント。
+          </li>
+          <li data-en="Tires are <b>175/80R16</b> — 16-inch wheels on a kei car was a size no other kei car of the era used.">
+            タイヤが<b>175/80R16</b>。軽なのに16インチという、当時の軽では他に見ないサイズ。
+          </li>
+          <li data-en="A short <b>2250mm wheelbase</b> and minimal overhangs give it very large approach/departure angles. The turning radius is also tiny at roughly 4.9m, so it handles narrow forest roads well.">
+            <b>ホイールベース2250mm</b>と短く、オーバーハングも小さいので、アプローチ／デパーチャーアングルが非常に大きい。最小回転半径も約4.9mで狭い林道でも取り回しが効く。
+          </li>
+          <li data-en="Its sibling model is the <b>JB43 (1.3L M13A) — the Jimny Sierra / Wide</b>. The body is nearly identical, and this was the version that carried the export market.">
+            兄弟車は<b>JB43（1.3L M13A）＝ジムニーシエラ／ワイド</b>。ボディはほぼ共通で、輸出の主役はこちら。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 型式・中古車まわり -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Model Variants &amp; Used-Car Notes">型式・中古車まわり</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="The <b>1st-gen (1型) is often treated as &quot;a different car&quot;</b> — plenty of detail parts differ from later models, so the general wisdom is to be careful when reusing used parts across generations.">
+            <b>1型は「別モノ」</b>扱いされがち。細部の部品が後期と違うので、中古パーツを流用するときは要注意というのが定説。
+          </li>
+          <li data-en="Later generations are increasingly tuned toward <b>low-end torque</b>; earlier models pull better up top but feel thin down low — a real difference in character between years.">
+            世代が進むほど<b>低速トルク重視</b>のセッティングに振られていて、初期型は上が伸びる代わりに下がスカスカ、という味の違いがある。
+          </li>
+          <li data-en="The classic rust spots are the <b>rear frame, under the side steps, and around the rear (side-swing) door hinges</b>. The spare tire's weight puts constant load on the hinge, so a door that's stiff to close is the first thing to check.">
+            錆の定番箇所は<b>リアまわりのフレーム、ステップ下、バックドアのヒンジ周辺</b>。横開きバックドアはスペアタイヤの重さがヒンジに効いてくるので、閉まりが渋い個体はそこを疑うのが定石。
+          </li>
+          <li data-en="Even 20 years on, <b>resale value stays unusually high</b> — the reason it's known as &quot;the kei car that doesn't lose value even after you've driven it into the ground.&quot;">
+            20年落ちでも<b>リセールバリューが異常に高い</b>のもJB23の特徴。「乗って壊れても値段が落ちない軽」と言われる所以。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 使ってみると分かる系 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="What You Notice Once You Own One">使ってみると分かる系</h3>
+          <span class="torque-section-count" data-en="3 facts">3件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="Curb weight is <b>about 1 ton</b> — heavy for a kei car, so fuel economy and highway cruising RPM aren't going to win any praise. What it's clearly good at is <b>everything off the pavement</b>.">
+            車重は<b>約1t</b>。軽としては重いので、燃費と高速の巡航回転数はお世辞にも褒められない。得意なのは明確に<b>「舗装路の外」</b>。
+          </li>
+          <li data-en="The rear seats and cargo area are really <b>&quot;just somewhere to put things.&quot;</b> It's rated for 4, but the design assumes you'll fold the rear seats down if you're hauling any real cargo.">
+            後席とラゲッジは実質<b>"荷物置き"</b>。4人乗りだけど、荷物を積むなら後席を畳む前提の設計。
+          </li>
+          <li data-en="The gearing has <b>next to no overdrive</b>, so the highway is loud and high-revving. In exchange, shift into 4L and you get <b>torque from another dimension</b> — it'll walk up rocks or snow like it's nothing.">
+            <b>ハイギアが無いに等しい</b>ギア比なので、高速道路は回転数高めでうるさい。その代わり4Lに入れると<b>異次元の低速トルク</b>で、岩でも雪でも歩くように登る。
+          </li>
+        </ul>
+      </div>
+
+      <p class="skills-note" data-en="Collected from commonly known facts and lore among Jimny (JB23) owners and enthusiasts. Provided for reference only — some points (naming origin, ancestry, etc.) are widely repeated stories rather than officially confirmed facts.">
+        JB23ジムニーオーナー・愛好家の間でよく知られている情報や語られ話をまとめたものです。掲載内容は参考情報です。一部（車名の由来・祖先など）は公式に確認された事実というより広く語られている説である点にご留意ください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

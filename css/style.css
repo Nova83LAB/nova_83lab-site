@@ -882,6 +882,16 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 .work-checklist li::before{ content: "✓"; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
+/* --------------------------------- trivia list --------------------------------- */
+.trivia-list{ list-style: none; margin: 0; padding: 0; display:grid; gap: 16px; }
+.trivia-list li{
+  position: relative; padding-left: 24px; font-size: .92rem; color: var(--text-dim); line-height: 1.85;
+}
+.trivia-list li::before{ content: "▸"; position: absolute; left: 0; top: 1px; color: var(--cyan); font-weight: 700; }
+.trivia-list li b{ color: var(--text); font-weight: 700; }
+.trivia-list li:nth-of-type(3n+2)::before{ color: var(--pink); }
+.trivia-list li:nth-of-type(3n+3)::before{ color: var(--lime); }
+
 /* --------------------------------- cursor spotlight --------------------------------- */
 .service-card::before, .pricing-card::before, .stat::before, .shop-info::before{
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
