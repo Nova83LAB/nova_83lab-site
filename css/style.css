@@ -711,9 +711,9 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 
 /* --------------------------------- gallery --------------------------------- */
-.gallery-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-@media (max-width: 780px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px){ .gallery-grid{ grid-template-columns: 1fr; } }
+.gallery-grid{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
+@media (max-width: 780px){ .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px){ .gallery-grid{ grid-template-columns: minmax(0, 1fr); } }
 
 .gallery-item{
   aspect-ratio: 1/1; border: 1px dashed var(--line-strong); border-radius: 6px;
