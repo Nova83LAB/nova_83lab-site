@@ -231,9 +231,11 @@ section{
 }
 .nav-idx{ color: var(--text-dimmer); font-size: .68rem; }
 @media (max-width: 1300px){
-  .site-nav{ gap: 14px; }
-  .site-nav a{ font-size: .66rem; }
-  .nav-idx{ font-size: .6rem; }
+  .site-nav{ gap: 10px; }
+  .site-nav a{ font-size: .62rem; }
+  .nav-idx{ font-size: .56rem; }
+  .header-right{ gap: 14px; }
+  .site-header{ padding-left: 20px; padding-right: 20px; }
 }
 .site-nav a::after{
   content:""; position:absolute; left:0; bottom:0; height:1px; width:0;
