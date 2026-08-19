@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: JB23 リフトアップの注意点 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。JB23ジムニーをリフトアップする際に知っておきたい法規・足回り・ステアリング・ブレーキまわりの注意点をまとめました。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 05</span>
+        <h2 data-en="JB23 Lift-Up — Points to Watch">JB23 リフトアップの注意点</h2>
+        <span class="section-sub" data-en="/ SUSPENSION &amp; REGULATIONS">/ 足回り・法規</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny (JB23W)">スズキ ジムニー（JB23W）</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="What to check before and after lifting a <span class=&quot;hl&quot;>JB23 Jimny</span> — from the legal rules, to suspension and drivetrain geometry, to steering, brakes, and how it actually drives. Organized by area from a mechanic's-eye view.">
+          <span class="hl">JB23ジムニー</span>をリフトアップする際に押さえておきたいポイントを、法規まわりから足回り・駆動系のジオメトリー、ステアリング、ブレーキ、走りへの影響まで、整備士目線でジャンル別にまとめました。
+        </p>
+      </div>
+
+      <p class="torque-callout" data-en="<b>Please read before starting work:</b> regulations and inspection criteria can vary by inspector, region, and model year, and suspension / steering / brakes are all safety-critical systems. Treat this page as general reference only — confirm current standards and have the work carried out (or checked) by a qualified professional shop.">
+        <b data-en="Please read before starting work:">作業前に必ずお読みください：</b>保安基準・検査基準は検査官や地域、年式によって解釈が変わることがあります。また足回り・ステアリング・ブレーキはいずれも保安部品です。このページはあくまで一般的な参考情報とし、実際の基準確認や作業は信頼できる専門店にご相談・ご依頼ください。
+      </p>
+
+      <!-- まず法規まわり -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Legal Rules First">まず法規まわり</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>The ±4cm rule:</b> suspension counts as a &quot;designated part,&quot; so with a straightforward bolt-on install, a total-height change within +4cm and a weight change within ±50kg (for kei cars) doesn't require a structural modification inspection. Put another way, 2 inches (roughly 5cm) or more effectively requires one.">
+            <b>±4cmルール</b>：サスペンションは「指定部品」扱いなので、ボルトオン固定なら全高の変化が+4cm以内、かつ車両重量の増減が軽の場合±50kg以内なら構造変更検査は不要。逆に言うと、2インチ（約5cm）以上は構造変更が前提になる。
+          </li>
+          <li data-en="The kei-car width limit is <b>1480mm overall</b>. Widening with over-fenders pushes you out of kei-car classification (you become a standard-registered vehicle — no more yellow plate, and both tax and insurance change). A lot of people don't realize this and reach for fender flares instead of just rolling/folding the fenders.">
+            軽枠は<b>全幅1480mm</b>。オーバーフェンダーで幅を稼ぐと軽自動車ではなくなる（普通車登録＝黄ナンバー卒業、税金も保険も変わる）。これを知らずに爪折りではなくフェンダー装着に走る人が多い。
+          </li>
+          <li data-en="Tire protrusion past the fender's side edge is only allowed up to <b>under 10mm</b>. Any protruding wheel or lug nut is an automatic fail.">
+            タイヤのはみ出しは側面部で<b>10mm未満</b>までしか許容されない。ホイールやナットの突出はアウト。
+          </li>
+          <li data-en="Lifting tilts the headlight aim upward, so <b>re-adjusting the headlights</b> is mandatory. With larger-diameter tires, speedometer error also becomes something the shaken inspection checks.">
+            リフトすると光軸が上を向くので<b>ヘッドライトの再調整</b>は必須。大径タイヤならスピードメーターの誤差も車検の検査対象。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 足回り・駆動系 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Suspension &amp; Drivetrain — the Real Work">足回り・駆動系（ここが本番）</h3>
+          <span class="torque-section-count" data-en="6 facts">6件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>Propeller shaft angle</b> is the single biggest headache. The angle gap between the rear diff and the transfer widens, and past roughly 40–50mm of lift, highway-speed vibration starts showing up. Fixes include a transfer down-spacer, correcting the pinion angle with adjustable rods, or going to a double-cardan setup. If &quot;vibration showed up after I lifted it,&quot; this is almost always why.">
+            <b>プロペラシャフトの角度</b>が一番の鬼門。リアデフとトランスファーの角度差が広がって、40〜50mm超えたあたりから高速で振動が出始める。対策はトランスファーのダウンスペーサー、調整式ロッドでのピニオン角補正、ダブルカルダン化など。「リフトしたら振動が出た」の原因はだいたいこれ。
+          </li>
+          <li data-en="An <b>adjustable lateral rod</b> is practically mandatory. Lifting shifts the axle sideways enough that you can visibly see the wheel offset differ front-to-rear. Check both front and rear.">
+            <b>ラテラルロッド</b>は調整式が実質必須。リフトするとアクスルが横にずれて、前後でホイールのセンターが目視で分かるほど寄る。フロント・リア両方見ること。
+          </li>
+          <li data-en="<b>Caster angle</b> shifts and straight-line stability suffers. Because of the 3-link geometry, the more you lift, the more caster drifts in one direction, so you correct it back with caster bushings or an adjustable leading arm.">
+            <b>キャスター角</b>が変化して直進性が落ちる。3リンクの構造上、上げるほどキャスターが起きる/寝る方向にズレるので、キャスターブッシュや調整式リーディングアームで戻す。
+          </li>
+          <li data-en="<b>Shock length.</b> Lift with stock-length shocks and you'll run out of extension travel — hit a bump and the rod takes a direct hit, leading to blown seals or a snapped shaft. Plan for a long shock matched to your lift amount from the start.">
+            <b>ショックの長さ</b>。純正ショックのままリフトすると伸び側でストロークを使い切り、段差でロッドに直撃 → 抜け・折れ。リフト量に合ったロングショックとセットで考える。
+          </li>
+          <li data-en="Be careful with a cheap coil-spacer-only lift. Ride height goes up but travel doesn't increase, so the spring goes slack on extension and you get a &quot;clunk&quot; noise. As a rule, use a proper long spring in the stock shape instead.">
+            コイルスペーサーだけの安上がりリフトは要注意。車高は上がるがストロークは増えず、伸び側でスプリングが遊んで「カコン」と音が出る。基本は純正形状のロングスプリングで。
+          </li>
+          <li data-en="<b>The stabilizer link ends up over-extended.</b> Either fit a longer link, or remove it if you're prioritizing off-road use (though roll on pavement will definitely increase).">
+            <b>スタビリンクが突っ張る</b>。ロングリンクにするか、悪路重視なら外す（ただし舗装路のロールは確実に増える）。
+          </li>
+        </ul>
+      </div>
+
+      <!-- ステアリング -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Steering — Where the Chronic JB23 Issue Gets Worse">ステアリング（JB23の持病が悪化する）</h3>
+          <span class="torque-section-count" data-en="3 facts">3件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="That <b>shimmy</b> issue gets far more likely with a lift plus larger tires. The right move before lifting is to eliminate all play in the kingpin bearings, tie-rod ends, drag link, and steering gearbox. Lift with any play still present and shimmy is nearly guaranteed.">
+            例の<b>シミー現象</b>は、リフト＋大径タイヤで発生率が跳ね上がる。上げる前に、キングピンベアリング・タイロッドエンド・ドラッグリンク・ステアリングギアボックスのガタを全部潰しておくのが正解。ガタが残ったまま上げると、ほぼ確実に出る。
+          </li>
+          <li data-en="<b>Wheel balance and tire roundness</b> also become much less forgiving. Cheap off-road tires can be poorly round, and that alone is enough to make the steering wheel shake.">
+            <b>ホイールバランスとタイヤの真円度</b>もシビアになる。安いオフロードタイヤは真円度が悪いことがあり、それだけでハンドルが暴れる。
+          </li>
+          <li data-en="Changed link angles also bring on <b>bump steer</b> (the wheel getting yanked over a bump). A beefed-up steering damper only treats the symptom — the real fix is link angle and eliminating play.">
+            リンク角度が変わることで<b>バンプステア</b>（段差でハンドルを取られる）も出る。ステアリングダンパー強化は「対症療法」で、根本はリンク角度とガタ。
+          </li>
+        </ul>
+      </div>
+
+      <!-- ブレーキ・配線・ホース類 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Brakes, Wiring &amp; Hoses">ブレーキ・配線・ホース類</h3>
+          <span class="torque-section-count" data-en="3 facts">3件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>Brake hoses end up stretched taut.</b> Always check whether the hose pulls tight at full suspension extension. Use an extension bracket or a longer hose — ignore this and, worst case, the hose can tear.">
+            <b>ブレーキホースが突っ張る</b>。フル伸長時にホースがピンと張っていないか必ず確認。延長ブラケットかロングホースを。ここを放置すると最悪ホースが千切れる。
+          </li>
+          <li data-en="Check the same thing for the <b>ABS sensor wiring, parking brake cable, rear diff breather hose, and fuel-system hoses</b> — make sure none of them are being pulled taut too.">
+            <b>ABSセンサー配線、パーキングブレーキケーブル、リアデフのブリーザーホース、燃料まわりのホース</b>も同様に引っ張られていないかチェック。
+          </li>
+          <li data-en="On vehicles fitted with a rear <b>load-sensing proportioning valve</b>, the change in ride height throws off rear brake force distribution. The linkage needs adjusting, so check whether your vehicle has one before you start.">
+            リアの<b>ロードセンシングバルブ</b>装着車は、車高変化でリアの制動力配分が狂う。リンクの調整が要るので、装備の有無を確認しておくこと。
+          </li>
+        </ul>
+      </div>
+
+      <!-- タイヤ・走りへの影響 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Tires &amp; How It Drives">タイヤ・走りへの影響</h3>
+          <span class="torque-section-count" data-en="3 facts">3件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="Larger tires effectively act as <b>taller gearing</b>. With only 64PS to work with, hill climbing and getting off the line both get noticeably heavier. If you're going for a big lift, plan for a final gear ratio change too.">
+            大径タイヤは実質<b>ハイギアード化</b>。64PSしかないので、登坂と発進が目に見えて重くなる。大きく上げるならファイナル変更まで含めた計画で。
+          </li>
+          <li data-en="Center of gravity rises while the track width stays the same. Paved corners get noticeably scarier. It's already a tall vehicle to begin with, so if most of your driving is on the street, you'll be happier not overdoing the lift.">
+            重心が上がる一方でトレッドは狭いまま。舗装路のコーナーはかなり怖くなる。もともと背が高い車なので、街乗り比率が高いなら上げすぎない方が幸せ。
+          </li>
+          <li data-en="Also check for <b>tire interference with the leading arm or body</b> at full steering lock. The real test isn't just stationary lock — it's interference with the suspension compressed.">
+            ステアリングをフルロックした時の、<b>タイヤとリーディングアーム／ボディの干渉</b>も要確認。据え切りだけでなく、サスが縮んだ状態での干渉が本番。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 実践的な結論 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Practical Conclusions">実践的な結論</h3>
+          <span class="torque-section-count" data-en="3-tier guide">3段階の目安</span>
+        </div>
+        <ul class="torque-quickref">
+          <li><span class="t-val" data-en="Up to 40mm (1.5 in.)">40mm（1.5インチ）まで</span><span class="t-name" data-en="Tends to stay within stock parts' tolerance and needs no structural modification inspection. If street driving is your main use, this is the sweet spot.">純正部品の許容範囲内に収まりやすく、構造変更も不要。街乗り主体ならここがベストバランス。</span></li>
+          <li><span class="t-val" data-en="50mm (2 in.)">50mm（2インチ）</span><span class="t-name" data-en="The line where an adjustable lateral rod, long brake hoses, long shocks, and prop-shaft countermeasures stop being &quot;optional&quot; and become a mandatory package.">調整式ラテラルロッド・ロングブレーキホース・ロングショック・ペラシャ対策が「オプション」ではなくセットで必須になるライン。</span></li>
+          <li><span class="t-val" data-en="Beyond that">それ以上</span><span class="t-name" data-en="Territory where you're redesigning the whole vehicle, shaken included. Building it from a proven kit ends up cheaper than piecing together individual parts.">車検も含めて丸ごと設計し直す領域。パーツ単品の寄せ集めではなく、実績のあるキットで揃えた方が結果的に安い。</span></li>
+        </ul>
+        <p class="torque-callout" data-en="<b>Buying a used, already-lifted vehicle?</b> Just checking how taut the brake hoses are and whether the lateral rod is adjustable tells you a lot about whether the work was done properly or slapped together.">
+          <b data-en="Buying a used, already-lifted vehicle?">中古のリフトアップ済み個体を買うなら：</b>ブレーキホースの張り具合とラテラルロッドが調整式かを見るだけで、やっつけ作業かどうかがかなり判別できる。
+        </p>
+      </div>
+
+      <p class="skills-note" data-en="Collected from commonly discussed points among Jimny (JB23) owners, enthusiasts, and shops regarding lift-up work. Provided for reference only — regulations, inspection standards, and what parts are actually required can vary by vehicle condition, year, and inspector. Please confirm current standards and consult a professional shop before starting work.">
+        JB23ジムニーのリフトアップに関して、オーナー・愛好家・整備店の間でよく話題になるポイントをまとめたものです。掲載内容は参考情報です。保安基準・検査基準や実際に必要な部品は、車両状態・年式・検査官によって異なる場合があります。作業前に最新の基準確認と専門店へのご相談をお願いします。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
