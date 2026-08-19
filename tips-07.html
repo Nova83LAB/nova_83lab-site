@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: SJ30 エンジン調子よくする方法 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。SJ30（LJ50・水冷2スト3気筒）の調子が出ない時に見るべき順番を、圧縮・点火・二次エア・排気・キャブ調整の5ステップでまとめました。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 07</span>
+        <h2 data-en="SJ30 — How to Get the Engine Running Right">SJ30 エンジン調子よくする方法</h2>
+        <span class="section-sub" data-en="/ DIAGNOSIS &amp; TUNING ORDER">/ 診断・整備手順</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny SJ30 (LJ50)">スズキ ジムニー SJ30（LJ50）</span></span>
+        <span class="work-meta-item"><b data-en="Engine">エンジン</b> <span data-en="Water-cooled 2-stroke inline-3">水冷2スト3気筒</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="With the <span class=&quot;hl&quot;>SJ30 (LJ50, water-cooled 2-stroke inline-3)</span>, 90% of getting it running right comes down to the order you work through it. A lot of people start with the carburetor — but do that and it never quite comes together.">
+          <span class="hl">SJ30（LJ50・水冷2スト3気筒）</span>で調子を出すには、触る順番が9割です。キャブから入る人が多いんですが、それだと永遠に決まりません。
+        </p>
+      </div>
+
+      <!-- STEP1 圧縮圧力 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Compression — The Foundation of Everything">圧縮圧力 ― すべての土台</h3>
+          <span class="torque-section-count" data-en="STEP 1">STEP 1</span>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dim);line-height:1.85;margin:0 0 14px;" data-en="Start by measuring all three cylinders with a compression gauge. The absolute number matters less than how evenly the three match — if one is clearly lower than the others, that's your culprit.">
+          まずコンプレッションゲージで3気筒を測ります。絶対値より「3本の揃い方」が重要で、1本だけ明確に低ければそこが不調の原因です。
+        </p>
+        <ul class="trivia-list">
+          <li data-en="Stuck rings (carbon buildup gluing them in place) are the classic 2-stroke problem. Just cracking open the top end and cleaning carbon out of the ring grooves can transform the engine.">
+            リングの固着（カーボンによる張り付き）が2ストの定番。腰上を開けてリング溝のカーボンを落とすだけで別物になることがあります。
+          </li>
+          <li data-en="If all three are low across the board, suspect worn rings or a worn cylinder.">
+            全体的に低ければリング摩耗かシリンダー摩耗。
+          </li>
+          <li data-en="Adjusting the carb before compression is sorted is like pouring water into a bucket with a hole in it.">
+            圧縮が出ていない状態でキャブをいじるのは、穴の空いたバケツに水を入れる作業です。
+          </li>
+        </ul>
+      </div>
+
+      <!-- STEP2 点火系 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Ignition — Matching It Across All Three Cylinders">点火系 ― 3気筒ぶん揃える</h3>
+          <span class="torque-section-count" data-en="STEP 2">STEP 2</span>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dim);line-height:1.85;margin:0 0 14px;" data-en="This is a car over 30 years old, so ignition is the area most likely to have quietly drifted out of spec.">
+          30年以上前の車なので、ここが一番「知らないうちに狂っている」箇所です。
+        </p>
+        <ul class="trivia-list">
+          <li data-en="On points-type ignition, check the point gap and contact surface wear. There are three sets, so it's common for just one set to be rough and one cylinder to run sloppy as a result. Check the condenser at the same time.">
+            ポイント式ならポイントギャップと接点の荒れ。3組あるので、1組だけ荒れていて1気筒がだらしない、というのが起きます。コンデンサも同時に。
+          </li>
+          <li data-en="Set ignition timing to spec with a timing light. If this is off, no amount of carb tuning will change how the torque comes on.">
+            点火時期をタイミングライトで規定値に。ここがズレていると、キャブをどう回してもトルクの出方が変わりません。
+          </li>
+          <li data-en="Replace all three plugs together with new ones, and stick to the factory-specified heat range. Go too hot and you'll foul with carbon; too cold and you risk melting them.">
+            プラグは3本同時に新品、熱価は純正指定を守る。番手を上げすぎるとカーボンでかぶり、下げすぎると溶けます。
+          </li>
+          <li data-en="Check plug lead and cap resistance, and the ignition coil. The caps in particular tend to drift way off spec with age.">
+            プラグコードとキャップの抵抗値、イグニッションコイル。特にキャップは経年で抵抗値が化けます。
+          </li>
+        </ul>
+      </div>
+
+      <!-- STEP3 二次エア -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="False Air — A 2-Stroke's Biggest Weak Point">二次エア ― 2スト最大の急所</h3>
+          <span class="torque-section-count" data-en="STEP 3">STEP 3</span>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dim);line-height:1.85;margin:0 0 14px;" data-en="The LJ50 delivers the air/fuel mixture using crankcase primary compression, so if a crank seal fails, that specific cylinder runs lean and seizes. This is a completely different level of danger from false air on a 4-stroke.">
+          LJ50はクランクケースの一次圧縮で混合気を送るので、クランクシールが抜けると特定の気筒だけが薄くなって焼き付きます。4ストの二次エアとは危険度が段違いです。
+        </p>
+        <ul class="trivia-list">
+          <li data-en="With three cylinders, there are outer seals at each end plus a center seal between the cylinders. A leak there is hard to pin down — it shows up as &quot;only cylinder 1 running rough&quot; or an unstable, hunting idle.">
+            3気筒なので、両端のシールに加えて気筒間のセンターシールがあります。ここの抜けは症状が分かりにくく、「1番だけ調子が悪い」「アイドルがハンチングする」という形で出ます。
+          </li>
+          <li data-en="Quick check: with the engine idling, lightly spray parts cleaner around the carb mounting face, intake manifold, and crankcase joint faces — if the idle changes, that spot is drawing in air. Keep it away from any open flame and use small amounts at a time.">
+            簡易チェック：アイドリング中に、キャブ取付面・インマニ・クランクケース合わせ面あたりにパーツクリーナーを軽く吹いて、回転が変化したらそこが吸っている。火気に注意して、少量ずつ。
+          </li>
+          <li data-en="The intake manifold rubber/gasket and warping at the carb mounting face are classic culprits too.">
+            インマニのゴム/ガスケット、キャブ取付面の歪みも定番です。
+          </li>
+        </ul>
+        <p class="torque-callout" data-en="A lot of these cars have been left with the pilot screw turned rich just to get them &quot;sort of&quot; running, without ever fixing this underlying leak.">
+          ここを直さずにパイロットスクリューを濃い方向へ回して「一応かかる」状態にしてある個体、かなり多いです。
+        </p>
+      </div>
+
+      <!-- STEP4 排気の詰まり -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Exhaust Clogging — A 2-Stroke-Specific Blind Spot">排気の詰まり ― 2ストならではの盲点</h3>
+          <span class="torque-section-count" data-en="STEP 4">STEP 4</span>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dim);line-height:1.85;margin:0 0 14px;" data-en="In a 2-stroke, carbon builds up inside the muffler and in the exhaust port, and the engine gradually loses its top-end pull. &quot;It used to run so much better&quot; is almost always this.">
+          2ストはマフラー内部と排気ポートにカーボンが堆積して、じわじわ吹け上がらなくなります。「昔はもっと走ったのに」の正体はだいたいこれ。
+        </p>
+        <ul class="trivia-list">
+          <li data-en="Pull the muffler and compare its weight, or look inside. If it's visibly clogged, clean it or replace it.">
+            マフラーを外して重さを比べる、内部を覗く。明らかに詰まっていれば洗浄か交換。
+          </li>
+          <li data-en="The old-school method of burning the carbon out carries fire risk and can damage the muffler itself — if you do it, it has to be outdoors with a way to put out a fire on hand. Given the risk of damaging the material, soaking it in a dedicated cleaning solution is the safer bet.">
+            昔ながらの「焼いて落とす」方法は、火災リスクと本体を傷める可能性があるので、屋外・消火手段確保が前提。素材へのダメージを考えると、専用洗浄剤に漬ける方が無難です。
+          </li>
+          <li data-en="While the head is open, clear carbon from the exhaust port too — this is one of the more noticeably effective jobs. Use a bamboo or plastic scraper so you don't gouge the aluminum.">
+            ヘッドを開けるついでに排気ポートのカーボン除去。ここは効果が体感しやすい作業です。アルミを傷つけないよう、竹ヘラや樹脂スクレーパーで。
+          </li>
+        </ul>
+      </div>
+
+      <!-- STEP5 キャブ調整 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Carburetor Tuning">キャブ調整</h3>
+          <span class="torque-section-count" data-en="STEP 5">STEP 5</span>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dim);line-height:1.85;margin:0;" data-en="Only once you've gotten this far does carb tuning actually mean anything. Along with adjustment, clean out the float bowl, clear each jet, and check the float level — overhaul comes before tuning, not after.">
+          ここまで来て初めて、キャブ調整が意味を持ちます。同時にフロート室の清掃、各ジェットの詰まり抜き、フロートレベルの確認も。調整の前にオーバーホールです。
+        </p>
+      </div>
+
+      <!-- 現状を読む -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Reading Where You're At — Spark Plug Color">現状を読む ― プラグの焼け色</h3>
+          <span class="torque-section-count" data-en="How to judge">判定方法</span>
+        </div>
+        <div class="about-text" style="margin-bottom:0;">
+          <p data-en="A 2-stroke plug should run a shade darker than you'd expect from a 4-stroke as &quot;normal.&quot; Chase the clean, light-tan color a 4-stroke wants by leaning it out, and you'll seize the engine. <b>Remember: pure white isn't &quot;running well&quot; — it's a danger sign.</b>">
+            2ストは4ストより気持ち黒めが正常です。4ストの感覚で「きれいに焼けている」を目指して薄くすると、そのまま抱き付きます。<b>真っ白は「調子がいい」ではなく「危険信号」だと覚えてください。</b>
+          </p>
+          <p data-en="A &quot;plug chop&quot; is the reliable way to judge it. Run at the RPM range you want to check for a while, then pull the clutch and kill the key at the same moment, coast to a stop, and pull the plug right away. If you let it drop back to idle first, all you'll read is the idle's plug color.">
+            判定するときはプラグチョップが確実です。見たい回転域でしばらく走り、クラッチを切ると同時にキーをオフにして惰性で停め、そのままプラグを抜く。アイドリングまで戻してから抜くと、アイドルの焼け色しか読めません。
+          </p>
+        </div>
+      </div>
+
+      <!-- 見落とされがちな残りの要素 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Often-Overlooked Remaining Factors">見落とされがちな残りの要素</h3>
+          <span class="torque-section-count" data-en="4 factors">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>Cooling system</b> — for a water-cooled 2-stroke, overheating means instant death. Check for a stuck thermostat, a clogged radiator core, the water pump, degraded hoses, and coolant concentration. Plenty of cars still show a moving temp gauge while their actual cooling capacity has quietly dropped.">
+            <b>冷却系</b> ― 水冷2ストにとってオーバーヒートは即死です。サーモスタットの固着、ラジエターのコア詰まり、ウォーターポンプ、ホースの劣化、LLCの濃度。水温計が動いていても、実際の冷却能力が落ちている個体は多いです。
+          </li>
+          <li data-en="<b>Fuel system</b> — rust inside a 30-plus-year-old tank is the number one source of carb clogging. Check the fuel cock strainer, the inline filter, and the rubber hoses for internal delamination. If the carb clogs again right after an overhaul, suspect what's upstream of it.">
+            <b>燃料系</b> ― 30年以上経ったタンクの内部錆が、キャブを詰まらせる最大の供給源。燃料コックのストレーナー、インラインフィルター、ゴムホースの内部剥離。キャブをOHしてもまたすぐ詰まるなら、上流を疑ってください。
+          </li>
+          <li data-en="<b>2-stroke oil</b> — just switching to a good-quality oil (FD-grade or equivalent) visibly cuts down smoke and carbon buildup. That said, don't bump up the oil pump's output &quot;just to be safe&quot; — it only adds more carbon, clogs the exhaust, and ends up hurting performance. Set it to spec and leave it there.">
+            <b>2ストオイル</b> ― 質のいいもの（FD相当）に替えるだけで、煙とカーボンの堆積が目に見えて減ります。ただしポンプの吐出量を「保険」で勝手に増やすのはおすすめしません。カーボンが増えて排気が詰まり、結局調子を落とします。規定は規定で合わせる。
+          </li>
+          <li data-en="<b>How you actually drive it</b> — this is honestly the biggest maintenance factor of all. Repeated short, low-RPM trips on a 2-stroke reliably build up carbon and hurt performance. Give it a proper run through the rev range regularly. A huge number of these cars are stuck in the vicious cycle of &quot;runs rough, so I don't drive it&quot; → &quot;which makes it run even worse.&quot;">
+            <b>乗り方そのもの</b> ― これが実は最大のメンテです。2ストは低回転のちょい乗りだけを繰り返すと、確実にカーボンが溜まって調子を落とします。定期的にきちんと回してやること。「調子が悪いから乗らない → もっと悪くなる」の悪循環に入っている個体が本当に多い。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 費用対効果 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="In Terms of Cost-Effectiveness">費用対効果でいうと</h3>
+          <span class="torque-section-count" data-en="priority order">優先順位</span>
+        </div>
+        <ul class="torque-quickref">
+          <li><span class="t-val">①</span><span class="t-name" data-en="Ignition refresh (points, plugs, timing)">点火系のリフレッシュ（ポイント・プラグ・点火時期）</span></li>
+          <li><span class="t-val">②</span><span class="t-name" data-en="Clearing exhaust clogging">排気の詰まり抜き</span></li>
+          <li><span class="t-val">③</span><span class="t-name" data-en="Sealing up false air">二次エアの遮断</span></li>
+        </ul>
+        <p class="torque-callout" data-en="These three alone can turn it into a different engine. A full top-end overhaul has a huge effect too, but the realistic approach is to work through everything you can without opening the engine first, then judge from there.">
+          この3つで別のエンジンになります。腰上のオーバーホールは効果は絶大ですが、まずは開けずにできるここまでを潰してから判断するのが現実的です。
+        </p>
+      </div>
+
+      <p class="skills-note" data-en="Collected from commonly discussed diagnostic order and know-how among SJ30 (LJ50) owners, enthusiasts, and shops. Provided for reference only — this engine is over 30 years old, and work involving fuel, ignition, and compression carries fire and safety risk. Please have any actual work carried out by a qualified professional shop.">
+        SJ30（LJ50）オーナー・愛好家・整備店の間でよく語られる診断の順番とノウハウをまとめたものです。掲載内容は参考情報です。30年以上経過したエンジンであり、燃料・点火・圧縮に関わる作業は火気・安全上のリスクを伴います。実際の作業は信頼できる専門店にご依頼ください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
