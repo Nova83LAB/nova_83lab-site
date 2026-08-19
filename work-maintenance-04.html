@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業事例: JB23 ロッドエンド交換とトー確認 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の作業事例。JB23ジムニーのステアリングロッドエンド（タイロッドエンド）交換と、交換後のトー確認・調整の様子を写真・動画付きで紹介します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="work" style="padding-top:160px;">
+      <a href="maintenance.html" class="back-link" data-en="← BACK TO MAINTENANCE">← BACK TO 一般整備・日常点検</a>
+
+      <div class="section-head">
+        <span class="section-index">WORK 04</span>
+        <h2 data-en="JB23 Rod End Replacement &amp; Toe Check">JB23 ロッドエンド交換とトー確認</h2>
+        <span class="section-sub" data-en="/ WORK REPORT">/ 作業事例</span>
+      </div>
+
+      <div class="work-hero reveal">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <span class="work-hero-tag"><i class="dot"></i><span data-en="MAINTENANCE LOG // JB23">整備記録 // JB23</span></span>
+        <img src="images/jb23-rodend.jpg" alt="リフトアップされたJB23ジムニー フロント足回りの様子">
+      </div>
+
+      <div class="gallery-grid reveal" style="grid-template-columns:repeat(3, minmax(0, 1fr));margin-top:16px;margin-bottom:40px;">
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/jb23-rodend-process-01.jpg" aria-label="写真を拡大表示">
+          <img loading="lazy" decoding="async" src="images/jb23-rodend-process-01.jpg" alt="取り外した古いロッドエンドと新品の比較">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/jb23-rodend-process-02.jpg" aria-label="写真を拡大表示">
+          <img loading="lazy" decoding="async" src="images/jb23-rodend-process-02.jpg" alt="新しいロッドエンドをナックルに取り付けた様子">
+        </button>
+        <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/jb23-rodend-process-03.jpg" aria-label="写真を拡大表示">
+          <img loading="lazy" decoding="async" src="images/jb23-rodend-process-03.jpg" alt="テープメジャーを使ってトーを確認している様子">
+        </button>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">車種</b> <span data-en="Suzuki Jimny (JB23)">スズキ ジムニー（JB23）</span></span>
+        <span class="work-meta-item"><b data-en="Content">内容</b> <span data-en="Steering rod end replacement, toe check &amp; adjustment">ステアリングロッドエンド交換・トー確認調整</span></span>
+        <span class="work-meta-item" data-en="Category: General Maintenance">分類：一般整備</span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A maintenance record of replacing both left and right steering rod ends (tie-rod ends) on this lifted <span class=&quot;hl&quot;>JB23</span>, which had developed play over time. Set side by side, the wear on the old part's boot compared to the new one was obvious at a glance.">
+          経年でガタが出てきたステアリングのロッドエンド（タイロッドエンド）を、左右とも交換した整備記録です。
+          リフトアップされた<span class="hl">JB23</span>で、古い部品と新品を並べてみるとブーツの傷みが一目瞭然でした。
+        </p>
+        <p data-en="Rod ends directly set the toe angle (which way the tires point), so simply bolting in new ones isn't the end of the job. We used a tape measure to check the distance between wheel centers front and rear, then adjusted each rod to bring the toe back into spec.">
+          ロッドエンドはトー角（タイヤの向き）に直結する部品のため、交換して終わりにはできません。
+          テープメジャーでホイールセンター間の距離を前後で計測しながら、左右のロッドを調整してトーを確認しました。
+        </p>
+      </div>
+
+      <div class="work-video reveal">
+        <div class="work-video-label"><i class="dot"></i><span data-en="WORK IN PROGRESS">作業風景</span></div>
+        <video controls playsinline preload="none" poster="images/jb23-rodend-demo-poster.jpg">
+          <source src="images/jb23-rodend-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <ul class="work-checklist reveal">
+        <li data-en="Checked left and right rod ends for play and boot condition">左右のロッドエンドのガタ・ブーツの状態を点検</li>
+        <li data-en="Removed the old rod ends and installed new ones">古いロッドエンドを取り外し、新品に交換</li>
+        <li data-en="Fitted the boot and greased the new rod ends">新しいロッドエンドにブーツを組み付け、グリスアップ</li>
+        <li data-en="Secured the castle nut with a new cotter pin">割りピンで緩み止めを固定</li>
+        <li data-en="Measured the distance between wheel centers with a tape measure and adjusted toe">テープメジャーでホイールセンター間を計測し、トーを調整・確認</li>
+      </ul>
+
+      <p class="skills-note" data-en="Steering play from worn rod ends is especially common on lifted vehicles — see also our notes on <a href=&quot;tips-05.html&quot;>JB23 lift-up precautions</a>.">
+        リフトアップ車ではロッドエンドのガタが出やすい傾向があります。詳しくは<a href="tips-05.html">JB23 リフトアップの注意点</a>もあわせてご覧ください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="maintenance.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
