@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: ジムニー JA11 の豆知識 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。JA11ジムニーの成り立ちやメカ的な特徴、型式・グレード、維持のポイント、JB23との違い、板バネ特有のリフトアップ注意点までまとめました。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 06</span>
+        <h2 data-en="JA11 Jimny — Trivia &amp; Background">ジムニー JA11 の豆知識</h2>
+        <span class="section-sub" data-en="/ TRIVIA &amp; HISTORY">/ 雑学・豆知識</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny (JA11V / JA11C)">スズキ ジムニー（JA11V／JA11C）</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="A collection of trivia and background knowledge about the <span class=&quot;hl&quot;>JA11 Jimny</span> — Suzuki's last leaf-spring Jimny. From its position in the lineup to mechanical quirks, model grades, ownership notes, how it differs from the JB23, and what changes when you lift a leaf-spring car.">
+          <span class="hl">JA11ジムニー</span>にまつわる豆知識・雑学をまとめました。スズキ最後の板バネジムニーとしての位置づけから、メカ的な特徴、型式・グレード、維持のポイント、JB23との違い、板バネ車ならではのリフトアップ事情まで。
+        </p>
+      </div>
+
+      <!-- 位置づけ・成り立ち -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Position &amp; Origin">位置づけ・成り立ち</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="About five and a half years, from March 1990 to November 1995. One entry in the 2nd-generation Jimny lineage (SJ30 → JA71 → JA11 → JA12/JA22) — the JA11 arrived to match the new 660cc kei-car standard.">
+            1990年3月〜1995年11月の約5年半。2代目ジムニー（SJ30 → JA71 → JA11 → JA12/JA22）の中の1台で、660cc規格化に合わせて登場したのがJA11。
+          </li>
+          <li data-en="The last Jimny with <b>leaf-spring rigid axles</b>. The JA12/JA22 switched to coils in 1995, so front-and-rear leaf springs ended with the JA11. This is basically the reason enthusiasts insist &quot;it has to be the 11.&quot;">
+            ジムニー史上最後の<b>「板バネ（リーフリジッド）」</b>。1995年のJA12/JA22でコイルに変わったので、前後リーフはJA11で打ち止め。マニアが「11じゃないとダメ」と言うのはほぼこれが理由。
+          </li>
+          <li data-en="Built to the old kei-car dimensions: <b>3295mm long, 1395mm wide</b> — over 8cm narrower than the current model, with a wheelbase of just 2030mm. Arguably the best of any generation for maneuvering on forest roads.">
+            旧規格軽なので<b>全長3295mm／全幅1395mm</b>。現行より8cm以上狭く、ホイールベースも2030mmしかない。林道での取り回しは歴代最強クラス。
+          </li>
+          <li data-en="Curb weight is in the <b>800kg range</b>. With 64PS pushing that little weight, it feels noticeably nimbler than the JB23.">
+            車重は<b>800kg台</b>。64PSでこの軽さなので、体感の身のこなしはJB23より明らかに軽い。
+          </li>
+        </ul>
+      </div>
+
+      <!-- メカのネタ -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Mechanical Trivia">メカのネタ</h3>
+          <span class="torque-section-count" data-en="6 facts">6件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="The engine is an <b>F6A 657cc inline-3 SOHC turbo</b>. It made 55PS at launch, then gained an intercooler partway through the run to reach 64PS. When shopping used, whether it has the intercooler is the first thing to check.">
+            エンジンは<b>F6A 657cc 直3 SOHC ターボ</b>。デビュー時は55PSで、途中でインタークーラーが追加されて64PSに。中古を見るときは「IC付きかどうか」がまず確認ポイント。
+          </li>
+          <li data-en="This F6A shares its lineage with the engine in the Alto Works and Cappuccino (those are DOHC versions, so the internals differ, but it's the same family).">
+            このF6A、アルトワークスやカプチーノと同じ系統のエンジン（あちらはDOHC仕様なので中身は別物だけど、素性は同じ一族）。
+          </li>
+          <li data-en="Unlike the JB23's K6A, the <b>F6A uses a timing belt</b>, not a chain — it's from the generation that needs periodic replacement, so if the service history is unknown, budget for a belt change.">
+            JB23のK6Aと違い、<b>F6Aはタイミングベルト</b>。定期交換が必要な世代なので、履歴不明車は交換前提で見積もる。
+          </li>
+          <li data-en="Standard 4WD engagement uses <b>manual-locking free-wheel hubs</b> — you get out and turn each hub to &quot;FREE&quot; or &quot;LOCK&quot; by hand. (Later cars offered an auto-locking version too.)">
+            4WDへの切り替えは<b>手動ロックのフリーホイールハブ</b>が基本。降りて左右のハブを「FREE / LOCK」に回す、あの儀式がある（後期にはオート化された仕様も）。
+          </li>
+          <li data-en="The automatic is a <b>3-speed</b>. Compared to the 5-speed manual, the highway is honestly rough going — but this was never really a highway car to begin with.">
+            ATは<b>3速</b>。5MTと比べると高速は正直つらいけど、そもそも高速向きの車ではない。
+          </li>
+          <li data-en="Wheels are <b>5-lug, 139.7mm PCD, 16-inch</b> — the same classic 4WD bolt pattern shared by every generation of Jimny, plus the Land Cruiser and Hilux, so aftermarket wheel options are wide open.">
+            ホイールは<b>PCD139.7の5穴・16インチ</b>。歴代ジムニー共通の、ランクルやハイラックスと同じ古典的な4WD用PCDなので、社外ホイールの選択肢が広い。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 型・グレードまわり -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Models &amp; Grades">型・グレードまわり</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="<b>JA11V = van (metal top) / JA11C = soft top.</b> The open-roof soft-top version is one of the JA11's biggest draws — good examples are rare and command a premium.">
+            <b>JA11V＝バン（メタルトップ）／JA11C＝幌</b>。屋根が開く幌車はJA11の大きな魅力で、程度の良い個体は玉数が少なく高い。
+          </li>
+          <li data-en="The special-edition <b>&quot;Wild Wind&quot;</b> is the famous one.">
+            特別仕様の<b>「ワイルドウインド」</b>が有名。
+          </li>
+          <li data-en="There are 1st through 5th-gen facelifts, and later cars gain power steering, the intercooler, and better interior quality. The rule of thumb: &quot;later ones to drive, earlier ones for value.&quot;">
+            1型〜5型まであり、後期ほどパワステやインタークーラー、内装の質が上がる。「乗るなら後期、価値なら前期」という構図。
+          </li>
+          <li data-en="Its sibling is the 1.3L <b>JB31 (Jimny Sierra)</b> — known overseas as the SJ413 / Samurai lineage.">
+            兄弟車は1.3Lの<b>JB31（ジムニーシエラ）</b>。海外ではSJ413／サムライとして知られる系譜。
+          </li>
+        </ul>
+      </div>
+
+      <!-- 維持・中古車で効いてくる話 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Ownership &amp; Used-Car Notes">維持・中古車で効いてくる話</h3>
+          <span class="torque-section-count" data-en="4 facts">4件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="It's registered as a <b>&quot;4&quot; plate (kei commercial/cargo)</b>, so the kei-car tax is cheaper than a passenger registration. Even hit with the 13-year-plus surcharge, it's still quite cheap to keep on the road.">
+            <b>4ナンバー（軽貨物）</b>登録なので、軽自動車税が乗用登録より安い。13年超の重課を食らってもまだかなり低額で維持できる。
+          </li>
+          <li data-en="On the other hand, it's now over 30 years old. This is a car where rust isn't a question of &quot;if&quot; but &quot;where, and how far along.&quot; The frame, the bottom edge of the rear gate, the steps, and the inside of the rear fenders are the classic spots to check.">
+            一方ですでに30年以上落ち。錆は「あるかどうか」ではなく「どこがどれだけ進んでいるか」を見る車。フレーム、リアゲート下端、ステップ、リアフェンダー内側は定番の要チェック箇所。
+          </li>
+          <li data-en="Classic F6A trouble spots are the <b>head gasket, oil consumption, and oil leaking from the turbo</b>. That said, the simple mechanicals with almost no electronic control make it easy to fix when something does break — which is why people say &quot;the leaf-spring one breaks less.&quot;">
+            F6Aの定番トラブルはヘッドガスケット、オイル下がり、タービンからのオイル漏れあたり。ただし構造が単純で電子制御がほぼ無いぶん、壊れても直しやすいのがJA11の強み。「板バネの方が壊れない」と言われる所以。
+          </li>
+          <li data-en="A lot of parts are still available, but small interior and exterior trim pieces are increasingly going out of stock. It's settled into the classic old-car pattern where buying a good example up front ends up cheaper in the long run.">
+            部品はまだ出るものも多いけど、内装や外装の細かい部品は欠品が増えてきている。程度の良い個体を買った方が結果的に安い、という典型的な旧車の構図に入っている。
+          </li>
+        </ul>
+      </div>
+
+      <!-- JB23との違い -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Differences from the JB23 — Noticeable Back-to-Back">JB23との違い（乗り比べると分かる）</h3>
+          <span class="torque-section-count" data-en="3 facts">3件</span>
+        </div>
+        <ul class="trivia-list">
+          <li data-en="With leaf springs, the spring itself locates the axle, so the structure is simpler and tougher than the JB23's coil 3-link setup. The trade-off is a harder ride — bumps come through more directly.">
+            板バネは軸の位置決めもバネがやっているので、コイル3リンクのJB23より構造がシンプルで頑丈。反面、乗り心地は硬く、路面の突き上げが素直に来る。
+          </li>
+          <li data-en="The coil-sprung JB23 follows the terrain through suspension travel; the JA11 gets over obstacles through being light and short instead. The way each one handles rough terrain is a different kind of experience.">
+            コイルのJB23はストロークで路面を追うのに対し、JA11は軽さと短さで越えていく感じ。悪路の「越え方」の質が違う。
+          </li>
+          <li data-en="With little electronic assistance, and some cars lacking power steering entirely, driving it is noticeably heavier and more tiring. Whether you find that fun is the deciding factor.">
+            電子制御が少なく、パワステ無し個体もあるので、運転は明確に重くて疲れる。そこを楽しいと取れるかどうかが分岐点。
+          </li>
+        </ul>
+      </div>
+
+      <!-- リフトアップするなら -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="If You're Lifting It — Leaf-Spring-Specific Notes">リフトアップするなら（板バネ特有の注意点）</h3>
+          <span class="torque-section-count" data-en="5 facts">5件</span>
+        </div>
+        <p style="font-size:.86rem;color:var(--text-dimmer);margin:0 0 14px;" data-en="The starting assumptions are quite different from the JB23 lift-up notes, so here's what changes.">
+          前回のJB23の話と前提がかなり変わるので、そこだけ補足します。
+        </p>
+        <ul class="trivia-list">
+          <li data-en="The standard method is a <b>shackle extension (long shackle)</b>. Cheap and easy lift, but overdo it and the shackle angle lays over, causing side-to-side wobble. A careless oversized shackle will definitely hurt handling.">
+            定番は<b>シャックル延長（ロングシャックル）</b>。安く簡単に上がるけど、上げすぎるとシャックルの角度が寝て横方向にグラつく。安易な長尺シャックルは操縦性を確実に悪化させる。
+          </li>
+          <li data-en="Lifting via the shackle shifts the axle fore-aft, changing the wheelbase, and throws off the fender-to-tire relationship too. For a bigger lift, swapping in dedicated <b>lift-up leaf springs</b> (replacing the spring itself) is the more honest approach.">
+            シャックルで上げるとアクスルが前後にずれてホイールベースが変わる。フェンダーとタイヤの位置関係も崩れるので、リフト量が大きいなら<b>リフトアップリーフ</b>（バネそのものを交換）の方が素直。
+          </li>
+          <li data-en="If the leaf spring starts to arch the wrong way, roll behavior falls apart. Don't judge by ride height alone — check the actual curve of the spring.">
+            板バネが逆反り気味になるとロール時の挙動が破綻する。見た目の車高だけで判断せず、バネの反り具合を見ること。
+          </li>
+          <li data-en="Brake hose tension and prop-shaft-angle vibration happen just like on coil-sprung cars — that part is a shared concern. (See the <a href=&quot;tips-05.html&quot;>JB23 lift-up notes</a> for details.)">
+            ブレーキホースの張り、プロペラシャフトの角度による振動はコイル車と同じく発生する。ここは共通の注意点（詳しくは<a href="tips-05.html">JB23のリフトアップ注意点</a>も参照）。
+          </li>
+          <li data-en="Since the JA11 already has a short wheelbase and narrow track to begin with, lifting it leaves the least rollover margin of any generation. If most of your driving is on the street, keeping the lift modest is the right call.">
+            JA11は元々ホイールベースが短くトレッドも狭いので、上げると横転方向の余裕が歴代でいちばん少ない。街乗り比率が高いなら、上げ幅は控えめが正解。
+          </li>
+        </ul>
+      </div>
+
+      <p class="skills-note" data-en="Collected from commonly known facts and lore among Jimny (JA11) owners and enthusiasts. Provided for reference only — suspension and lift-related work affects safety-critical systems, so please consult a professional shop before starting any work.">
+        JA11ジムニーオーナー・愛好家の間でよく知られている情報や語られ話をまとめたものです。掲載内容は参考情報です。足回り・リフトアップ関連の作業は保安部品に関わるため、実際の作業は信頼できる専門店にご相談ください。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
