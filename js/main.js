@@ -361,7 +361,7 @@
 
   /* ------------------------------ particle network background ------------------------------ */
   const canvas = document.getElementById("bg-canvas");
-  if (canvas && canvas.getContext){
+  if (canvas && canvas.getContext && !isCoarsePointer){
     const ctx = canvas.getContext("2d");
     let w, h, particles;
     let mouse = { x: null, y: null };
@@ -370,7 +370,7 @@
     function resize(){
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
-      const density = Math.min(90, Math.floor((w * h) / 22000));
+      const density = Math.min(55, Math.floor((w * h) / 30000));
       particles = Array.from({ length: density }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
