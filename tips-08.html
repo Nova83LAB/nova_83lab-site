@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: JB64/JB74 整備手帳 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。JB64・JB74ジムニーの負荷がかかりやすい箇所と、点検・交換サイクルをまとめた、実際に手元で使える整備リファレンスです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#topics"><span class="nav-idx">02</span>TOPICS</a>
+        <a href="index.html#services"><span class="nav-idx">03</span>SERVICES</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 08</span>
+        <h2 data-en="JB64/JB74 Weak Points &amp; Service Intervals — A Reference You Can Actually Use">JB64/JB74 の弱点と点検周期をまとめた、実際に手元で使える整備リファレンス</h2>
+        <span class="section-sub" data-en="/ JB64・JB74 SERVICE HANDBOOK">/ JB64・JB74 整備手帳</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Vehicle">対象車種</b> <span data-en="Suzuki Jimny (JB64W) / Jimny Sierra (JB74W)">スズキ ジムニー（JB64W）／ジムニーシエラ（JB74W）</span></span>
+        <span class="work-meta-item"><b data-en="Model years">年式</b> <span data-en="2018.7 —">2018年7月〜</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="Where the load concentrates, and inspection/replacement cycles matched to how you actually drive it — a <span class=&quot;hl&quot;>practical reference for the JB64/JB74 Jimny</span>. Figures here are working guidelines; the official spec in your owner's manual and maintenance notebook always takes precedence.">
+          負荷のかかりやすい箇所と、乗り方に応じた点検・交換サイクル。<span class="hl">JB64・JB74ジムニーの実用的な整備リファレンス</span>です。数値は実用上の目安で、正式な指定は車載の取扱説明書とメンテナンスノートが優先します。
+        </p>
+      </div>
+
+      <!-- スペックプレート -->
+      <div class="spec-plate reveal">
+        <div class="spec-plate-col">
+          <span class="spec-plate-code">JB64W</span>
+          <span class="spec-plate-name" data-en="Jimny (kei-car, turbo)">ジムニー（軽・ターボ）</span>
+          <dl>
+            <dt data-en="Engine">エンジン</dt><dd data-en="R06A 658cc inline-3 DOHC turbo">R06A 658cc 直3 DOHC ターボ</dd>
+            <dt data-en="Max output">最高出力</dt><dd>64 PS</dd>
+            <dt data-en="Trans.">変速機</dt><dd>5MT / 4AT</dd>
+            <dt data-en="Tires">タイヤ</dt><dd>175/80R16</dd>
+            <dt data-en="Drive">駆動</dt><dd data-en="Part-time 4WD w/ sub-transmission">パートタイム4WD・副変速機付</dd>
+            <dt data-en="Suspension">足回り</dt><dd data-en="Front/rear 3-link rigid axle, coil">前後3リンクリジッド・コイル</dd>
+          </dl>
+        </div>
+        <div class="spec-plate-col">
+          <span class="spec-plate-code">JB74W</span>
+          <span class="spec-plate-name" data-en="Jimny Sierra (1.5L, NA)">ジムニーシエラ（1.5L・NA）</span>
+          <dl>
+            <dt data-en="Engine">エンジン</dt><dd data-en="K15B 1,460cc inline-4 DOHC NA">K15B 1,460cc 直4 DOHC NA</dd>
+            <dt data-en="Max output">最高出力</dt><dd>102 PS</dd>
+            <dt data-en="Trans.">変速機</dt><dd>5MT / 4AT</dd>
+            <dt data-en="Tires">タイヤ</dt><dd>195/80R15</dd>
+            <dt data-en="Drive">駆動</dt><dd data-en="Part-time 4WD w/ sub-transmission">パートタイム4WD・副変速機付</dd>
+            <dt data-en="Suspension">足回り</dt><dd data-en="Front/rear 3-link rigid axle, coil">前後3リンクリジッド・コイル</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 負荷がかかりやすい箇所 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Weak Points">負荷がかかりやすい箇所</h3>
+          <span class="torque-section-count" data-en="12 points">12箇所</span>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-dim);line-height:1.85;margin:0 0 20px;" data-en="Less &quot;things that break&quot; and more the points where load naturally concentrates from the ladder-frame-plus-rigid-axle structure and being driven on rough terrain. Color-coded by how costly it gets if you leave it alone.">
+          「壊れる」というより、ラダーフレーム＋リジッドアクスルという構造と、悪路を走る使われ方の結果として負担が集中する箇所です。放置したときの代償が大きい順に色分けしています。
+        </p>
+
+        <!-- ステアリング・足回り -->
+        <div class="weak-group">
+          <div class="weak-group-label" data-en="STEERING &amp; SUSPENSION">ステアリング・足回り</div>
+          <div class="weak-grid">
+            <div class="weak-card lv-crit">
+              <div class="weak-card-top"><h4 data-en="Steering Shimmy">シミー現象</h4><span class="weak-chip lv-crit" data-en="PRIORITY">重点</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="The steering wheel shakes — in small twitches or violently — within a specific speed range.">特定の速度域でハンドルが小刻みに、あるいは激しく振れる</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="A behavior inherent to the front rigid axle, made worse when <b>link play, tire balance, and alignment drift</b> stack up together.">前輪リジッドアクスル特有の挙動に、<b>リンク類のガタ・タイヤバランス・アライメントのずれ</b>が重なって発生</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Check tie-rod ends, drag link, knuckle, and steering damper for play. Also check wheel balance and tire roundness.">タイロッドエンド、ドラッグリンク、ナックル、ステアリングダンパーのガタを点検。ホイールバランスとタイヤの真円度も確認</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="Play in the Steering Linkage">ステアリングリンクのガタ</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Reduced straight-line stability, more free play — an early sign of shimmy.">直進性の低下、遊びの増大。シミーの前触れになる</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Input from rough-road driving, combined with grease loss from torn boots.">悪路走行での入力と、ブーツ破れによるグリス切れ</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Replace boots the moment you find a tear. Wait until there's play and you'll be replacing whole parts instead.">ブーツの破れを見つけ次第交換。ガタが出てからでは部品ごとの交換になる</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="Uneven Tire Wear">タイヤの偏摩耗</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="One-sided wear, more road noise, and it can trigger shimmy.">片減り、ノイズの増大、シミーの誘発</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="A rigid axle has little alignment freedom, so any toe drift shows up directly as wear.">リジッドアクスルはアライメントの自由度が低く、トーのずれがそのまま摩耗に出る</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Rotate on a shorter cycle, and check toe as soon as uneven wear shows up.">ローテーションを短めに回し、偏摩耗が出たらトーを点検</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- 駆動系 -->
+        <div class="weak-group">
+          <div class="weak-group-label" data-en="DRIVETRAIN">駆動系</div>
+          <div class="weak-grid">
+            <div class="weak-card lv-crit">
+              <div class="weak-card-top"><h4 data-en="Water Ingress into the Diffs &amp; Transfer">デフ・トランスファーへの浸水</h4><span class="weak-chip lv-crit" data-en="PRIORITY">重点</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Oil turns milky white. Left alone, the inside rusts, leading to noise and failure.">オイルが乳白色に変色。放置すると内部が錆びて異音・破損に至る</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="After fording or a deep puddle, the warm case cools down and <b>draws water in through the breather</b>.">渡河や深い水たまりで、温まったケースが冷えて<b>ブリーザーから水を吸う</b></dd>
+                <dt data-en="Fix">対処</dt><dd data-en="After driving through water, check the oil in both diffs and the transfer. Replace immediately if it's emulsified. If you ford often, consider extending the breather hoses.">水に入ったら前後デフ・トランスファーのオイルを点検。乳化していれば即交換。頻繁に渡河するならブリーザーホースの延長を検討</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="4AT Fluid Temperature Rise">4AT の油温上昇</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Shift feel changes after sustained climbs, highway cruising, or wheel-spin in sand.">連続する登坂や高速巡航、砂地での空転後に変速の感触が変わる</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Spends a lot of time at high RPM in 4th, generating significant heat in the torque converter.">4速で高回転を保つ場面が多く、トルコンの発熱が大きい</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="If you drive it hard, manage the ATF on a shorter change cycle.">負荷の高い使い方をするならATFを短めのサイクルで管理する</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="Driveshaft Boots">ドライブシャフトブーツ</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Grease flung around; progresses to noise if left.">グリスの飛び散り、進行すると異音</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Flying gravel from dirt-road driving, plus repeated large steering angles and suspension travel.">ダート走行での飛び石と、大きな舵角・大きなストロークの繰り返し</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Check visually from underneath every time you wash the car — cheap to fix right after it tears.">洗車のたびに下から目視。破れた直後なら安く済む</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- エンジン・補機 -->
+        <div class="weak-group">
+          <div class="weak-group-label" data-en="ENGINE &amp; ANCILLARIES">エンジン・補機</div>
+          <div class="weak-grid">
+            <div class="weak-card lv-crit">
+              <div class="weak-card-top"><h4 data-en="Turbo Oil Management (JB64)">ターボのオイル管理（JB64）</h4><span class="weak-chip lv-crit" data-en="PRIORITY">重点</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Reduced turbo lifespan from degraded oil.">オイル劣化によるタービンの寿命低下</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="On top of running hard for its 64PS, frequent short, low-speed trips are tough on the oil.">64PSを絞り出す使い方に加え、短距離・低速走行の多さがオイルに厳しい</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Nearly all Jimny use counts as severe service. Run a shortened cycle, not the standard one.">ジムニーの使われ方はほぼシビアコンディション。標準サイクルではなく短縮側で回す</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="Clogged Air Cleaner">エアクリーナーの詰まり</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Dulled throttle response, worse fuel economy.">吹け上がりの鈍化、燃費の悪化</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Dirt-road or sand driving pulls in a large amount of dust at once.">ダートや砂地の走行で一気に粉塵を吸う</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Judge by <b>terrain</b>, not distance — always open it up and check after a forest-road drive.">距離ではなく<b>走った路面</b>で判断する。林道の後は必ず開けて見る</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-calm">
+              <div class="weak-card-top"><h4 data-en="Timing Chain Noise">タイミングチェーンの異音</h4><span class="weak-chip lv-calm" data-en="MONITOR">経過観察</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="A brief rattle on cold start.">冷間始動時の一瞬のガラガラ音</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Chain-driven, so no scheduled replacement is needed — but noise can occur before tensioner oil pressure builds up.">チェーン駆動なので基本は無交換。ただしテンショナーの油圧が立ち上がるまでの音が出ることがある</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Get it diagnosed if the noise runs long or becomes constant. Good oil management is the best prevention.">音が長く続く・常時鳴るようになったら要診断。オイル管理が最大の予防</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- ボディ・その他 -->
+        <div class="weak-group">
+          <div class="weak-group-label" data-en="BODY &amp; OTHER">ボディ・その他</div>
+          <div class="weak-grid">
+            <div class="weak-card lv-crit">
+              <div class="weak-card-top"><h4 data-en="Underbody Rust">下回りの錆</h4><span class="weak-chip lv-crit" data-en="PRIORITY">重点</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Corrosion on the frame, brake lines, muffler, and suspension bolts.">フレーム、ブレーキ配管、マフラー、足回りボルトの腐食</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="Road salt, coastal salt air, and caked-on mud. Once a ladder frame is affected, repair cost jumps to a different level.">融雪剤・海沿いの塩分・泥の付着。ラダーフレームは一度やられると修復費が跳ね上がる</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Pressure-wash the underbody <b>the same day</b> it's exposed to salt. Re-apply rust-proofing on a regular schedule.">塩分に触れたら<b>その都度</b>下回りを高圧洗浄。防錆施工は定期的に打ち直す</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-warn">
+              <div class="weak-card-top"><h4 data-en="Rear (Tailgate) Door Hinge">バックドアのヒンジ</h4><span class="weak-chip lv-warn" data-en="CAUTION">注意</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Gets stiff to close, panel gaps shift.">閉まりが渋くなる、建て付けのずれ</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="The side-swing door carrying the spare tire's weight puts constant load on the hinge.">スペアタイヤを背負った横開きドアの重量が、常にヒンジにかかっている</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Lift the door slightly as you open and close it. Adjust early once it starts feeling stiff.">開閉時にドアを持ち上げ気味に扱う。渋くなったら早めに調整</dd>
+              </dl>
+            </div>
+            <div class="weak-card lv-calm">
+              <div class="weak-card-top"><h4 data-en="Unpainted Resin Fading">未塗装樹脂の色あせ</h4><span class="weak-chip lv-calm" data-en="MONITOR">経過観察</span></div>
+              <dl class="weak-dl">
+                <dt data-en="Symptom">症状</dt><dd data-en="Whitening of fender arches and bumpers.">フェンダーアーチやバンパーの白化</dd>
+                <dt data-en="Cause">原因</dt><dd data-en="UV exposure. Doesn't affect function, but does affect looks.">紫外線。機能には影響しないが見た目に効く</dd>
+                <dt data-en="Fix">対処</dt><dd data-en="Apply resin protectant regularly — once it's whitened, it's hard to bring back.">樹脂用の保護剤を定期的に。白化してからでは戻りにくい</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 定期メンテナンスの目安 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Regular Maintenance Schedule">定期メンテナンスの目安</h3>
+          <span class="torque-section-count" data-en="16 items">16項目</span>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-dim);line-height:1.85;margin:0 0 10px;" data-en="If it's just paved-road commuting, the manufacturer's standard schedule is enough. But repeated short trips, rough roads, gravel, traffic jams, and cold climates all count as severe service — in those cases, run the shorter figure below.">
+          舗装路の通勤だけならメーカー標準で足ります。ただし短距離の繰り返し、悪路、砂利道、渋滞、寒冷地はいずれもシビアコンディションに該当し、その場合は下の短い側の数値で回してください。
+        </p>
+        <div class="torque-legend">
+          <b style="color:var(--red);" data-en="■">■</b> <span data-en="Costly if neglected">怠ると高くつく</span>
+          <b style="color:var(--amber);" data-en="■">■</b> <span data-en="Shift earlier depending on how you drive">走り方で前倒し</span>
+          <b style="color:var(--cyan);" data-en="■">■</b> <span data-en="Standard cycle">通常サイクル</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table">
+            <thead><tr><th data-en="Part">項目</th><th data-en="Cycle">サイクルの目安</th><th data-en="Note">メモ</th></tr></thead>
+            <tbody>
+              <tr class="lv-crit"><td class="t-part" data-en="Engine Oil">エンジンオイル</td><td class="t-val" data-en="3,000–5,000 km / 6 months">3,000–5,000km／6ヶ月</td><td class="t-note" data-en="Lean toward the shorter figure for the JB64 turbo. Use 5,000 km as the baseline for the JB74's NA engine. Change on time even if you haven't covered the distance.">JB64のターボは短い側で。JB74のNAは5,000kmを基準に。距離が伸びなくても期間で交換する</td></tr>
+              <tr class="lv-crit"><td class="t-part" data-en="Oil Filter">オイルフィルター</td><td class="t-val" data-en="Every 2nd oil change">オイル交換2回に1回</td><td class="t-note" data-en="If rough roads or short trips dominate, replace it every time instead.">悪路や短距離が主体なら毎回一緒に</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="ATF (4AT)">ATF（4AT）</td><td class="t-val" data-en="20,000–40,000 km">20,000–40,000km</td><td class="t-note" data-en="Lean toward 20,000 km if you tow, drive rough roads, or climb a lot. If it's gone a long time without a change, consult a shop before flushing it.">牽引・悪路・登坂が多いなら20,000km側。長期無交換の車両は整備工場と相談してから</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="Manual Transmission Oil">ミッションオイル（MT）</td><td class="t-val" data-en="Around 40,000 km">40,000km前後</td><td class="t-note" data-en="If shifting gets notchy, change it before you hit the distance mark.">入りが渋くなってきたら距離より前に</td></tr>
+              <tr class="lv-crit"><td class="t-part" data-en="Transfer Case Oil">トランスファーオイル</td><td class="t-val" data-en="40,000 km / every time after fording">40,000km／渡河後は都度</td><td class="t-note" data-en="Checking for emulsification is the real point — distance is secondary.">乳化していないかの確認が本命。距離は二の次</td></tr>
+              <tr class="lv-crit"><td class="t-part" data-en="Front &amp; Rear Diff Oil">前後デフオイル</td><td class="t-val" data-en="40,000 km / every time after fording">40,000km／渡河後は都度</td><td class="t-note" data-en="Front and rear are separate — don't stop after checking just one.">前後で別々。片方だけ点検して終わりにしない</td></tr>
+              <tr class="lv-calm"><td class="t-part" data-en="Brake Fluid">ブレーキフルード</td><td class="t-val" data-en="2 years (each shaken cycle)">2年（車検ごと）</td><td class="t-note" data-en="It absorbs moisture, so manage it by time, not distance.">吸湿するので距離ではなく期間で管理</td></tr>
+              <tr class="lv-calm"><td class="t-part" data-en="Coolant (Super LLC)">冷却水（スーパーLLC）</td><td class="t-val" data-en="Long first interval, then roughly every 4 years">初回は長期・以降4年前後</td><td class="t-note" data-en="The first change interval is set long by design — check the owner's manual for the exact figure.">初回交換時期は長く設定されている。正確な指定は取説を確認</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="Air Cleaner">エアクリーナー</td><td class="t-val" data-en="40,000 km, check after dirt roads">40,000km／ダート後は点検</td><td class="t-note" data-en="If it's pulled in dust, open it up and check regardless of distance.">砂埃を吸ったら距離に関係なく開けて確認</td></tr>
+              <tr class="lv-calm"><td class="t-part" data-en="Spark Plugs">スパークプラグ</td><td class="t-val" data-en="Follow the owner's manual spec">取説の指定に従う</td><td class="t-note" data-en="Iridium plugs last long, but turbo models tend to have a shorter specified interval.">イリジウムは長寿命だが、ターボ車は指定が短めに設定される傾向</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="Brake Pads &amp; Rear Shoes">ブレーキパッド・リアシュー</td><td class="t-val" data-en="Inspect every 10,000 km">点検10,000kmごと</td><td class="t-note" data-en="The rear is drum-type — mud getting in changes both bite and return.">リアはドラム式。泥が入ると効きと戻りが変わる</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="Tire Rotation">タイヤローテーション</td><td class="t-val" data-en="Every 5,000 km">5,000kmごと</td><td class="t-note" data-en="This car wears unevenly, so keep it short. Some owners rotate the spare into the mix too.">偏摩耗しやすい車なので短めに。スペアも含めて回す考え方もある</td></tr>
+              <tr class="lv-calm"><td class="t-part" data-en="Tires Themselves">タイヤ本体</td><td class="t-val" data-en="Tread depth or about 5 years">溝または5年程度</td><td class="t-note" data-en="Check the manufacture date — rubber hardens even if tread remains.">製造年週を確認。溝が残っていてもゴムは硬化する</td></tr>
+              <tr class="lv-calm"><td class="t-part" data-en="Battery">バッテリー</td><td class="t-val" data-en="Around 3 years">3年前後</td><td class="t-note" data-en="Sooner in cold climates or with mostly short trips.">寒冷地や短距離主体はもっと早い</td></tr>
+              <tr class="lv-warn"><td class="t-part" data-en="Underbody Rust-Proofing">下回りの防錆施工</td><td class="t-val" data-en="Every 2–3 years, yearly where road salt is used">2–3年ごと／融雪剤地域は毎年</td><td class="t-note" data-en="Effectiveness depends on whether the treatment actually reaches inside the frame.">フレームの内側まで入る施工かどうかで効果が変わる</td></tr>
+              <tr class="lv-crit"><td class="t-part" data-en="Retorquing Suspension Bolts">足回りボルトの増し締め</td><td class="t-val" data-en="Every time after rough-road driving">悪路走行のたび</td><td class="t-note" data-en="Wheel nuts, link hardware, spare tire bracket — inspect on the assumption that things loosen after a drive.">ホイールナット、リンク類、スペアタイヤブラケット。走行後に緩みが出る前提で点検する</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 走った路面で決まる臨時メンテ -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Condition-Based Extra Maintenance">走った路面で決まる臨時メンテ</h3>
+          <span class="torque-section-count" data-en="3 scenarios">3シーン</span>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-dim);line-height:1.85;margin:0 0 16px;" data-en="With a Jimny, wear depends on <b>what terrain you drove</b>, not how far. The following are jobs to do the same day, regardless of odometer reading.">
+          ジムニーは距離ではなく<b>何を走ったか</b>で傷み方が変わります。以下は走行距離に関係なく、その日のうちにやる作業です。
+        </p>
+        <div class="event-grid">
+          <div class="event-card">
+            <h4 data-en="After Forest Roads / Dirt">林道・ダートの後</h4>
+            <ul>
+              <li data-en="Focus the wash on the underbody — clear mud before it dries.">下回りを重点的に洗車。泥が乾く前に落とす</li>
+              <li data-en="Open the air cleaner and check how much dust has built up.">エアクリーナーを開けて粉塵の量を確認</li>
+              <li data-en="Visually check the driveshaft boots and steering boots from underneath.">ドライブシャフトブーツ、ステアリング各部のブーツを下から目視</li>
+              <li data-en="<b>Retorque the wheel nuts and suspension bolts.</b>"><b>ホイールナットと足回りボルトの増し締め</b></li>
+              <li data-en="Clear any brush or debris packed into the radiator and condenser.">ラジエターとコンデンサに詰まった草木を除去</li>
+            </ul>
+          </div>
+          <div class="event-card">
+            <h4 data-en="After Fording / Deep Puddles">渡河・深い水たまりの後</h4>
+            <ul>
+              <li data-en="Drain a bit of the front diff, rear diff, and transfer oil to check for emulsification.">前デフ・後デフ・トランスファーのオイルを抜いて乳化していないか確認</li>
+              <li data-en="Check the transmission oil the same way.">ミッションオイルも同様に点検</li>
+              <li data-en="Check inside the air cleaner box for water ingress.">エアクリーナーボックス内への浸水確認</li>
+              <li data-en="Lightly drag the brakes to shed water.">ブレーキを軽く引きずらせて水気を飛ばす</li>
+              <li data-en="Check the routing and look for clogs on each breather hose.">各ブリーザーホースの取り回しと詰まりを確認</li>
+            </ul>
+          </div>
+          <div class="event-card">
+            <h4 data-en="After Snow / Coastal Driving">雪道・海沿いの後</h4>
+            <ul>
+              <li data-en="Pressure-wash the underbody to clear salt off. <b>The same day, not the next one.</b>">下回りを高圧洗浄して塩分を落とす。<b>翌日ではなく当日</b></li>
+              <li data-en="Focus on the inside of the frame, brake lines, and around the muffler hanger rubbers.">フレームの内側、ブレーキ配管、マフラーの吊りゴム周りを重点的に</li>
+              <li data-en="Oil the door and tailgate hinges and the key cylinders.">ドアやバックドアのヒンジ、鍵穴に注油</li>
+              <li data-en="Recheck the rust-proofing condition once the season ends.">シーズン明けに防錆の状態を再確認</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- リフトアップ車の追加点検 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Additional Checks for Lifted Vehicles">リフトアップ車の追加点検</h3>
+          <span class="torque-section-count" data-en="3 groups">3グループ</span>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-dim);line-height:1.85;margin:0 0 16px;" data-en="With the ride height raised, there are extra checks a stock vehicle doesn't need. Keep a close eye especially over the <b>first 1,000 km</b>, while everything is settling in and prone to shifting. See also the <a href=&quot;tips-05.html&quot;>JB23 lift-up notes</a> for the reasoning behind these.">
+          車高を上げている場合、ノーマルには無い点検項目が増えます。特に<b>最初の1,000km</b>は各部が馴染む過程でずれるので、こまめに見てください。背景は<a href="tips-05.html">JB23のリフトアップ注意点</a>も参照。
+        </p>
+        <div class="event-grid">
+          <div class="event-card">
+            <h4 data-en="Every Drive">走行のたび</h4>
+            <ul>
+              <li data-en="Whether the brake hoses pull tight at full suspension extension.">ブレーキホースがフル伸長時に突っ張っていないか</li>
+              <li data-en="Whether steering shimmy has shown up.">ステアリングの振れ（シミー）が出ていないか</li>
+              <li data-en="Any interference marks between the tires and the fenders or link hardware.">タイヤとフェンダー・リンク類の干渉痕</li>
+            </ul>
+          </div>
+          <div class="event-card">
+            <h4 data-en="Periodically">定期的に</h4>
+            <ul>
+              <li data-en="Whether the adjustable lateral rod still has the axle centered.">ラテラルロッドの調整でアクスルのセンターが出ているか</li>
+              <li data-en="Propeller-shaft-related vibration at highway speed.">高速でのプロペラシャフト由来の振動</li>
+              <li data-en="Loose mounting bolts on the links and shocks.">各リンク・ショックの取付ボルトの緩み</li>
+            </ul>
+          </div>
+          <div class="event-card">
+            <h4 data-en="Once, Right After the Lift">施工直後の一度きり</h4>
+            <ul>
+              <li data-en="Headlight aim adjustment.">ヘッドライトの光軸調整</li>
+              <li data-en="Checking speedometer error from the change in tire diameter.">タイヤ外径変更によるスピードメーター誤差の確認</li>
+              <li data-en="Whether the change in overall height has crossed into structural-modification territory.">全高の変化が構造変更の必要な範囲に入っていないか</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 使う前に -->
+      <div class="torque-callout reveal">
+        <p class="torque-callout-title" data-en="Before You Use This Reference">この表を使う前に</p>
+        <p data-en="The cycles listed here are practical guidelines. The specifications in your owner's manual and maintenance notebook always take precedence.">
+          掲載しているサイクルは実用上の目安です。車載の取扱説明書とメンテナンスノートに記載された指定が常に優先します。
+        </p>
+        <p data-en="Check whether any recalls or service campaigns apply by looking up your VIN on Suzuki's official site. Used vehicles in particular sometimes circulate with these left un-actioned.">
+          リコールおよびサービスキャンペーンは、車台番号でスズキの公式サイトから適用の有無を確認してください。中古で入手した車両は特に、未実施のまま流通していることがあります。
+        </p>
+        <p data-en="Whether you count as &quot;severe service&quot; depends on how you drive, not how far — it applies if you fall into any of: repeated short trips, rough roads, mountain roads, traffic jams, or cold climates.">
+          「シビアコンディション」の判定は、走行距離ではなく使い方で決まります。短距離の繰り返し、悪路、山道、渋滞、寒冷地のいずれかに当てはまるなら該当します。
+        </p>
+        <p data-en="Don't keep driving on unusual noise, vibration, or an oil leak until you know the cause. On a ladder-frame vehicle, an underbody problem tends to drag other parts down with it.">
+          異音・振動・オイル漏れは、原因が分かるまで距離を伸ばさないでください。ラダーフレーム車は、下回りの不具合が他の部位を巻き込みます。
+        </p>
+      </div>
+
+      <p class="skills-note" data-en="A maintenance reference for the JB64W / JB74W (July 2018 onward). Keeping service records down to the date, mileage, and specific fluid brand used will speed up your next decision.">
+        JB64W／JB74W（2018年7月〜）を対象とした整備リファレンスです。整備記録は日付・距離・使った油脂の銘柄まで残しておくと、次の判断が早くなります。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

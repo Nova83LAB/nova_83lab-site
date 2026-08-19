@@ -892,6 +892,50 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .trivia-list li:nth-of-type(3n+2)::before{ color: var(--pink); }
 .trivia-list li:nth-of-type(3n+3)::before{ color: var(--lime); }
 
+/* --------------------------------- spec plate --------------------------------- */
+.spec-plate{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin:20px 0 8px; }
+.spec-plate-col{ background:var(--panel); border:1px solid var(--line-strong); border-radius:8px; padding:18px 20px 20px; }
+.spec-plate-code{ font-family:var(--font-mono); font-size:1.05rem; color:var(--cyan); display:block; margin-bottom:2px; font-weight:700; }
+.spec-plate-name{ font-size:.7rem; color:var(--text-dimmer); display:block; margin-bottom:14px; }
+.spec-plate dl{ display:grid; grid-template-columns:5.2em 1fr; gap:6px 12px; margin:0; font-size:.78rem; }
+.spec-plate dt{ color:var(--text-dimmer); }
+.spec-plate dd{ margin:0; font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); }
+@media (max-width:620px){ .spec-plate{ grid-template-columns:1fr; } }
+
+/* --------------------------------- weak point cards --------------------------------- */
+.weak-group{ margin-bottom: 26px; }
+.weak-group:last-child{ margin-bottom: 0; }
+.weak-group-label{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.1em; color:var(--text-dimmer); padding-bottom:8px; margin-bottom:14px; border-bottom:1px solid var(--line); }
+.weak-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+.weak-card{ background:var(--panel); border:1px solid var(--line-strong); border-left:3px solid var(--line-strong); padding:16px 18px; border-radius:6px; display:flex; flex-direction:column; gap:10px; }
+.weak-card.lv-crit{ border-left-color:var(--red); }
+.weak-card.lv-warn{ border-left-color:var(--amber); }
+.weak-card.lv-calm{ border-left-color:var(--cyan); }
+.weak-card-top{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+.weak-card-top h4{ font-size:.9rem; color:var(--text); font-weight:700; }
+.weak-chip{ font-family:var(--font-mono); font-size:.56rem; letter-spacing:.06em; padding:3px 8px; border-radius:3px; white-space:nowrap; flex:none; }
+.weak-chip.lv-crit{ background:rgba(255,59,59,.14); color:var(--red); }
+.weak-chip.lv-warn{ background:rgba(255,190,60,.16); color:var(--amber); }
+.weak-chip.lv-calm{ background:rgba(0,240,255,.12); color:var(--cyan); }
+.weak-dl{ display:grid; grid-template-columns:3.4em 1fr; gap:5px 10px; margin:0; font-size:.78rem; line-height:1.7; }
+.weak-dl dt{ color:var(--text-dimmer); font-size:.64rem; padding-top:2px; }
+.weak-dl dd{ margin:0; color:var(--text-dim); }
+.weak-dl dd b{ color:var(--text); font-weight:700; }
+
+/* --------------------------------- level-tinted table rows --------------------------------- */
+.torque-table tr.lv-crit .t-part{ border-left:3px solid var(--red); padding-left:11px; }
+.torque-table tr.lv-warn .t-part{ border-left:3px solid var(--amber); padding-left:11px; }
+.torque-table tr.lv-calm .t-part{ border-left:3px solid var(--cyan); padding-left:11px; }
+
+/* --------------------------------- event cards --------------------------------- */
+.event-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px; }
+.event-card{ background:var(--panel); border:1px solid var(--line-strong); border-radius:6px; padding:18px 20px; }
+.event-card h4{ font-size:.9rem; color:var(--text); font-weight:700; margin:0 0 12px; }
+.event-card ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.event-card li{ display:flex; align-items:flex-start; gap:9px; font-size:.8rem; color:var(--text-dim); line-height:1.6; }
+.event-card li::before{ content:"›"; color:var(--cyan); font-weight:700; flex-shrink:0; }
+.event-card li b{ color:var(--text); font-weight:700; }
+
 /* --------------------------------- cursor spotlight --------------------------------- */
 .service-card::before, .pricing-card::before, .stat::before, .shop-info::before{
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
