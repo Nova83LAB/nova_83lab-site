@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆知識: ジムニー全型式 ギア比一覧 — NOVA_83LAB</title>
+<meta name="description" content="Nova_83LAB の豆知識。初代LJ10から現行JB64/JB74まで、ジムニー全型式のMT・ATギア比、トランスファー比、ファイナルギア比を古い型式から順にまとめたリファレンスです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2305060a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%2300f0ff%22 font-family=%22monospace%22>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ambient overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">N83</span>
+      <span class="logo-text">NOVA<span class="underscore">_</span><span class="accent">83</span><span class="lab-red">LAB</span></span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about"><span class="nav-idx">01</span>ABOUT</a>
+        <a href="index.html#services"><span class="nav-idx">02</span>SERVICES</a>
+        <a href="index.html#topics"><span class="nav-idx">03</span>TOPICS</a>
+        <a href="index.html#events"><span class="nav-idx">04</span>EVENTS</a>
+        <a href="index.html#blog"><span class="nav-idx">05</span>BLOG</a>
+        <a href="index.html#contact"><span class="nav-idx">06</span>CONTACT</a>
+        <a href="profile.html"><span class="nav-idx">07</span>MESSAGE</a>
+        <a href="custom.html"><span class="nav-idx">08</span>CUSTOM</a>
+        <a href="design.html"><span class="nav-idx">09</span>DESIGN</a>
+        <a href="tips.html"><span class="nav-idx">10</span>TIPS</a>
+      </nav>
+      <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="custom-page reveal" id="tips" style="padding-top:160px;">
+      <a href="tips.html" class="back-link" data-en="← BACK TO TIPS">← BACK TO 豆知識</a>
+
+      <div class="section-head">
+        <span class="section-index">TIPS 09</span>
+        <h2 data-en="Every Jimny Gear Ratio, Oldest to Newest">ジムニー全型式のギア比一覧</h2>
+        <span class="section-sub" data-en="/ MT・AT・TRANSFER・FINAL GEAR REFERENCE">/ MT・AT・トランスファー・ファイナル早見表</span>
+      </div>
+
+      <div class="work-meta reveal">
+        <span class="work-meta-item"><b data-en="Coverage">対象型式</b> <span data-en="LJ10 — JB74 (1st gen. through current)">LJ10〜JB74（初代〜現行）</span></span>
+        <span class="work-meta-item"><b data-en="Data">収録データ</b> <span data-en="MT/AT gear ratios, transfer Hi/Lo, final drive (differential)">MT・ATギア比／トランスファーHi・Lo／ファイナルギア比（デフ）</span></span>
+      </div>
+
+      <div class="about-text reveal" style="max-width:760px;margin-bottom:8px;">
+        <p data-en="Every Jimny model code's transmission, transfer case, and final drive ratios, listed <span class=&quot;hl&quot;>oldest to newest</span>. Cross-checked against Suzuki's own historical brochure archive together with specialist reference sites, so precision matters — where sources disagreed, that row is flagged rather than quietly picking one number.">
+          ジムニーの全型式について、変速機・トランスファー・ファイナルギア比を<span class="hl">古い型式から順に</span>まとめました。
+          スズキ公式のカタログアーカイブと専門サイトの資料を突き合わせて確認しています。資料間で数値が割れていた箇所は、片方を無断で採用せず該当行に印を付けています。
+        </p>
+      </div>
+
+      <p class="torque-legend reveal" data-en="How to read this: MT/AT columns list gear ratios from 1st gear up to top gear, separated by &quot;/&quot;. A 4-speed model shows 4 numbers, a 5-speed shows 5. Transfer is High / Low. Final is the differential reduction ratio. Reverse gear is omitted — it rarely matters for gearing/tire-size calculations.">
+        表の見方： MT・AT欄は1速から最高速側のギアまで「／」区切りで表記。4速までの型式は4つ、5速まで対応する型式は5つ並びます。トランスファーはHigh／Low、ファイナルはデフの減速比です。後退（R）はギア比計算では使う機会が少ないため割愛しています。
+      </p>
+
+      <!-- 黎明期 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="The Early Days — LJ / SJ10 / SJ20 (1970–1981)">黎明期 — LJ・SJ10・SJ20（1970〜1981年）</h3>
+          <span class="torque-section-count" data-en="4 model codes">4型式</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table" style="min-width:640px;">
+            <thead><tr><th data-en="Model">型式</th><th data-en="Years">年式</th><th data-en="MT ratio">MT比</th><th data-en="AT ratio">AT比</th><th data-en="Transfer Hi/Lo">T/F Hi・Lo</th><th data-en="Final drive">ファイナル</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part">LJ10</td><td class="t-note" data-en="1970.4–1972.4">1970.4–1972.4</td><td class="t-val">3.683 / 2.218 / 1.477 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.744 / 2.975</td><td class="t-val">5.667</td></tr>
+              <tr><td class="t-part">LJ20</td><td class="t-note" data-en="1972.5–1976.4">1972.5–1976.4</td><td class="t-val">3.967 / 2.388 / 1.527 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.714 / 3.012</td><td class="t-val">5.667</td></tr>
+              <tr><td class="t-part" data-en="SJ10 (nicknamed &quot;Jimny55&quot;)">SJ10（愛称：ジムニー55）</td><td class="t-note" data-en="1976–1977">1976–1977</td><td class="t-val">3.835 / 2.359 / 1.543 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.714 / 3.012</td><td class="t-val">4.875</td></tr>
+              <tr><td class="t-part" data-en="SJ20 (nicknamed &quot;Jimny8&quot;)">SJ20（愛称：ジムニー8）<small data-en="Same gearbox as SJ10 — only the final drive changed">ミッションはSJ10と共通。ファイナルのみ変更</small></td><td class="t-note" data-en="1977–1981">1977–1981</td><td class="t-val">3.835 / 2.359 / 1.543 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.714 / 3.012</td><td class="t-val">4.556</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 第2世代 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="2nd Generation — SJ30 through JA22 (1981–1998)">第2世代 — SJ30〜JA22（1981〜1998年）</h3>
+          <span class="torque-section-count" data-en="6 model codes">6型式</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table" style="min-width:640px;">
+            <thead><tr><th data-en="Model">型式</th><th data-en="Years">年式</th><th data-en="MT ratio">MT比</th><th data-en="AT ratio">AT比</th><th data-en="Transfer Hi/Lo">T/F Hi・Lo</th><th data-en="Final drive">ファイナル</th></tr></thead>
+            <tbody>
+              <tr class="t-flag-row"><td class="t-part" data-en="SJ30 (last 2-stroke, 550cc)">SJ30（ラスト2スト・550cc）<small data-en="1st-gear ratio disagrees between sources (3.834 vs 3.934) — see the note below">1速の数値に資料差あり（3.834 or 3.934）。下記の注記を参照</small></td><td class="t-note" data-en="1981–1987ish">1981–1987年ごろ</td><td class="t-val t-flag">3.834〜3.934 / 2.358 / 1.542 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.741 / 3.052</td><td class="t-val">4.777</td></tr>
+              <tr><td class="t-part" data-en="SJ40 (nicknamed &quot;Jimny1000&quot;, wide-body export)">SJ40（愛称：ジムニー1000・輸出向けワイド）</td><td class="t-note" data-en="1981–1984ish">1981–1984年ごろ</td><td class="t-val">3.163 / 1.945 / 1.421 / 1.000</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.589 / 2.557</td><td class="t-val">4.111</td></tr>
+              <tr><td class="t-part" data-en="JA71 (kei class's first turbo)">JA71（軽初のターボ）</td><td class="t-note" data-en="1987.8–1990.2">1987.8–1990.2</td><td class="t-val">4.063 / 2.361 / 1.469 / 1.000 / 0.877</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.580 / 2.511</td><td class="t-val">5.375</td></tr>
+              <tr><td class="t-part">JA11</td><td class="t-note" data-en="1990.2–1995.11">1990.2–1995.11</td><td class="t-val">4.063 / 2.361 / 1.469 / 1.000 / 0.831</td><td class="t-val" data-en="3-speed: 2.727 / 1.536 / 1.000">(3AT) 2.727 / 1.536 / 1.000</td><td class="t-val">1.580 / 2.511</td><td class="t-val" data-en="MT 5.125 / AT 4.090">MT 5.125／AT 4.090</td></tr>
+              <tr class="t-flag-row"><td class="t-part" data-en="JA12 (wide-body) / JA22">JA12（ワイド）・JA22<small data-en="One specialist source lists a separate 4.090 final drive for JA12 &quot;V/C&quot; grades — likely a transcription carryover from the JA11 row above it, but flagged rather than silently discarded. See the note below.">一部資料にJA12「V／C」向けの4.090という記載あり。JA11行からの転記ミスの可能性が高いが、断定せず注記に残す</small></td><td class="t-note" data-en="1995.11–1998">1995.11–1998</td><td class="t-val">3.478 / 2.021 / 1.352 / 1.000 / 0.790</td><td class="t-val" data-en="3-speed: 2.727 / 1.536 / 1.000">(3AT) 2.727 / 1.536 / 1.000</td><td class="t-val">1.320 / 2.123</td><td class="t-val t-flag">5.125</td></tr>
+              <tr><td class="t-part" data-en="JA12 (narrow-body van/convertible)">JA12（ナロー：バン・幌）<small data-en="Same gearbox as JA11">ミッションはJA11と同型</small></td><td class="t-note" data-en="1995.11–1998">1995.11–1998</td><td class="t-val">4.063 / 2.361 / 1.469 / 1.000 / 0.831</td><td class="t-val" data-en="Not offered">—</td><td class="t-val">1.580 / 2.511</td><td class="t-val">5.125</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 輸出ワイド系譜 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Export Wide-Body Lineage — JB31 / JB32 / JB33 / JB43 (1993–2018)">輸出ワイド系譜 — JB31・JB32・JB33・JB43（1993〜2018年）</h3>
+          <span class="torque-section-count" data-en="4 model codes">4型式</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table" style="min-width:640px;">
+            <thead><tr><th data-en="Model">型式</th><th data-en="Years">年式</th><th data-en="MT ratio">MT比</th><th data-en="AT ratio">AT比</th><th data-en="Transfer Hi/Lo">T/F Hi・Lo</th><th data-en="Final drive">ファイナル</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="JB31 (1.3L wide-body export &quot;Jimny Sierra&quot;)">JB31（1.3L 輸出向けワイド／ジムニーシエラ）</td><td class="t-note" data-en="1993ish–1995">1993年ごろ–1995</td><td class="t-val">3.652 / 1.947 / 1.423 / 1.000 / 0.795</td><td class="t-val" data-en="3-speed: 2.727 / 1.536 / 1.000">(3AT) 2.727 / 1.536 / 1.000</td><td class="t-val">1.320 / 2.268</td><td class="t-val">3.727</td></tr>
+              <tr><td class="t-part" data-en="JB32 (later revision of JB31)">JB32（JB31の後期改良型）</td><td class="t-note" data-en="1995–1998">1995–1998</td><td class="t-val">3.652 / 1.947 / 1.423 / 1.000 / 0.864</td><td class="t-val" data-en="3-speed: 2.727 / 1.536 / 1.000">(3AT) 2.727 / 1.536 / 1.000</td><td class="t-val">1.320 / 2.123</td><td class="t-val">3.909</td></tr>
+              <tr><td class="t-part" data-en="JB33 / early JB43 (lever-type transfer)">JB33・JB43前期（レバー式トランスファー）</td><td class="t-note" data-en="1998–">1998–</td><td class="t-val">3.652 / 1.947 / 1.423 / 1.000 / 0.864</td><td class="t-val" data-en="4-speed: 2.962 / 1.515 / 1.000 / 0.738">(4AT) 2.962 / 1.515 / 1.000 / 0.738</td><td class="t-val">1.320 / 2.145</td><td class="t-val" data-en="MT 3.416 / AT 4.090">MT 3.416／AT 4.090</td></tr>
+              <tr><td class="t-part" data-en="Late JB43 (button-type transfer, shares JB23's close-ratio gearset)">JB43後期（ボタン式トランスファー・JB23後期と同じクロスミッション）</td><td class="t-note" data-en="–2018">–2018</td><td class="t-val">4.425 / 2.304 / 1.674 / 1.190 / 1.000</td><td class="t-val" data-en="4-speed: 2.875 / 1.568 / 1.000 / 0.696">(4AT) 2.875 / 1.568 / 1.000 / 0.696</td><td class="t-val">1.320 / 2.643</td><td class="t-val" data-en="MT 3.416 / AT 4.090">MT 3.416／AT 4.090</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- JB23 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="JB23 — the Long-Running Kei Jimny (1998–2018)">JB23 — 軽ロングセラー（1998〜2018年）</h3>
+          <span class="torque-section-count" data-en="2 revisions">2区分</span>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-dim);line-height:1.85;margin:0 0 14px;" data-en="JB23 went through 10 minor changes (型) over its 20-year run, but the gear ratios themselves only changed once in a meaningful way — at the October 2004 revision (roughly the 5型), where the transfer case moved from lever to switch operation and the ratio spread was widened.">
+          JB23は20年間で10回のマイナーチェンジ（型）を重ねましたが、ギア比そのものが大きく変わったのは2004年10月の改良（おおむね5型）の1回だけです。この改良でトランスファーがレバー式からスイッチ式に変わり、比の幅も広げられています。
+        </p>
+        <div class="torque-table-wrap">
+          <table class="torque-table" style="min-width:640px;">
+            <thead><tr><th data-en="Model">型式</th><th data-en="Years">年式</th><th data-en="MT ratio">MT比</th><th data-en="AT ratio">AT比</th><th data-en="Transfer Hi/Lo">T/F Hi・Lo</th><th data-en="Final drive">ファイナル</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="JB23, 1型–4型">JB23 1型〜4型</td><td class="t-note" data-en="1998.10–2004.9">1998.10–2004.9</td><td class="t-val" data-en="5th is overdrive">4.031 / 2.391 / 1.513 / 1.000 / 0.790（5速OD）</td><td class="t-val" data-en="4-speed: 2.962 / 1.515 / 1.000 / 0.738">(4AT) 2.962 / 1.515 / 1.000 / 0.738</td><td class="t-val">1.320 / 2.145</td><td class="t-val" data-en="5.375 for both MT and AT">MT・AT共 5.375</td></tr>
+              <tr class="t-flag-row"><td class="t-part" data-en="JB23, 5型–10型">JB23 5型〜10型<small data-en="ja.wikipedia states this final drive as 4.909 — that figure conflicts with Suzuki's own catalog and multiple independent sources. See the note below.">日本語版ウィキペディアはこの型のファイナルを4.909と記載していますが、スズキ公式カタログおよび複数の独立資料と食い違います。下記の注記を参照</small></td><td class="t-note" data-en="2004.10–2018.7">2004.10–2018.7</td><td class="t-val" data-en="5th is direct drive">5.106 / 3.017 / 1.908 / 1.264 / 1.000（5速直結）</td><td class="t-val" data-en="4-speed: 2.875 / 1.568 / 1.000 / 0.696">(4AT) 2.875 / 1.568 / 1.000 / 0.696</td><td class="t-val">1.320 / 2.643</td><td class="t-val t-flag" data-en="MT 4.300 / AT 5.375">MT 4.300／AT 5.375</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 現行 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="Current Generation — JB64 / JB74 (2018–)">現行 — JB64・JB74（2018年〜）</h3>
+          <span class="torque-section-count" data-en="2 model codes">2型式</span>
+        </div>
+        <div class="torque-table-wrap">
+          <table class="torque-table" style="min-width:640px;">
+            <thead><tr><th data-en="Model">型式</th><th data-en="Years">年式</th><th data-en="MT ratio">MT比</th><th data-en="AT ratio">AT比</th><th data-en="Transfer Hi/Lo">T/F Hi・Lo</th><th data-en="Final drive">ファイナル</th></tr></thead>
+            <tbody>
+              <tr><td class="t-part" data-en="JB64 (kei, turbo)">JB64（軽・ターボ）</td><td class="t-note" data-en="2018.7–">2018.7–</td><td class="t-val">5.809 / 3.433 / 2.171 / 1.354 / 1.000</td><td class="t-val" data-en="4-speed: 2.875 / 1.568 / 1.000 / 0.696">(4AT) 2.875 / 1.568 / 1.000 / 0.696</td><td class="t-val">1.320 / 2.643</td><td class="t-val" data-en="MT 3.818 / AT 5.375">MT 3.818／AT 5.375</td></tr>
+              <tr><td class="t-part" data-en="JB74 (1.5L NA &quot;Sierra&quot;)">JB74（シエラ・1.5L NA）<small data-en="Only the manual transmission gets a taller transfer case — the automatic keeps JB64's ratio. Don't apply the taller MT figure to AT models.">トランスファーが高くなるのはMT車のみ。AT車はJB64と同じ比を使うため、MTの数値をAT車に流用しない</small></td><td class="t-note" data-en="2018.7–">2018.7–</td><td class="t-val">4.425 / 2.304 / 1.674 / 1.190 / 1.000</td><td class="t-val" data-en="4-speed: 2.875 / 1.568 / 1.000 / 0.696">(4AT) 2.875 / 1.568 / 1.000 / 0.696</td><td class="t-val" data-en="MT: 1.000 / 2.002　AT: 1.320 / 2.643">MT：1.000／2.002　AT：1.320／2.643</td><td class="t-val" data-en="MT 4.090 / AT 4.300">MT 4.090／AT 4.300</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 総合減速比の考え方 -->
+      <div class="torque-section reveal">
+        <div class="torque-section-head">
+          <h3 data-en="How to Read Overall Reduction">総合減速比の考え方</h3>
+          <span class="torque-section-count" data-en="1 formula">計算式1つ</span>
+        </div>
+        <div class="about-text" style="max-width:760px;margin-bottom:14px;">
+          <p data-en="How low or tall a gear combination actually feels comes from multiplying three numbers together: <span class=&quot;hl&quot;>MT/AT gear ratio × transfer ratio (Hi or Lo) × final drive</span>. The bigger this total, the more torque multiplication and the lower the top speed in that gear — useful when comparing how &quot;low-geared&quot; different model years really are, not just eyeballing the final-drive number alone.">
+            実際にどれだけ「ローギアード」か「ハイギアード」かは、<span class="hl">MT・ATのギア比 × トランスファー比（HiまたはLo）× ファイナル比</span>の3つを掛け合わせた数値で決まります。この総合値が大きいほどトルクは増えますが最高速は下がります。ファイナル比だけを見て型式間の「足の長さ」を比べるより、この掛け算で見た方が実態に近くなります。
+          </p>
+        </div>
+        <p class="torque-callout" data-en="<b>Example:</b> JB23 late model (5型–10型), 1st gear in Low: 5.106 (1st) × 2.643 (transfer Lo) × 4.300 (final) ≈ 58.0. The same calculation for JB64 comes to 5.809 × 2.643 × 3.818 ≈ 58.6 — nearly identical, despite the very different-looking individual numbers, because JB64's shorter 1st gear and taller final drive cancel each other out.">
+          <b data-en="Example:">計算例：</b>JB23後期（5型〜10型）の1速・Lo：5.106（1速）× 2.643（トランスファーLo）× 4.300（ファイナル）≈ 58.0。同じ計算をJB64で行うと 5.809 × 2.643 × 3.818 ≈ 58.6 と、個々の数値の見た目ほど差がありません。JB64は1速が短い分、ファイナルが軽くなっているためです。
+        </p>
+        <p class="torque-callout" data-en="<b>Fitting larger tires changes the effective ratio:</b> a bigger tire diameter effectively raises (taller) the total gearing, since the wheel travels farther per rotation. Rough correction: effective ratio ≈ current total ratio × (stock tire diameter ÷ new tire diameter). See the <a href=&quot;tips-05.html&quot;>JB23 lift-up notes</a> and <a href=&quot;tips-08.html&quot;>JB64/JB74 handbook</a> for the practical side of running larger tires.">
+          <b data-en="Fitting larger tires changes the effective ratio:">大径タイヤを履くと実効ギア比が変わる：</b>タイヤ外径が大きくなると1回転あたりの進む距離が伸びるため、総合ギア比は実質的にハイギアード側へ動きます。目安は 実効ギア比 ≈ 現在の総合比 ×（純正タイヤ外径 ÷ 新タイヤ外径）。大径タイヤ運用の実務面は<a href="tips-05.html">JB23リフトアップの注意点</a>・<a href="tips-08.html">JB64/JB74整備手帳</a>もあわせてご覧ください。
+        </p>
+      </div>
+
+      <!-- 出典・注記 -->
+      <div class="torque-callout reveal">
+        <p class="torque-callout-title" data-en="Sources &amp; Notes on the Figures">出典・数値についての注記</p>
+        <p data-en="Cross-checked against Suzuki's own historical catalog archive (scanned original brochures with factory spec sheets, for most model codes) together with the Jimny-specialist reference sites switch4x4.com and 48rider.com. Where all sources agreed, the figure is shown as-is with no further comment.">
+          スズキ公式のカタログアーカイブ（多くの型式で当時のスペック表を含む当時資料）と、ジムニー専門サイト switch4x4.com・48rider.com を突き合わせて確認しています。全資料が一致した数値はそのまま掲載しています。
+        </p>
+        <p data-en="<b>SJ30, 1st gear:</b> the catalog scan reads 3.934 while switch4x4 lists 3.834 — a single-digit difference we could not fully resolve (could be a scan misread or a transcription error on either side). 2nd/3rd/4th, transfer, and final all agree exactly.">
+          <b data-en="SJ30, 1st gear:">SJ30の1速：</b>カタログのスキャンでは3.934と読めますが、switch4x4では3.834です。一桁違いのこの差は完全には解決できていません（スキャンの読み取り誤差か、どちらか側の転記ミスの可能性）。2速・3速・4速、トランスファー、ファイナルはすべて完全に一致しています。
+        </p>
+        <p data-en="<b>JA12/JA22 final drive:</b> Suzuki's own combined catalog for this generation shows 5.125 across every grade, MT and AT alike. One specialist source separately lists 4.090 for JA12 &quot;V/C&quot; grades, identical to the JA11-AT row directly above it in their table — likely a copy-paste carryover rather than a genuine sub-variant, but we're flagging it rather than silently dropping it.">
+          <b data-en="JA12/JA22 final drive:">JA12・JA22のファイナル：</b>スズキ公式のこの世代の統合カタログでは、MT・AT問わず全グレードで5.125と記載されています。一部の専門サイトではJA12「V／C」グレード向けに4.090という記載が別途あり、これは同サイトの表でJA11のAT行と同じ数値です。転記の際の誤りである可能性が高いですが、断定はせず注記として残しています。
+        </p>
+        <p data-en="<b>JB23 (5型–10型) final drive:</b> Suzuki's own catalog, switch4x4, 48rider, and real owner records of differential swaps all agree on 4.300 (MT). ja.wikipedia's Suzuki Jimny article states 4.909 for this same revision, which we believe is very likely an uncited error in that article — we're not repeating 4.909 on this page, but note it here in case a genuine sub-variant surfaces later.">
+          <b data-en="JB23 (5型–10型) final drive:">JB23（5型〜10型）のファイナル：</b>スズキ公式カタログ、switch4x4、48rider、実際にデフを交換したオーナーの記録まで、いずれも4.300（MT）で一致しています。日本語版ウィキペディアの「スズキ・ジムニー」記事はこの型を4.909と記載していますが、出典不明の誤記である可能性が高いと判断し、本ページでは4.909を採用していません。将来的に本当に別バリエーションが見つかった場合に備え、この注記として残しています。
+        </p>
+        <p data-en="The earliest model codes (LJ10–SJ20, 1970s) have thin documentation online. Figures for these are taken directly from Suzuki's own scanned period brochures; where no reliable figure could be found at all, the row is left blank rather than filled with a guess.">
+          最も古い型式（LJ10〜SJ20・1970年代）は、ネット上の資料自体が少ないのが実情です。掲載した数値はスズキ公式の当時カタログから直接採ったもので、信頼できる数値が見つからなかった項目は、推測で埋めず空欄にしています。
+        </p>
+      </div>
+
+      <p class="skills-note" data-en="For anything safety- or fitment-critical (differential swaps, gearing calculations for a tire-size change, etc.), cross-check against your specific vehicle's service manual or genuine parts catalog by chassis number before ordering parts. Minor internal running changes not documented in the sources above may exist.">
+        デフ交換やタイヤサイズ変更に伴うギア比計算など、安全・適合に関わる場面では、発注前に必ず車台番号でサービスマニュアルや純正部品カタログを確認してください。上記資料に記載のない細かな仕様変更が存在する可能性があります。
+      </p>
+
+      <div class="hero-cta" style="margin-top:40px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="tips.html" class="btn btn-ghost"><span data-en="Back to Menu">メニューに戻る</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">NOVA_83LAB</p>
+    <p class="footer-copy">&copy; 2026 NOVA_83LAB. All experiments reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
