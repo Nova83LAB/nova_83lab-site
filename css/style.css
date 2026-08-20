@@ -133,6 +133,32 @@ img{ max-width: 100%; display:block; }
   .cursor-dot, .cursor-ring{ display:none; }
 }
 
+/* ------------------------------ boot screen ------------------------------ */
+#boot-screen{
+  position: fixed; inset: 0; z-index: 1000;
+  background: #0a0616;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 24px;
+  transition: opacity .6s var(--ease), visibility .6s var(--ease);
+}
+#boot-screen.hidden{ opacity: 0; visibility: hidden; }
+.boot-terminal{
+  width: min(560px, 88vw);
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  color: var(--cyan-bright);
+  min-height: 160px;
+}
+#boot-lines div{ margin-bottom: 6px; white-space: pre-wrap; }
+#boot-lines .ok{ color: #4dffb8; }
+#boot-skip{
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em;
+  background: transparent; color: var(--dtext-dimmer);
+  border: 1px solid var(--dline); padding: 8px 16px; border-radius: var(--radius);
+  cursor: pointer; transition: all .2s;
+}
+#boot-skip:hover{ color: var(--cyan-bright); border-color: var(--cyan-bright); }
+
 .blink-cursor::after{
   content: "\2588"; margin-left: 2px; color: var(--cyan-bright);
   animation: blink 1s steps(1) infinite;

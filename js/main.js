@@ -33,7 +33,19 @@
     });
   }
 
-  /* ------------------------------ typewriter helper ------------------------------ */
+  /* ------------------------------ boot sequence ------------------------------ */
+  const bootScreen = document.getElementById("boot-screen");
+  const bootLines = document.getElementById("boot-lines");
+  const bootSkip = document.getElementById("boot-skip");
+
+  const BOOT_SEQUENCE = [
+    { text: "> INITIALIZING NOVA_83LAB KERNEL...", delay: 25 },
+    { text: "> LOADING EXPERIMENTS MODULE...", delay: 20 },
+    { text: "> LOADING WORKS INDEX...", delay: 20 },
+    { text: "> CALIBRATING NEON SUBSYSTEM...", delay: 20 },
+    { text: "> ACCESS GRANTED", delay: 15, ok: true },
+  ];
+
   function typeLine(lineEl, text, speed = 12){
     return new Promise((resolve) => {
       let i = 0;
@@ -50,12 +62,40 @@
     });
   }
 
-  /* ------------------------------ hero shutter ------------------------------ */
+  async function runBoot(){
+    if (!bootLines) return finishBoot();
+    for (const step of BOOT_SEQUENCE){
+      const line = document.createElement("div");
+      if (step.ok) line.classList.add("ok");
+      bootLines.appendChild(line);
+      await typeLine(line, step.text, 10);
+      await new Promise(r => setTimeout(r, step.delay));
+    }
+    await new Promise(r => setTimeout(r, 250));
+    finishBoot();
+  }
+
   function openShutter(){
     const shutter = document.querySelector(".hero-shutter");
     if (shutter) shutter.classList.add("is-open");
   }
-  openShutter();
+
+  function finishBoot(){
+    if (!bootScreen || bootScreen.classList.contains("hidden")) return;
+    bootScreen.classList.add("hidden");
+    document.body.style.overflow = "";
+    setTimeout(openShutter, 550);
+  }
+
+  if (bootScreen){
+    document.body.style.overflow = "hidden";
+    bootSkip && bootSkip.addEventListener("click", finishBoot);
+    // safety net: never trap the user
+    setTimeout(finishBoot, 4500);
+    runBoot();
+  } else {
+    openShutter();
+  }
 
   /* ------------------------------ custom cursor ------------------------------ */
   const cursorDot = document.querySelector(".cursor-dot");
