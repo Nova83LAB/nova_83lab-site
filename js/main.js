@@ -97,46 +97,6 @@
     openShutter();
   }
 
-  /* ------------------------------ custom cursor ------------------------------ */
-  const cursorDot = document.querySelector(".cursor-dot");
-  const cursorRing = document.querySelector(".cursor-ring");
-  const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-
-  if (cursorDot && cursorRing && !isCoarsePointer){
-    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-    let ringX = mouseX, ringY = mouseY;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
-    });
-
-    function animateRing(){
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    const hoverTargets = "a, button, .service-card, .stat, .shop-info, .lightbox-trigger";
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.closest(hoverTargets)) cursorRing.classList.add("is-hover");
-    });
-    document.addEventListener("mouseout", (e) => {
-      if (e.target.closest(hoverTargets)) cursorRing.classList.remove("is-hover");
-    });
-  }
-
-  /* ------------------------------ cursor spotlight on cards ------------------------------ */
-  document.addEventListener("mousemove", (e) => {
-    const card = e.target.closest(".service-card, .pricing-card, .stat, .shop-info");
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    card.style.setProperty("--my", `${e.clientY - rect.top}px`);
-  });
-
   /* ------------------------------ header state ------------------------------ */
   const header = document.getElementById("site-header");
   const navToggle = document.getElementById("nav-toggle");
@@ -357,85 +317,6 @@
       .catch(() => {
         counterValue.textContent = "------";
       });
-  }
-
-  /* ------------------------------ particle network background ------------------------------ */
-  const canvas = document.getElementById("bg-canvas");
-  if (canvas && canvas.getContext && !isCoarsePointer){
-    const ctx = canvas.getContext("2d");
-    let w, h, particles;
-    let mouse = { x: null, y: null };
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function resize(){
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-      const density = Math.min(55, Math.floor((w * h) / 30000));
-      particles = Array.from({ length: density }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        r: Math.random() * 1.6 + 0.6,
-      }));
-    }
-
-    window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-    window.addEventListener("mouseout", () => { mouse.x = null; mouse.y = null; });
-
-    resize();
-
-    function step(){
-      ctx.clearRect(0, 0, w, h);
-
-      for (const p of particles){
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-
-        if (mouse.x !== null){
-          const dx = p.x - mouse.x, dy = p.y - mouse.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < 140){
-            const force = (140 - dist) / 140 * 0.02;
-            p.vx += (dx / dist) * force;
-            p.vy += (dy / dist) * force;
-          }
-        }
-        // gentle speed clamp
-        p.vx = Math.max(-0.6, Math.min(0.6, p.vx));
-        p.vy = Math.max(-0.6, Math.min(0.6, p.vy));
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,240,255,0.55)";
-        ctx.fill();
-      }
-
-      for (let i = 0; i < particles.length; i++){
-        for (let j = i + 1; j < particles.length; j++){
-          const a = particles[i], b = particles[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < 130){
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(123,47,247,${(1 - dist / 130) * 0.35})`;
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
-          }
-        }
-      }
-
-      if (!reduceMotion && !document.hidden) requestAnimationFrame(step);
-    }
-    step();
-
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && !reduceMotion) requestAnimationFrame(step);
-    });
   }
 
 })();
