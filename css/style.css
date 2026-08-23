@@ -500,25 +500,6 @@ section{
 a.notice-item-title{ color: var(--text); text-decoration: none; }
 a.notice-item-title:hover{ color: var(--cyan); }
 
-/* --------------------------------- marquee --------------------------------- */
-.marquee-band{
-  position: relative; z-index: 1; overflow: hidden;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  background: var(--panel);
-  padding: 14px 0;
-}
-.marquee-track{
-  display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content;
-  animation: marquee-scroll 26s linear infinite;
-}
-.marquee-item{
-  font-family: var(--font-display); font-weight: 800; font-size: 1rem; letter-spacing: .03em;
-  color: var(--text-dim);
-}
-.marquee-sep{ color: var(--cyan); font-size: .7rem; }
-@keyframes marquee-scroll{ to{ transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce){ .marquee-track{ animation: none; } }
-
 /* --------------------------------- pricing --------------------------------- */
 .pricing-group{ margin-top: 8px; }
 .pricing-group h3{
