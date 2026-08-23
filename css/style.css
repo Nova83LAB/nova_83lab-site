@@ -81,9 +81,16 @@ img{ max-width: 100%; display:block; }
 
 /* visible keyboard focus */
 :focus-visible{
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--pink);
   outline-offset: 3px;
   border-radius: 3px;
+}
+/* on the dark header/nav, use the brighter pink so the ring stays visible */
+.site-header :focus-visible,
+.site-nav :focus-visible,
+.lightbox :focus-visible,
+#boot-screen :focus-visible{
+  outline-color: var(--pink-bright);
 }
 
 ::-webkit-scrollbar{ width: 12px; }
@@ -202,7 +209,7 @@ section{
 }
 .site-nav a::after{
   content:""; position:absolute; left:0; bottom:0; height:1.5px; width:0;
-  background: var(--cyan-bright);
+  background: var(--pink-bright);
   transition: width .25s var(--ease);
 }
 .site-nav a:hover{ color: var(--dtext); }
