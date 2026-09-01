@@ -87,8 +87,6 @@
     // safety net: never trap the user
     setTimeout(finishBoot, 4500);
     runBoot();
-  } else {
-    openShutter();
   }
 
   /* ------------------------------ header state ------------------------------ */
