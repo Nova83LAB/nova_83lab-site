@@ -1,46 +1,52 @@
 /* ==========================================================================
    NOVA_83LAB — style.css
-   Graffiti poster theme — light matte gray, poster ink accents, flat surfaces
+   Graffiti poster theme — dark warm gray, poster ink accents, flat surfaces
    ========================================================================== */
 
 :root{
-  --bg:            #dbd7cd;
-  --bg-2:          #cdc8bb;
-  --bg-3:          #beb8a8;
+  color-scheme: dark;
 
-  /* raised surface: cards sit lighter than the page, lifted by shadow */
-  --panel:         #eae7e0;
-  --panel-2:       #f2f0eb;
-  --line:          rgba(24,22,18,0.12);
-  --line-strong:   rgba(24,22,18,0.22);
+  --bg:            #201f1b;
+  --bg-2:          #1a1916;
+  --bg-3:          #141311;
 
-  --cyan:          #1c6cb5;
-  --cyan-dim:      #14507f;
-  --magenta:       #d81b60;
-  --pink:          #e0206f;
-  --purple:        #5b3aa0;
-  --lime:          #7d8a1a;
-  --amber:         #a86a12;
-  --orange:        #b8551a;
-  --yellow:        #8f7a10;
-  --red:           #b0272a;
+  /* raised surface: on a dark page, elevation reads as a LIGHTER panel */
+  --panel:         #292823;
+  --panel-2:       #322f29;
+  --line:          rgba(240,236,225,0.11);
+  --line-strong:   rgba(240,236,225,0.22);
 
-  --text:          #17130d;
-  --text-dim:      #4a4234;
-  --text-dimmer:   #7d7461;
+  /* poster inks, lifted in value so they carry on a dark ground */
+  --cyan:          #4a9eea;
+  --cyan-dim:      #7ab9f2;
+  --magenta:       #f0429e;
+  --pink:          #ff4f9e;
+  --purple:        #a184e8;
+  --lime:          #c2d33f;
+  --amber:         #e0a33c;
+  --orange:        #ff8a3d;
+  --yellow:        #e0cc55;
+  --red:           #ff6b6b;
 
-  /* dark-surface exceptions: header/nav, boot screen, terminal window, lightbox */
-  --dsurf-2:       #17130c;
-  --dtext:         #f2e8d3;
-  --dtext-dim:     #cabfa0;
-  --dtext-dimmer:  #8a8168;
-  --dline:         rgba(242,232,211,.10);
-  --dline-strong:  rgba(242,232,211,.20);
-  --cyan-bright:   #4a9eea;
-  --pink-bright:   #ff4f9e;
-  --magenta-bright:#f0429e;
-  --orange-bright: #ff8a3d;
-  --yellow-bright: #d9c93d;
+  /* ink colours for text sitting ON a bright accent chip */
+  --on-accent:     #16150f;
+
+  --text:          #f0ece1;
+  --text-dim:      #b8b1a1;
+  --text-dimmer:   #877f6f;
+
+  /* deeper surfaces: header/nav, boot screen, terminal window, lightbox */
+  --dsurf-2:       #131210;
+  --dtext:         #f0ece1;
+  --dtext-dim:     #b8b1a1;
+  --dtext-dimmer:  #877f6f;
+  --dline:         rgba(240,236,225,.10);
+  --dline-strong:  rgba(240,236,225,.20);
+  --cyan-bright:   #6cb2f0;
+  --pink-bright:   #ff6fb0;
+  --magenta-bright:#f45fae;
+  --orange-bright: #ff9c5c;
+  --yellow-bright: #e8d76a;
 
   --font-display:  "Orbitron", "Noto Sans JP", sans-serif;
   --font-body:      "Noto Sans JP", "Segoe UI", sans-serif;
@@ -53,9 +59,10 @@
   --radius-lg:     14px;
   --radius-pill:   999px;
 
-  --shadow-sm:     0 1px 2px rgba(23,19,13,.05), 0 2px 6px rgba(23,19,13,.06);
-  --shadow-md:     0 2px 6px rgba(23,19,13,.06), 0 10px 24px rgba(23,19,13,.10);
-  --shadow-lg:     0 8px 20px rgba(23,19,13,.10), 0 24px 56px rgba(23,19,13,.14);
+  /* shadows read weakly on dark, so they go deeper and lean on the panel lift */
+  --shadow-sm:     0 1px 2px rgba(0,0,0,.30), 0 2px 6px rgba(0,0,0,.24);
+  --shadow-md:     0 2px 6px rgba(0,0,0,.32), 0 10px 24px rgba(0,0,0,.34);
+  --shadow-lg:     0 8px 20px rgba(0,0,0,.38), 0 24px 56px rgba(0,0,0,.46);
 
   --ease:          cubic-bezier(.16,.84,.44,1);
 }
