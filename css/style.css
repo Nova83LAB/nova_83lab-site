@@ -350,7 +350,8 @@ section{
 
 .terminal-window{
   border: 1px solid var(--dline-strong); border-radius: var(--radius); overflow: hidden;
-  background: var(--dsurf-2); box-shadow: var(--shadow-md);
+  background: rgba(19,18,16,.6); /* --dsurf-2 at 60% — lets the page ground show through */
+  box-shadow: var(--shadow-md);
 }
 .terminal-bar{
   display:flex; align-items:center; gap: 8px; padding: 10px 14px;
