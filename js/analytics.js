@@ -1,13 +1,14 @@
 /* ==========================================================================
    NOVA_83LAB — analytics.js
-   GA4 / Microsoft Clarity の読み込みと、問い合わせ導線のクリック計測。
-   IDが空のあいだは何も読み込まない(公開してもそのままで安全)。
+   問い合わせ導線のクリックを dataLayer に送る(GTM-53X4PKRM が各HTMLの<head>で読み込み済み)。
+   GA4 は GTM 側で設定する。下の GA4_ID は GTM を使わない場合の予備なので空のままにする
+   (両方入れると二重計測になる)。
    ========================================================================== */
 (() => {
   "use strict";
 
   /* ---- ここにIDを入れるだけで有効になる ---- */
-  const GA4_ID = "";      // 例: "G-XXXXXXXXXX"  (Googleアナリティクス → 管理 → データストリーム)
+  const GA4_ID = "";      // GTM を使っている間は空のまま
   const CLARITY_ID = "";  // 例: "abcd1234ef"    (clarity.microsoft.com → 設定 → 概要)
 
   // ローカル確認(file:// や localhost)では計測しない
@@ -38,7 +39,9 @@
 
   /* ------------------------------ click tracking ------------------------------ */
   // 電話・メール = 問い合わせ(generate_lead)、それ以外の外部リンクは click_outbound
+  // GTM では「カスタム イベント」トリガーでイベント名を指定して GA4 に送る
   function track(name, params){
+    window.dataLayer.push(Object.assign({ event: name }, params));
     if (GA4_ID) window.gtag("event", name, params);
     if (CLARITY_ID && window.clarity) window.clarity("event", name);
   }
