@@ -292,6 +292,8 @@
         const posts = data.posts || [];
         if (!posts.length) return;
 
+        // お知らせがある時だけバーを表示する(空のままだと「更新されていない店」に見えるため)
+        document.getElementById("notice")?.removeAttribute("hidden");
         noticeList.innerHTML = posts.map(p => {
           const d = new Date(p.date);
           const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
