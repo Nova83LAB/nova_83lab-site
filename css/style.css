@@ -1112,3 +1112,38 @@ body{
   background-color: rgba(10,9,7,.28);
   box-shadow: 0 0 0 100vmax rgba(10,9,7,.28);
 }
+
+/* works section 2026-09 — homepage 施工事例: big photos first */
+#works{ --acc: 224,163,60; }
+#works .section-index{ color: var(--amber); border-color: rgba(224,163,60,.45); }
+.works-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 980px){ .works-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px){ .works-grid{ grid-template-columns: 1fr; } }
+.work-card{
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(240,236,225,.045), rgba(240,236,225,.012)), var(--panel);
+  transition: transform .25s var(--ease), border-color .25s, box-shadow .25s var(--ease);
+}
+.work-card:hover{
+  transform: translateY(-4px); border-color: rgba(var(--acc), .45);
+  box-shadow: 0 18px 40px -18px rgba(0,0,0,.7), 0 0 0 1px rgba(var(--acc), .18), 0 0 46px -14px rgba(var(--acc), .5);
+}
+.work-card-img{ display: block; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid rgba(var(--acc), .35); }
+.work-card-img img{
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.92) contrast(1.04); transition: transform .5s var(--ease), filter .3s;
+}
+.work-card:hover .work-card-img img{ transform: scale(1.05); filter: saturate(1.05) contrast(1.06); }
+.work-card-body{ display: flex; flex-direction: column; gap: 10px; padding: 18px 20px 20px; flex: 1; }
+.work-card-tag{
+  align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+  padding: 3px 11px; border-radius: var(--radius-pill);
+  color: var(--amber); background: rgba(224,163,60,.12); border: 1px solid rgba(224,163,60,.35);
+}
+.work-card-title{ font-weight: 700; color: var(--text); line-height: 1.55; font-size: 1rem; }
+.work-card-more{ margin-top: auto; padding-top: 6px; font-size: .84rem; color: var(--cyan); }
+.works-more{ display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+@media (prefers-reduced-motion: reduce){ .work-card-img img, .work-card:hover .work-card-img img{ transition: none; transform: none; } }
+/* eight nav items: tighten a little on mid-width screens */
+@media (min-width: 861px) and (max-width: 1180px){ .site-nav{ gap: 12px; } .site-nav a{ font-size: .76rem; } }
