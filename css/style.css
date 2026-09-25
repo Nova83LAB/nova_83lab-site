@@ -33,13 +33,13 @@
 
   --text:          #f0ece1;
   --text-dim:      #b8b1a1;
-  --text-dimmer:   #877f6f;
+  --text-dimmer:   #a39b8a;
 
   /* deeper surfaces: header/nav, boot screen, terminal window, lightbox */
   --dsurf-2:       #131210;
   --dtext:         #f0ece1;
   --dtext-dim:     #b8b1a1;
-  --dtext-dimmer:  #877f6f;
+  --dtext-dimmer:  #a39b8a;
   --dline:         rgba(240,236,225,.10);
   --dline-strong:  rgba(240,236,225,.20);
   --cyan-bright:   #6cb2f0;
@@ -860,4 +860,80 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .tips-cta-actions{ display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 @media (max-width: 560px){
   .tips-cta-actions .btn{ width: 100%; justify-content: center; }
+}
+
+/* ui pass 2026-09 */
+
+/* boot screen: repeat visitors skip it before first paint */
+.booted #boot-screen{ display: none; }
+
+/* header nav: Japanese labels, body font, contact as a pill */
+.site-nav{ align-items: center; }
+.site-nav a{ font-family: var(--font-body); font-size: .86rem; letter-spacing: .04em; font-weight: 500; }
+.site-nav a[aria-current="page"]{ color: var(--dtext); }
+.site-nav a[aria-current="page"]::after{ width: 100%; }
+.site-nav a.nav-cta{
+  color: var(--on-accent); background: var(--cyan); padding: 7px 16px; border-radius: var(--radius-pill); font-weight: 700;
+}
+.site-nav a.nav-cta::after{ display: none; }
+.site-nav a.nav-cta:hover{ color: var(--on-accent); background: var(--cyan-bright); }
+@media (max-width: 1300px){
+  .site-nav{ gap: 18px; }
+  .site-nav a{ font-size: .8rem; }
+}
+@media (max-width: 860px){
+  .site-nav a{ font-size: 1.05rem; }
+  .site-nav a.nav-cta{ padding: 10px 20px; }
+}
+
+/* hero: say what the shop is, lead with the phone */
+.hero-catch{ font-size: .86rem; color: var(--text-dim); margin-top: 8px; letter-spacing: .04em; }
+.btn-call, .btn-jp{ font-family: var(--font-body); font-size: .95rem; letter-spacing: .04em; }
+.btn-call{ padding: 16px 34px; }
+.hero-hours{ margin-top: 18px; font-size: .8rem; color: var(--text-dim); }
+
+/* readable minimums for notes and labels */
+.skills-note, .footer-copy, .torque-legend, .price-vehicle small, .torque-table .t-part small{ font-size: .76rem; }
+.service-tags li, .stat-label, .torque-section-count{ font-size: .7rem; }
+.section-sub{ font-size: .76rem; }
+
+/* mobile call bar (injected by main.js) */
+.callbar{ display: none; }
+@media (max-width: 860px){
+  .callbar{
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(18,14,8,.94); border-top: 1px solid var(--dline-strong);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
+  .callbar a{
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    min-height: 48px; border-radius: var(--radius); font-weight: 700; font-size: .95rem;
+    color: var(--dtext); border: 1px solid var(--dline-strong);
+  }
+  .callbar a.callbar-tel{ background: var(--cyan); color: #fff; border-color: var(--cyan); }
+  body.has-callbar{ padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+}
+
+/* hero on wide screens: copy + buttons left, shutter right, so the call
+   button is above the fold on a 1280-1440 x 720-900 laptop */
+@media (min-width: 1100px){
+  .hero{ padding-top: 110px; padding-bottom: 60px; }
+  .hero-mid{
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
+    column-gap: 64px; align-items: center; text-align: left;
+    width: 100%; max-width: 1240px; margin: 0 auto;
+  }
+  .hero-mid > *{ grid-column: 1; }
+  .hero-mid .hero-shutter{ grid-column: 2; grid-row: 1 / span 6; margin: 0; max-width: 600px; }
+  .hero h1{ font-size: clamp(3rem, 5.2vw, 5rem); }
+  .hero-cta{ justify-content: flex-start; margin-top: 34px; }
+}
+
+/* section head on phones: the sub label gets its own line instead of
+   squeezing the heading into a narrow column */
+@media (max-width: 640px){
+  .section-head{ flex-wrap: wrap; gap: 10px 14px; }
+  .section-head .section-sub{ flex-basis: 100%; margin-left: 0; }
 }

@@ -38,12 +38,11 @@
   const bootLines = document.getElementById("boot-lines");
   const bootSkip = document.getElementById("boot-skip");
 
+  // Kept short on purpose: visitors came for a garage, not a loading screen.
+  // First visit only (see the flag below and the inline script in <head>).
   const BOOT_SEQUENCE = [
-    { text: "> INITIALIZING NOVA_83LAB KERNEL...", delay: 25 },
-    { text: "> LOADING EXPERIMENTS MODULE...", delay: 20 },
-    { text: "> LOADING WORKS INDEX...", delay: 20 },
-    { text: "> CALIBRATING NEON SUBSYSTEM...", delay: 20 },
-    { text: "> ACCESS GRANTED", delay: 15, ok: true },
+    { text: "> BOOTING NOVA_83LAB...", delay: 20 },
+    { text: "> ACCESS GRANTED", delay: 10, ok: true },
   ];
 
   function typeLine(lineEl, text, speed = 12){
@@ -68,10 +67,10 @@
       const line = document.createElement("div");
       if (step.ok) line.classList.add("ok");
       bootLines.appendChild(line);
-      await typeLine(line, step.text, 10);
+      await typeLine(line, step.text, 5);
       await new Promise(r => setTimeout(r, step.delay));
     }
-    await new Promise(r => setTimeout(r, 250));
+    await new Promise(r => setTimeout(r, 120));
     finishBoot();
   }
 
@@ -87,14 +86,30 @@
     setTimeout(openShutter, 550);
   }
 
-  if (bootScreen){
+  const bootSeen = document.documentElement.classList.contains("booted");
+  if (bootScreen && !bootSeen){
+    try { localStorage.setItem("nova83lab-booted", "1"); } catch (e) { /* private mode */ }
     document.body.style.overflow = "hidden";
     bootSkip && bootSkip.addEventListener("click", finishBoot);
     // safety net: never trap the user
-    setTimeout(finishBoot, 4500);
+    setTimeout(finishBoot, 1500);
     runBoot();
   } else {
+    if (bootScreen) bootScreen.remove();
     openShutter();
+  }
+
+  /* ------------------------------ mobile call bar ------------------------------ */
+  // Phone first: on small screens keep "call" and "access" one tap away.
+  if (!document.querySelector(".callbar")){
+    const onHome = !!document.getElementById("contact");
+    const bar = document.createElement("div");
+    bar.className = "callbar";
+    bar.innerHTML =
+      '<a class="callbar-tel" href="tel:08057232797" data-track="callbar"><span data-en="📞 Call">📞 電話する</span></a>' +
+      '<a href="' + (onHome ? "#contact" : "index.html#contact") + '" data-track="callbar"><span data-en="📍 Access">📍 アクセス</span></a>';
+    document.body.appendChild(bar);
+    document.body.classList.add("has-callbar");
   }
 
   /* ------------------------------ header state ------------------------------ */
