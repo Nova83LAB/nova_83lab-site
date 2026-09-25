@@ -888,6 +888,11 @@ a.notice-item-title:hover{ color: var(--cyan); }
 
 /* hero: say what the shop is, lead with the phone */
 .hero-catch{ font-size: .86rem; color: var(--text-dim); margin-top: 8px; letter-spacing: .04em; }
+/* the global p{margin-bottom:1em} opened uneven gaps between these lines */
+.hero-sub-jp, .hero-catch, .hero-hours, .hero-eyebrow{ margin-bottom: 0; }
+.hero-eyebrow{ margin-bottom: 18px; }
+/* break Japanese lines at 、・ rather than mid-word (リフトアッ/プ) */
+.hero-sub-jp, .hero-catch{ word-break: keep-all; overflow-wrap: anywhere; }
 .btn-call, .btn-jp{ font-family: var(--font-body); font-size: .95rem; letter-spacing: .04em; }
 .btn-call{ padding: 16px 34px; }
 .hero-hours{ margin-top: 18px; font-size: .8rem; color: var(--text-dim); }
@@ -917,18 +922,29 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 
 /* hero on wide screens: copy + buttons left, shutter right, so the call
-   button is above the fold on a 1280-1440 x 720-900 laptop */
+   button is above the fold on a 1280-1440 x 720-900 laptop.
+   The copy sits in rows 2-7 between two flexible rows, so it stays packed
+   and vertically centred however tall the shutter is (a plain span would
+   stretch the text rows to the image height and open uneven gaps). */
 @media (min-width: 1100px){
   .hero{ padding-top: 110px; padding-bottom: 60px; }
   .hero-mid{
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
-    column-gap: 64px; align-items: center; text-align: left;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: 1fr repeat(6, auto) 1fr;
+    column-gap: clamp(40px, 5vw, 80px);
+    text-align: left;
     width: 100%; max-width: 1240px; margin: 0 auto;
   }
-  .hero-mid > *{ grid-column: 1; }
-  .hero-mid .hero-shutter{ grid-column: 2; grid-row: 1 / span 6; margin: 0; max-width: 600px; }
-  .hero h1{ font-size: clamp(3rem, 5.2vw, 5rem); }
-  .hero-cta{ justify-content: flex-start; margin-top: 34px; }
+  .hero-mid .hero-eyebrow{ grid-column: 1; grid-row: 2; margin-bottom: 14px; }
+  .hero-mid h1{ grid-column: 1; grid-row: 3; }
+  .hero-mid .hero-sub-jp{ grid-column: 1; grid-row: 4; margin-top: 22px; }
+  .hero-mid .hero-catch{ grid-column: 1; grid-row: 5; margin-top: 8px; }
+  .hero-mid .hero-cta{ grid-column: 1; grid-row: 6; justify-content: flex-start; margin-top: 32px; }
+  .hero-mid .hero-hours{ grid-column: 1; grid-row: 7; margin-top: 16px; }
+  .hero-mid .hero-shutter{ grid-column: 2; grid-row: 1 / -1; align-self: center; margin: 0; max-width: 620px; justify-self: end; }
+  /* sized to its half column: ~8.3em wide, never runs under the photo */
+  .hero h1{ font-size: clamp(2.4rem, 3.7vw, 4.4rem); white-space: nowrap; }
 }
 
 /* section head on phones: the sub label gets its own line instead of
