@@ -1093,3 +1093,22 @@ body{
 @media (prefers-reduced-motion: reduce){
   .service-card .service-link-photo, .service-card:hover .service-link-photo{ transition: none; transform: none; }
 }
+
+/* =====================================================================
+   lighter ground 2026-09 — background lifted one step (#201f1b ->
+   #2a2924) with surfaces following, text colours untouched. Every text
+   colour stays at or above 4.5:1 on both the ground and the cards.
+   ===================================================================== */
+:root{
+  --bg:      #2a2924;
+  --bg-2:    #24231f;
+  --bg-3:    #1d1c19;
+  --panel:   #302f29;
+  --panel-2: #393730;
+}
+.site-header{ background: rgba(32,30,25,.86); }
+.site-header.scrolled{ background: rgba(32,30,25,.94); }
+#services, #events, #contact{
+  background-color: rgba(10,9,7,.28);
+  box-shadow: 0 0 0 100vmax rgba(10,9,7,.28);
+}
