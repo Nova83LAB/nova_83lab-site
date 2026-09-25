@@ -264,7 +264,7 @@ section{
 
 .hero-eyebrow{
   font-family: var(--font-mono); font-size: .76rem; letter-spacing: .24em;
-  color: var(--pink); margin-bottom: 18px;
+  color: var(--text); margin-bottom: 18px;
 }
 
 .hero h1{
