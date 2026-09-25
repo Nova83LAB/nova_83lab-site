@@ -161,7 +161,7 @@ section{
   font-family: var(--font-mono); color: var(--magenta); font-size: .8rem;
   border: 1px solid var(--line-strong); padding: 3px 9px; border-radius: var(--radius-sm);
 }
-.section-head h2{ font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--text); }
+.section-head h1, .section-head h2{ font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--text); }
 .section-sub{ font-family: var(--font-mono); font-size: .72rem; color: var(--text-dimmer); letter-spacing: .08em; margin-left: auto; }
 .section-head.center .section-sub{ margin-left: 0; }
 
