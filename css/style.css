@@ -935,6 +935,11 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 .gear-link:hover{ border-color: var(--cyan); color: var(--cyan); }
 .gear-disclosure{ margin: 14px 0 0; color: var(--text-dim); font-size: .75rem; }
+/* parts-guide articles: one small box per step, sitting under that step */
+.torque-section .gear-box{ margin-top: 20px; }
+.gear-lead{ max-width: 760px; margin: 0 0 28px; color: var(--text-dim); font-size: .8rem; }
+.gear-lead .gear-pr{ margin-right: 6px; }
+.trivia-list li a{ color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 560px){
   .gear-item{ grid-template-columns: 1fr; }
   .gear-links{ grid-column: 1; grid-row: auto; margin-top: 6px; }
