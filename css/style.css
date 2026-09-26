@@ -866,6 +866,48 @@ a.notice-item-title:hover{ color: var(--cyan); }
   .tips-cta-actions .btn{ width: 100%; justify-content: center; }
 }
 
+/* --------------------------------- shaken quote box --------------------------------- */
+.quote-box{
+  max-width: 760px; margin: 40px 0 48px; padding: 28px clamp(20px,4vw,36px);
+  border: 1px solid var(--line-strong); border-left: 3px solid var(--cyan);
+  border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow-md);
+  scroll-margin-top: 90px;
+}
+.quote-box h3{ margin: 0 0 10px; font-size: clamp(1.1rem, 2.6vw, 1.4rem); line-height: 1.5; }
+.quote-lead{ margin: 0; color: var(--text); font-size: .95rem; line-height: 1.8; }
+.quote-steps{ list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.quote-steps li{
+  display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+  padding: 14px 8px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  font-size: .85rem; font-weight: 700; line-height: 1.4;
+}
+.quote-step-no{
+  display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px;
+  border-radius: 50%; background: var(--cyan); color: #fff; font-family: var(--font-mono); font-size: .8rem;
+}
+.quote-hint{ margin: 12px 0 0; color: var(--text-dim); font-size: .8rem; line-height: 1.7; }
+.quote-form-wrap{ margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
+.quote-form-wrap summary{ cursor: pointer; font-size: .9rem; font-weight: 700; color: var(--cyan); }
+.quote-form{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+.quote-form label{ display: flex; flex-direction: column; gap: 6px; font-size: .82rem; color: var(--text-dim); }
+.quote-form input, .quote-form textarea{
+  font: inherit; font-size: 1rem; color: var(--text); background: transparent;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); padding: 10px 12px; min-height: 44px;
+  color-scheme: dark;
+}
+.quote-form input:focus, .quote-form textarea:focus{ outline: 2px solid var(--cyan); outline-offset: 1px; border-color: var(--cyan); }
+.quote-form .quote-wide, .quote-form .quote-error, .quote-form .quote-status{ grid-column: 1 / -1; }
+.quote-form .tips-cta-actions{ margin-top: 4px; }
+.quote-error{ margin: 0; color: #ff7a7a; font-size: .85rem; }
+.quote-status{ margin: 0; font-size: .88rem; line-height: 1.7; color: var(--text); }
+.quote-status:empty{ display: none; }
+.quote-open-line{ margin-top: 12px; display: flex; width: fit-content; }
+@media (max-width: 560px){
+  .quote-form{ grid-template-columns: 1fr; }
+  .quote-steps li{ font-size: .78rem; padding: 12px 4px; }
+  .quote-open-line{ width: 100%; }
+}
+
 /* --------------------------------- tips → affiliate gear box --------------------------------- */
 /* Quieter than .tips-cta on purpose: the shop's own services stay the loudest thing on the page. */
 .gear-box{

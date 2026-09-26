@@ -153,6 +153,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
+      <aside class="quote-box reveal" id="quote">
+        <p class="tips-cta-eyebrow">// SHAKEN QUOTE</p>
+        <h3 data-en="Get a shaken quote">車検のお見積り</h3>
+        <p class="quote-lead" data-en="Just send us a photo of your vehicle inspection certificate (shakensho). It tells us the model, year and expiry date, so you don&#39;t need to type anything.">車検証の写真を送るだけ。車種・年式・満了日がわかるので、入力の手間はいりません。</p>
+        <ol class="quote-steps">
+          <li><span class="quote-step-no">1</span><span data-en="Take a photo of your shakensho">車検証を撮影</span></li>
+          <li><span class="quote-step-no">2</span><span data-en="Send it on LINE WORKS">LINE WORKSで送信</span></li>
+          <li><span class="quote-step-no">3</span><span data-en="We reply with a quote">お見積りをお返事</span></li>
+        </ol>
+        <p class="quote-hint" data-en="Electronic shakensho (IC card type, from 2023): please send the printed record sheet (jidōsha kensashō kiroku jikō) instead.">※ 電子車検証（ICカード型・2023年〜）の方は、一緒に受け取った「自動車検査証記録事項」の用紙を撮影してください。</p>
+        <div class="tips-cta-actions">
+          <a href="https://works.do/FA5CcUJ" class="btn btn-primary" target="_blank" rel="noopener" data-track="shaken-quote"><span data-en="Send the photo on LINE WORKS">LINE WORKSで車検証を送る</span></a>
+          <a href="tel:08057232797" class="btn btn-ghost" data-track="shaken-quote"><span data-en="Call 080-5723-2797">電話で相談 080-5723-2797</span></a>
+        </div>
+
+        <details class="quote-form-wrap">
+          <summary data-en="No photo handy, or prefer email? Fill in the form">写真がない・メールで送りたい方はこちら（入力フォーム）</summary>
+          <form class="quote-form" id="quote-form" novalidate>
+            <label><span data-en="Model (required)">車種・型式（必須）</span><input name="model" required placeholder="例：ジムニー JB23"></label>
+            <label><span data-en="Year">年式・初度登録</span><input name="year" placeholder="例：2012年"></label>
+            <label><span data-en="Shaken expiry date">車検の満了日</span><input name="expiry" type="date"></label>
+            <label><span data-en="Mileage">走行距離</span><input name="mileage" inputmode="numeric" placeholder="例：98000km"></label>
+            <label class="quote-wide"><span data-en="Anything you&#39;re worried about">気になる所・ご要望</span><textarea name="notes" rows="3" placeholder="例：ブレーキの鳴きが気になる／代車希望"></textarea></label>
+            <label><span data-en="Your name">お名前</span><input name="name" autocomplete="name"></label>
+            <p class="quote-error" id="quote-error" hidden data-en="Please enter the model.">車種・型式を入力してください。</p>
+            <div class="tips-cta-actions quote-wide">
+              <button type="button" class="btn btn-primary" data-send="mail"><span data-en="Send by email">メールで送る</span></button>
+              <button type="button" class="btn btn-ghost" data-send="line"><span data-en="Copy and paste into LINE WORKS">コピーしてLINE WORKSに貼る</span></button>
+            </div>
+            <p class="quote-status" id="quote-status" role="status"></p>
+          </form>
+        </details>
+      </aside>
+
       <div class="gallery-grid">
         <button type="button" class="gallery-item filled lightbox-trigger" data-full="images/shaken-daiko.webp" aria-label="写真を拡大表示">
           <img width="1120" height="1400" loading="lazy" decoding="async" src="images/shaken-daiko.webp" srcset="images/shaken-daiko-800.webp 800w, images/shaken-daiko.webp 1120w" sizes="(max-width: 600px) 100vw, 600px" alt="車検代行サービス">
@@ -165,7 +199,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="hero-cta" style="margin-top:56px;">
-        <a href="index.html#contact" class="btn btn-primary"><span data-en="Get in Touch">相談する</span></a>
+        <a href="#quote" class="btn btn-primary"><span data-en="Request a Quote">見積りを依頼する</span></a>
+        <a href="index.html#contact" class="btn btn-ghost"><span data-en="Get in Touch">相談する</span></a>
       </div>
     </section>
   </main>
@@ -182,6 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <script src="js/analytics.js"></script>
+  <script src="js/quote.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
