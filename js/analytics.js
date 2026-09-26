@@ -38,7 +38,7 @@
   }
 
   /* ------------------------------ click tracking ------------------------------ */
-  // 電話・メール = 問い合わせ(generate_lead)、それ以外の外部リンクは click_outbound
+  // 電話・メール・LINE WORKS = 問い合わせ(generate_lead)、それ以外の外部リンクは click_outbound
   // GTM では「カスタム イベント」トリガーでイベント名を指定して GA4 に送る
   function track(name, params){
     window.dataLayer.push(Object.assign({ event: name }, params));
@@ -56,6 +56,8 @@
       track("generate_lead", { method: "phone", link_location: where });
     } else if (href.startsWith("mailto:")){
       track("generate_lead", { method: "email", link_location: where });
+    } else if (/works\.do|worksmobile\.com/.test(href)){
+      track("generate_lead", { method: "lineworks", link_location: where });
     } else if (/instagram\.com/.test(href)){
       track("click_instagram", { link_url: href, link_location: where });
     } else if (a.hostname && a.hostname !== location.hostname){

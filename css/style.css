@@ -570,6 +570,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .shop-info-label{ font-family: var(--font-mono); font-size: .66rem; font-weight: 700; letter-spacing: .12em; color: var(--magenta); line-height: 1.5; }
 .shop-info-value{ font-size: .95rem; color: var(--text); line-height: 1.7; }
 .shop-info-qr{ align-items: center; text-align: center; }
+.shop-info-line-link{ font-size: .85rem; font-weight: 700; color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 .shop-info-qr-img{ width: 64px; height: 64px; background: #fff; padding: 4px; border-radius: var(--radius-sm); margin-top: 2px; }
 
 .map-embed{
@@ -909,7 +910,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .callbar{ display: none; }
 @media (max-width: 860px){
   .callbar{
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px;
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 8px;
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
     background: rgba(18,14,8,.94); border-top: 1px solid var(--dline-strong);
@@ -917,11 +918,15 @@ a.notice-item-title:hover{ color: var(--cyan); }
   }
   .callbar a{
     display: flex; align-items: center; justify-content: center; gap: 6px;
-    min-height: 48px; border-radius: var(--radius); font-weight: 700; font-size: .95rem;
+    min-height: 48px; border-radius: var(--radius); font-weight: 700; font-size: .9rem; white-space: nowrap;
     color: var(--dtext); border: 1px solid var(--dline-strong);
   }
   .callbar a.callbar-tel{ background: var(--cyan); color: #fff; border-color: var(--cyan); }
   body.has-callbar{ padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 360px){
+  .callbar{ gap: 6px; padding-left: 10px; padding-right: 10px; }
+  .callbar a{ gap: 4px; font-size: .82rem; }
 }
 
 /* hero on wide screens: copy + buttons left, shutter right, so the call
