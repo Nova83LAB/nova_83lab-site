@@ -10,7 +10,7 @@
 
   /* ---- ここにIDを入れるだけで有効になる ---- */
   const AMAZON_TAG = "nova83lab-22";  // 例: "nova83lab-22"  (アソシエイト・セントラル → トラッキングID)
-  const RAKUTEN_ID = "";  // 例: "1a2b3c4d.5e6f7a8b.1a2b3c4d.5e6f7a8b"  (楽天アフィリエイト → アフィリエイトID)
+  const RAKUTEN_ID = "57e8ffe7.6382209b.57e8ffe8.339c5c74";  // 例: "1a2b3c4d.5e6f7a8b.1a2b3c4d.5e6f7a8b"  (楽天アフィリエイト → アフィリエイトID)
 
   const page = location.pathname.split("/").pop() || "index.html";
 
