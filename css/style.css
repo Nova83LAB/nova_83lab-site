@@ -771,7 +771,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
   display: inline-block; animation: dot-pulse 1.8s ease-in-out infinite;
 }
 .work-video video{
-  width: 100%; display: block; border-radius: var(--radius); border: 1px solid var(--line);
+  width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line);
   background: var(--bg-2); box-shadow: var(--shadow-md);
 }
 
