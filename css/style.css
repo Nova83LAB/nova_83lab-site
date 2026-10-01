@@ -774,6 +774,8 @@ a.notice-item-title:hover{ color: var(--cyan); }
   width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line);
   background: var(--bg-2); box-shadow: var(--shadow-md);
 }
+.work-review{ margin: 22px auto 0; max-width: 640px; text-align: center; font-size: .85rem; color: var(--text-dim); line-height: 1.8; }
+.work-review a{ color: var(--cyan-dim); text-decoration: underline; text-underline-offset: 3px; }
 
 .work-checklist{ list-style: none; margin: 20px 0 0; padding: 0; display:grid; gap: 13px; max-width: 640px; }
 .work-checklist li{
