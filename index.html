@@ -509,9 +509,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <a href="mailto:recto.ad.finem@gmail.com" class="btn btn-primary btn-large">
-        <span>SEND MESSAGE</span>
-      </a>
+      <div class="quote-box contact-form-box">
+        <h3 data-en="Send us a message">メッセージを送る</h3>
+        <p class="quote-lead" data-en="Fill in the form and send it by email, or copy it and paste it into LINE WORKS. Either is fine.">内容を入力して、メールで送るか、コピーしてLINE WORKSに貼り付けてください。どちらでも大丈夫です。</p>
+        <form class="quote-form" id="contact-form" novalidate data-compose data-subject="Nova_83LABへのお問い合わせ" data-location="contact-form">
+          <label><span data-en="Topic">ご用件</span><select name="topic" data-label="ご用件">
+            <option value="車検・点検" data-en="Shaken / inspection">車検・点検</option>
+            <option value="修理・不具合" data-en="Repair / trouble">修理・不具合</option>
+            <option value="カスタム・パーツ取付" data-en="Custom / parts fitting">カスタム・パーツ取付</option>
+            <option value="その他" data-en="Other">その他</option>
+          </select></label>
+          <label><span data-en="Vehicle">車種・型式</span><input name="model" data-label="車種・型式" placeholder="例：ジムニー JB23"></label>
+          <label class="quote-wide"><span data-en="Message (required)">ご相談内容（必須）</span><textarea name="message" rows="4" required data-label="ご相談内容" placeholder="例：エンジンをかけるとキュルキュル鳴る／リフトアップの費用を知りたい"></textarea></label>
+          <label><span data-en="Your name">お名前</span><input name="name" autocomplete="name" data-label="お名前"></label>
+          <p class="quote-error" hidden data-en="Please enter your message.">ご相談内容を入力してください。</p>
+          <div class="tips-cta-actions quote-wide">
+            <button type="button" class="btn btn-primary" data-send="mail"><span data-en="Send by email">メールで送る</span></button>
+            <button type="button" class="btn btn-ghost" data-send="line"><span data-en="Copy and paste into LINE WORKS">コピーしてLINE WORKSに貼る</span></button>
+          </div>
+          <p class="quote-status" role="status"></p>
+        </form>
+      </div>
 
       <div class="social-links">
         <a href="https://www.instagram.com/nova_83lab/" class="social-link" target="_blank" rel="noopener">
@@ -547,6 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <script src="js/analytics.js"></script>
+  <script src="js/quote.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

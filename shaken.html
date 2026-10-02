@@ -197,19 +197,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <details class="quote-form-wrap">
           <summary data-en="No photo handy, or prefer email? Fill in the form">写真がない・メールで送りたい方はこちら（入力フォーム）</summary>
-          <form class="quote-form" id="quote-form" novalidate>
-            <label><span data-en="Model (required)">車種・型式（必須）</span><input name="model" required placeholder="例：ジムニー JB23"></label>
-            <label><span data-en="Year">年式・初度登録</span><input name="year" placeholder="例：2012年"></label>
-            <label><span data-en="Shaken expiry date">車検の満了日</span><input name="expiry" type="date"></label>
-            <label><span data-en="Mileage">走行距離</span><input name="mileage" inputmode="numeric" placeholder="例：98000km"></label>
-            <label class="quote-wide"><span data-en="Anything you&#39;re worried about">気になる所・ご要望</span><textarea name="notes" rows="3" placeholder="例：ブレーキの鳴きが気になる／代車希望"></textarea></label>
-            <label><span data-en="Your name">お名前</span><input name="name" autocomplete="name"></label>
-            <p class="quote-error" id="quote-error" hidden data-en="Please enter the model.">車種・型式を入力してください。</p>
+          <form class="quote-form" id="quote-form" novalidate data-compose data-subject="車検のお見積り依頼" data-location="shaken-quote-form" data-mail-note="※車検証の写真があれば添付してください。">
+            <label><span data-en="Model (required)">車種・型式（必須）</span><input name="model" required data-label="車種・型式" placeholder="例：ジムニー JB23"></label>
+            <label><span data-en="Year">年式・初度登録</span><input name="year" data-label="年式" placeholder="例：2012年"></label>
+            <label><span data-en="Shaken expiry date">車検の満了日</span><input name="expiry" type="date" data-label="車検満了日"></label>
+            <label><span data-en="Mileage">走行距離</span><input name="mileage" data-label="走行距離" inputmode="numeric" placeholder="例：98000km"></label>
+            <label class="quote-wide"><span data-en="Anything you&#39;re worried about">気になる所・ご要望</span><textarea name="notes" rows="3" data-label="気になる所・ご要望" placeholder="例：ブレーキの鳴きが気になる／代車希望"></textarea></label>
+            <label><span data-en="Your name">お名前</span><input name="name" autocomplete="name" data-label="お名前"></label>
+            <p class="quote-error" hidden data-en="Please enter the model.">車種・型式を入力してください。</p>
             <div class="tips-cta-actions quote-wide">
               <button type="button" class="btn btn-primary" data-send="mail"><span data-en="Send by email">メールで送る</span></button>
               <button type="button" class="btn btn-ghost" data-send="line"><span data-en="Copy and paste into LINE WORKS">コピーしてLINE WORKSに貼る</span></button>
             </div>
-            <p class="quote-status" id="quote-status" role="status"></p>
+            <p class="quote-status" role="status"></p>
           </form>
         </details>
       </aside>
