@@ -572,6 +572,8 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .shop-info:hover{ transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-md); }
 .shop-info-label{ font-family: var(--font-mono); font-size: .66rem; font-weight: 700; letter-spacing: .12em; color: var(--magenta); line-height: 1.5; }
 .shop-info-value{ font-size: .95rem; color: var(--text); line-height: 1.7; }
+.no-sales-note{ margin: 14px 0 0; font-size: .74rem; color: var(--text-dim); line-height: 1.6; }
+.shop-info .no-sales-note{ margin-top: 0; font-size: .7rem; }
 .shop-info-qr{ align-items: center; text-align: center; }
 .shop-info-line-link{ font-size: .85rem; font-weight: 700; color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 .shop-info-qr-img{ width: 64px; height: 64px; background: #fff; padding: 4px; border-radius: var(--radius-sm); margin-top: 2px; }
@@ -1008,7 +1010,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
     min-height: 48px; border-radius: var(--radius); font-weight: 700; font-size: .9rem; white-space: nowrap;
     color: var(--dtext); border: 1px solid var(--dline-strong);
   }
-  .callbar a.callbar-tel{ background: var(--cyan); color: #fff; border-color: var(--cyan); }
+  .callbar a.callbar-main{ background: var(--cyan); color: #fff; border-color: var(--cyan); }
   body.has-callbar{ padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 360px){
@@ -1182,7 +1184,7 @@ body{
 
 /* mobile call bar picks up the same glow */
 @media (max-width: 860px){
-  .callbar a.callbar-tel{ box-shadow: 0 8px 24px -8px rgba(74,158,234,.8); }
+  .callbar a.callbar-main{ box-shadow: 0 8px 24px -8px rgba(74,158,234,.8); }
 }
 
 @media (prefers-reduced-motion: reduce){
