@@ -881,6 +881,8 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .tips-cta h3{ margin: 0 0 10px; font-size: clamp(1.05rem, 2.4vw, 1.3rem); line-height: 1.5; }
 .tips-cta p{ margin: 0; color: var(--text-dim); font-size: .92rem; line-height: 1.8; }
 .tips-cta-actions{ display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+/* .tips-cta p would otherwise win and turn the badge grey with no gap above */
+.tips-cta .no-sales-note{ margin-top: 14px; color: var(--red); font-size: .82rem; line-height: 1.5; }
 @media (max-width: 560px){
   .tips-cta-actions .btn{ width: 100%; justify-content: center; }
 }
