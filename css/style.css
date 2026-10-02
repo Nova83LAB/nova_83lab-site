@@ -393,7 +393,7 @@ section{
 .stat-label{ display:block; font-family: var(--font-mono); font-size: .62rem; color: var(--text-dimmer); letter-spacing: .1em; margin-top: 6px; }
 
 /* -------------------------------- services --------------------------------- */
-.services-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px; align-items: start; }
+.services-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px; align-items: stretch; }
 @media (max-width: 700px){ .services-grid{ grid-template-columns: 1fr; } }
 
 .service-card{
@@ -412,6 +412,9 @@ section{
 }
 .service-card-placeholder:hover{ opacity: .9; transform: none; box-shadow: none; }
 
+.services-grid > .service-card{ display:flex; flex-direction:column; }
+.services-grid > .service-card > .service-card-foot,
+.services-grid > .service-card > .service-link{ margin-top:auto; }
 .service-card-foot{ display:flex; align-items:center; justify-content:space-between; gap:14px; }
 .service-card-links{ display:flex; flex-direction:column; gap:8px; }
 .lightbox-trigger{
