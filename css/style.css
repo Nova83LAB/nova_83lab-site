@@ -887,6 +887,20 @@ a.notice-item-title:hover{ color: var(--cyan); }
   .tips-cta-actions .btn{ width: 100%; justify-content: center; }
 }
 
+/* 本文の冒頭近くに置く小さな相談枠。最後の .tips-cta まで読まずに離れる人向け */
+.mid-cta{
+  display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px;
+  max-width: 760px; margin: 24px 0 8px; padding: 16px clamp(16px,3vw,24px);
+  border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+  border-radius: var(--radius); background: var(--panel);
+}
+.mid-cta p{ flex: 1 1 280px; margin: 0; color: var(--text-dim); font-size: .9rem; line-height: 1.7; }
+.mid-cta p b{ color: var(--text); }
+.mid-cta .btn{ flex: none; }
+@media (max-width: 560px){
+  .mid-cta .btn{ width: 100%; justify-content: center; }
+}
+
 /* --------------------------------- shaken quote box --------------------------------- */
 .quote-box{
   max-width: 760px; margin: 40px 0 48px; padding: 28px clamp(20px,4vw,36px);
