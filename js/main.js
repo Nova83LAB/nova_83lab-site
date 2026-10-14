@@ -5,14 +5,14 @@
   "use strict";
 
   /* ------------------------------ mobile call bar ------------------------------ */
-  // LINE WORKS first (fewer sales calls than a public phone number): keep "LINE WORKS", "call" and "access" one tap away.
+  // LINE first (fewer sales calls than a public phone number): keep "LINE", "call" and "access" one tap away.
   // Built before the language toggle so its labels switch with the rest of the page.
   if (!document.querySelector(".callbar")){
     const onHome = !!document.getElementById("contact");
     const bar = document.createElement("div");
     bar.className = "callbar";
     bar.innerHTML =
-      '<a class="callbar-main" href="https://works.do/FA5CcUJ" target="_blank" rel="noopener" data-track="callbar"><span data-en="💬 LINE">💬 LINE相談</span></a>' +
+      '<a class="callbar-main" href="https://line.me/R/ti/p/@841vmhwq" target="_blank" rel="noopener" data-track="callbar"><span data-en="💬 LINE">💬 LINE相談</span></a>' +
       '<a href="tel:08057232797" data-track="callbar"><span data-en="📞 Call">📞 電話する</span></a>' +
       '<a href="' + (onHome ? "#contact" : "index.html#contact") + '" data-track="callbar"><span data-en="📍 Access">📍 アクセス</span></a>';
     document.body.appendChild(bar);
