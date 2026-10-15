@@ -976,6 +976,15 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .torque-section .gear-box{ margin-top: 20px; }
 .gear-lead{ max-width: 760px; margin: 0 0 28px; color: var(--text-dim); font-size: .8rem; }
 .gear-lead .gear-pr{ margin-right: 6px; }
+/* one-line tool link placed where the reader needs the tool (e.g. right above a torque table) */
+.gear-inline{
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; max-width: 760px; margin: 0 0 28px;
+  padding: 12px 14px; border: 1px dashed var(--line-strong); border-radius: var(--radius-sm);
+}
+.gear-inline p{ flex: 1 1 280px; margin: 0; color: var(--text-dim); font-size: .85rem; line-height: 1.7; }
+.gear-inline p b{ color: var(--text); }
+.gear-inline .gear-pr{ margin-right: 4px; }
+.gear-inline .gear-links{ display: flex; gap: 8px; flex-wrap: wrap; }
 .trivia-list li a{ color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 560px){
   .gear-item{ grid-template-columns: 1fr; }

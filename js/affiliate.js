@@ -29,13 +29,13 @@
     return "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=" + encodeURIComponent(YAHOO_SID) +
       "&pid=" + encodeURIComponent(YAHOO_PID) + "&vc_url=" + encodeURIComponent(target);
   }
-  function link(href, label){
+  function link(href, label, where){
     const a = document.createElement("a");
     a.href = href;
     a.className = "gear-link";
     a.target = "_blank";
     a.rel = "sponsored noopener";
-    a.dataset.track = page + "#gear";
+    a.dataset.track = page + (where || "#gear");
     a.textContent = label;
     return a;
   }
@@ -52,5 +52,15 @@
     });
     const amazonNote = box.querySelector(".gear-disclosure-amazon");
     if (amazonNote && !AMAZON_TAG) amazonNote.remove();
+  });
+
+  // 本文中の一言リンク（表のすぐ上など、道具が必要になる場所に置く）
+  document.querySelectorAll(".gear-inline[data-q]").forEach(box => {
+    const q = box.dataset.q;
+    const slot = box.querySelector(".gear-links");
+    if (AMAZON_TAG) slot.appendChild(link(amazonUrl(q), "Amazon", "#gear-inline"));
+    if (RAKUTEN_ID) slot.appendChild(link(rakutenUrl(q), "楽天市場", "#gear-inline"));
+    if (YAHOO_SID && YAHOO_PID) slot.appendChild(link(yahooUrl(q), "Yahoo!", "#gear-inline"));
+    if (!slot.children.length) box.remove();
   });
 })();
