@@ -48,8 +48,9 @@
   --orange-bright: #ff9c5c;
   --yellow-bright: #e8d76a;
 
-  --font-display:  "Orbitron", "Noto Sans JP", sans-serif;
-  --font-body:      "Noto Sans JP", "Segoe UI", sans-serif;
+  --font-display:  "Orbitron", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
+  /* Japanese text uses the phone's own font (Google's Noto Sans JP cost ~230KB of CSS per page view) */
+  --font-body:      "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic Medium", YuGothic, Meiryo, "Segoe UI", sans-serif;
   --font-mono:      "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --container:     1180px;
