@@ -997,6 +997,13 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .tips-related-note{ margin: 0; color: var(--text-dim); font-size: .85rem; }
 .tips-related .gallery-grid{ margin-top: 16px; gap: 14px; }
 @media (max-width: 480px){ .tips-related .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
+/* in-article table of contents (chips under the quick answers) */
+.tips-toc{ display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.tips-toc-label{ font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; color: var(--text-dimmer); margin-right: 4px; }
+.tips-toc a{ padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .8rem; color: var(--text-dim); }
+.tips-toc a:hover{ border-color: var(--cyan); color: var(--cyan); }
+.torque-section[id]{ scroll-margin-top: 90px; }
+.work-checklist + .torque-section{ margin-top: 44px; }
 .trivia-list li a{ color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 560px){
   .gear-item{ grid-template-columns: 1fr; }
