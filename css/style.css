@@ -901,6 +901,7 @@ a.notice-item-title:hover{ color: var(--cyan); }
 }
 .mid-cta p{ flex: 1 1 280px; margin: 0; color: var(--text-dim); font-size: .9rem; line-height: 1.7; }
 .mid-cta p b{ color: var(--text); }
+.mid-cta p a{ color: var(--cyan); white-space: nowrap; border-bottom: 1px solid currentColor; }
 .mid-cta .btn{ flex: none; }
 @media (max-width: 560px){
   .mid-cta .btn{ width: 100%; justify-content: center; }
