@@ -407,6 +407,11 @@ section{
   border-color: var(--line-strong);
   box-shadow: var(--shadow-md);
 }
+/* 豆知識一覧のカード上部の画像（記事の共有画像を縮小したもの） */
+.service-card-thumb{
+  display: block; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 1200 / 630;
+  margin: -26px -24px 18px; border-radius: var(--radius) var(--radius) 0 0; object-fit: cover;
+}
 .service-card-placeholder{
   background: transparent; box-shadow: none;
   border-style: dashed; border-color: var(--line-strong); opacity: .7;
