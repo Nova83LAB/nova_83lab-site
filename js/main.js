@@ -303,25 +303,38 @@
   /* ------------------------------ notice feed ------------------------------ */
   const noticeList = document.getElementById("notice-list");
   if (noticeList){
-    fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?category=%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B&number=3")
+    // サイトの更新(news.json、公開時に publish.js が自動で追記)と、ブログの「お知らせ」カテゴリを日付順に混ぜて新しい3件を出す
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const en = document.documentElement.lang === "en";
+    const siteNews = fetch("news.json", { cache: "no-cache" })
       .then(res => res.json())
-      .then(data => {
-        const posts = data.posts || [];
-        if (!posts.length) return;
+      .then(items => items.map(n => ({ date: new Date(n.date + "T09:00:00+09:00"), title: (en && n.en) || n.title, url: n.url, external: /^https?:/.test(n.url), pinned: !!n.pinned })))
+      .catch(() => []);
+    const blogNews = fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?category=%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B&number=3")
+      .then(res => res.json())
+      .then(data => (data.posts || []).map(p => ({ date: new Date(p.date), title: p.title, url: p.URL, external: true })))
+      .catch(() => []);
 
-        // お知らせがある時だけバーを表示する(空のままだと「更新されていない店」に見えるため)
-        document.getElementById("notice")?.removeAttribute("hidden");
-        noticeList.innerHTML = posts.map(p => {
-          const d = new Date(p.date);
-          const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-          return `
+    Promise.all([siteNews, blogNews]).then(([a, b]) => {
+      // pinned の付いたお知らせ(LINE公式の案内など)は常に先頭に出し、残りは新しい順に3件。ブログに同じ題名があれば重ねて出さない
+      const pinned = a.filter(n => n.pinned);
+      const rest = a.filter(n => !n.pinned).concat(b.filter(p => !pinned.some(n => n.title === p.title)));
+      const items = pinned.concat(rest.sort((x, y) => y.date - x.date).slice(0, 3));
+      if (!items.length) return;
+
+      // お知らせがある時だけバーを表示する(空のままだと「更新されていない店」に見えるため)
+      document.getElementById("notice")?.removeAttribute("hidden");
+      noticeList.innerHTML = items.map(n => {
+        const d = n.date;
+        const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+        const target = n.external ? ' target="_blank" rel="noopener"' : ' data-track="notice"';
+        return `
             <li class="notice-item">
               <span class="notice-item-date">${dateStr}</span>
-              <a href="${p.URL}" class="notice-item-title" target="_blank" rel="noopener">${p.title}</a>
+              <a href="${esc(n.url)}" class="notice-item-title"${target}>${n.external ? n.title : esc(n.title)}</a>
             </li>`;
-        }).join("");
-      })
-      .catch(() => { /* keep the placeholder on failure */ });
+      }).join("");
+    });
   }
 
   /* ------------------------------ visitor counter ------------------------------ */
