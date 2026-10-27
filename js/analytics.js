@@ -68,4 +68,17 @@
       track("click_contact_nav", { link_location: where });
     }
   }, true);
+
+  /* ------------------------------ video ------------------------------ */
+  // 記事の解説動画: 最初の再生(video_play)と最後まで見た(video_complete)を、それぞれ 1 回だけ送る。
+  // GTM にはこのイベントのトリガーがないので、GTM が読み込んだ GA4 の Google タグへ gtag で直接送る
+  function trackVideo(name, where){
+    window.gtag("event", name, { link_location: where });
+    if (CLARITY_ID && window.clarity) window.clarity("event", name);
+  }
+  document.querySelectorAll("video[data-track]").forEach((v) => {
+    const where = v.dataset.track;
+    v.addEventListener("play", () => trackVideo("video_play", where), { once: true });
+    v.addEventListener("ended", () => trackVideo("video_complete", where), { once: true });
+  });
 })();
