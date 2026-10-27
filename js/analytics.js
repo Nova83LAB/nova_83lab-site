@@ -71,14 +71,11 @@
 
   /* ------------------------------ video ------------------------------ */
   // 記事の解説動画: 最初の再生(video_play)と最後まで見た(video_complete)を、それぞれ 1 回だけ送る。
-  // GTM にはこのイベントのトリガーがないので、GTM が読み込んだ GA4 の Google タグへ gtag で直接送る
-  function trackVideo(name, where){
-    window.gtag("event", name, { link_location: where });
-    if (CLARITY_ID && window.clarity) window.clarity("event", name);
-  }
+  // GTM 経由で送る(GTM の Google タグは gtag("event") を拾わないので dataLayer の event にする)。
+  // GTM 側で、外部リンククリックと同じトリガーに video_play / video_complete を足して GA4 に送っている
   document.querySelectorAll("video[data-track]").forEach((v) => {
     const where = v.dataset.track;
-    v.addEventListener("play", () => trackVideo("video_play", where), { once: true });
-    v.addEventListener("ended", () => trackVideo("video_complete", where), { once: true });
+    v.addEventListener("play", () => track("video_play", { link_location: where }), { once: true });
+    v.addEventListener("ended", () => track("video_complete", { link_location: where }), { once: true });
   });
 })();
