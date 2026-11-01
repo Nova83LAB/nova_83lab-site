@@ -483,6 +483,7 @@ section{
 .skills-note.flush-top{ margin-top: 0; }
 .skills-note.warning{ color: var(--red); font-weight: 700; }
 .skills-note.center{ text-align: center; }
+.skills-note a{ color: var(--cyan-dim); text-decoration: underline; text-underline-offset: 3px; }
 
 .access-note{
   max-width: 640px; margin: 20px auto 40px; padding: 18px 22px;
