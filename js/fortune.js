@@ -14,7 +14,11 @@
     "タイヤの空気圧チェック", "ワイパーの拭き取り確認", "ライトの点灯チェック", "エンジンオイルの量を見る",
     "窓ガラスの内側を拭く", "ウォッシャー液の残りを確認", "タイヤの溝とひび割れを見る", "バッテリー端子のまわりを見る"
   ];
-  var CARE_LINK = { 5: "tips-15.html", 6: "tips-15.html", 7: "tips-15.html", 1: "tips-15.html" };
+  // ラッキー整備 → 解説ページ（LUCKY_CARE の番号ごと。2026-11-07 に tips-28〜31 を足して8つ全部につながった）
+  var CARE_LINK = {
+    0: "tips-15.html", 1: "tips-28.html", 2: "tips-29.html", 3: "tips-30.html",
+    4: "tips-31.html", 5: "tips-15.html", 6: "tips-15.html", 7: "tips-15.html"
+  };
 
   var WORDS = [
     // 1〜3位
@@ -79,22 +83,83 @@
     return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
   }
 
+  // その日の12星座の行（順位・星・ひとこと・ラッキーアイテム）とラッキー整備
+  function build(date) {
+    var words = WORDS.map(function (w, k) { return shuffled(w, date + "-words-" + k); });
+    var items = shuffled(ITEMS, date + "-items");
+    var careIdx = luckyCare(date);
+    return {
+      date: date,
+      careIdx: careIdx,
+      care: LUCKY_CARE[careIdx],
+      careLink: CARE_LINK[careIdx] || "",
+      rows: ranking(date).map(function (s, i) {
+        var rank = i + 1;
+        return {
+          mark: s[0], name: s[1], rank: rank, stars: stars(rank),
+          word: words[Math.floor(i / 3)][i % 3],
+          item: items[i]
+        };
+      })
+    };
+  }
+  // 1年の愛車運（fortune-2027.html など。元日の Threads 投稿と同じ計算: threads-bot/src/fortune.mjs の yearRanking / luckyMonth）
+  var YEAR_WORDS = [
+    "遠出の計画がどんどん当たる1年。行きたかった場所へ",
+    "愛車との相性が深まる1年。手をかけるほど応えてくれる",
+    "新しい道・新しい景色に縁がある1年",
+    "こまめな点検が運を呼ぶ1年。小さな気づきが大きな安心に",
+    "同乗者との時間が宝になる1年。ドライブの予定を増やして",
+    "季節ごとの準備がうまくいく1年。早め早めが吉",
+    "いつもの道にこそ発見がある1年。寄り道を楽しんで",
+    "片付け上手で運気が整う1年。車内をすっきりと",
+    "落ち着いたペースが吉の1年。急がずゆとりを持って",
+    "安全運転がそのまま運気アップにつながる1年",
+    "早めの相談が流れを変える1年。気になる音は放っておかないで",
+    "守りを固めると後半に伸びる1年。点検を味方に"
+  ];
+  function buildYear(year) {
+    var rand = seeded("nova83lab-fortune-year-" + year);
+    var list = SIGNS.slice();
+    for (var i = list.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var t = list[i]; list[i] = list[j]; list[j] = t;
+    }
+    // ラッキー月は12か月を並べ替えて、星座ごとに別の月を1つずつ（SIGNS の並び順で割り当てる）
+    var months = shuffled([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "nova83lab-year-month-" + year);
+    return list.map(function (s, i) {
+      var rank = i + 1;
+      var k = 0;
+      SIGNS.forEach(function (x, n) { if (x[1] === s[1]) k = n; });
+      return { mark: s[0], name: s[1], rank: rank, stars: stars(rank), word: YEAR_WORDS[i], month: months[k] };
+    });
+  }
+
+  // 毎朝の投稿画像づくり（.claude/skills/work-page/scripts/fortune-images.js）からも同じ計算を使う
+  window.NovaFortune = { build: build, buildYear: buildYear, todayJst: todayJst };
+
+  var yearRoot = document.getElementById("fortune-year");
+  if (yearRoot) {
+    var yRows = buildYear(Number(yearRoot.getAttribute("data-year")));
+    var yKey = "nova-fortune-sign";
+    var ySaved = null;
+    try { ySaved = localStorage.getItem(yKey); } catch (e) { /* 保存できない環境 */ }
+    yearRoot.innerHTML = yRows.map(function (x) {
+      return '<li class="fortune-row' + (x.name === ySaved ? " is-mine" : "") + '">' +
+        '<span class="fortune-rank">' + x.rank + "位</span>" +
+        '<span class="fortune-name"><span class="fortune-mark">' + x.mark + "</span>" + esc(x.name) + "</span>" +
+        '<span class="fortune-word">' + esc(x.word) + "</span>" +
+        '<span class="fortune-item">🗓 ラッキー月：' + x.month + "月</span></li>";
+    }).join("");
+  }
+
   var root = document.getElementById("fortune");
   if (!root) return;
   var date = todayJst();
   var parts = date.split("-");
-  var order = ranking(date);
-  var careIdx = luckyCare(date);
-  var words = WORDS.map(function (w, k) { return shuffled(w, date + "-words-" + k); });
-  var items = shuffled(ITEMS, date + "-items");
-  var rows = order.map(function (s, i) {
-    var rank = i + 1;
-    return {
-      mark: s[0], name: s[1], rank: rank, stars: stars(rank),
-      word: words[Math.floor(i / 3)][i % 3],
-      item: items[i]
-    };
-  });
+  var today = build(date);
+  var careIdx = today.careIdx;
+  var rows = today.rows;
 
   document.getElementById("fortune-date").textContent = Number(parts[1]) + "月" + Number(parts[2]) + "日";
   var care = LUCKY_CARE[careIdx];
