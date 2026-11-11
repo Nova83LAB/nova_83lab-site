@@ -15,8 +15,8 @@
       '<a class="callbar-main" href="https://line.me/R/ti/p/@841vmhwq" target="_blank" rel="noopener" data-track="callbar"><span data-en="💬 LINE">💬 LINE相談</span></a>' +
       '<a href="tel:08057232797" data-track="callbar"><span data-en="📞 Call">📞 電話する</span></a>' +
       '<a href="' + (onHome ? "#contact" : "index.html#contact") + '" data-track="callbar"><span data-en="📍 Access">📍 アクセス</span></a>';
-    // Work pages: open LINE with the same pre-filled message as the mid-page button.
-    const midLine = document.querySelector('.mid-cta a[href*="oaMessage"]');
+    // Pages with a pre-filled LINE button: the call bar opens LINE with the same message.
+    const midLine = document.querySelector('.mid-cta a[href*="oaMessage"], .tips-cta-actions a[href*="oaMessage"]');
     if (midLine) bar.querySelector(".callbar-main").href = midLine.href;
     document.body.appendChild(bar);
     document.body.classList.add("has-callbar");
