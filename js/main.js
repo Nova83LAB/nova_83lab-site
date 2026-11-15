@@ -311,6 +311,8 @@
     const en = document.documentElement.lang === "en";
     const siteNews = fetch("news.json", { cache: "no-cache" })
       .then(res => res.json())
+      // until(YYYY-MM-DD)を付けたお知らせは、その日が過ぎたら出さない(休業案内など)
+      .then(items => items.filter(n => !n.until || Date.now() < new Date(n.until + "T23:59:59+09:00").getTime()))
       .then(items => items.map(n => ({ date: new Date(n.date + "T09:00:00+09:00"), title: (en && n.en) || n.title, url: n.url, external: /^https?:/.test(n.url), pinned: !!n.pinned })))
       .catch(() => []);
     const blogNews = fetch("https://public-api.wordpress.com/rest/v1.1/sites/nova83lab.art.blog/posts/?category=%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B&number=3")
