@@ -15,6 +15,12 @@
     "pinned": true
   },
   {
+    "date": "2026-11-15",
+    "title": "作業事例に「JB31 G13Bエンジン オーバーホール 組付け編」を追加しました",
+    "en": "New work: JB31 G13B Engine Overhaul: Assembly",
+    "url": "work-maintenance-14.html"
+  },
+  {
     "date": "2026-11-09",
     "title": "作業事例に「JB64 ジムニー ハイブリッジファースト パイピングキット取付」を追加しました",
     "en": "New work: JB64 Jimny: Hi-Bridge First Piping Kit Installation",
@@ -127,11 +133,5 @@
     "title": "豆知識に「ジムニーの寸法と最小回転半径」を追加しました",
     "en": "New tip: Jimny Dimensions & Turning Radius by Model",
     "url": "tips-17.html"
-  },
-  {
-    "date": "2026-10-26",
-    "title": "豆知識に「サイドスリップとトー調整とは」を追加しました",
-    "en": "New tip: Side Slip and Toe, Explained",
-    "url": "tips-16.html"
   }
 ]
