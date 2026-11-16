@@ -15,6 +15,32 @@
   const isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   if (isLocal) return;
 
+  /* ------------------------------ 動作確認モード ------------------------------ */
+  // URL に ?test を付けて開くと、その端末(ブラウザ)では以後ずっとボタンのクリックを数えない。
+  // ?test=off で開くと元に戻る。オン中は画面の左上に小さく「動作確認モード」と出る。
+  // ページの閲覧(page_view)は GTM が送るので数えられたまま。止めるのは問い合わせなどのクリックだけ
+  let testMode = false;
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.has("test")){
+      if (q.get("test") === "off") localStorage.removeItem("nova_test");
+      else localStorage.setItem("nova_test", "1");
+    }
+    testMode = localStorage.getItem("nova_test") === "1";
+  } catch (e){}
+  window.NOVA_TEST = testMode;
+  if (testMode){
+    const showBadge = () => {
+      const b = document.createElement("a");
+      b.href = location.pathname + "?test=off";
+      b.textContent = "動作確認モード（数えません）× 解除";
+      b.style.cssText = "position:fixed;top:6px;left:6px;z-index:99999;padding:4px 8px;border-radius:6px;" +
+        "background:#e84a9a;color:#fff;font:12px/1.4 sans-serif;text-decoration:none;opacity:.9;";
+      document.body.appendChild(b);
+    };
+    if (document.body) showBadge(); else document.addEventListener("DOMContentLoaded", showBadge);
+  }
+
   /* ------------------------------ GA4 ------------------------------ */
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
@@ -41,6 +67,7 @@
   // 電話・メール・LINE WORKS・LINE公式 = 問い合わせ(generate_lead)、それ以外の外部リンクは click_outbound
   // GTM では「カスタム イベント」トリガーでイベント名を指定して GA4 に送る
   function track(name, params){
+    if (testMode){ console.info("[動作確認モード] 数えません:", name, params); return; }
     window.dataLayer.push(Object.assign({ event: name }, params));
     if (GA4_ID) window.gtag("event", name, params);
     if (CLARITY_ID && window.clarity) window.clarity("event", name);

@@ -17,6 +17,10 @@
   const LINE_MESSAGE_URL = "https://line.me/R/oaMessage/%40841vmhwq/?";
 
   function track(method, where){
+    // 動作確認モード(analytics.js、URL に ?test)の端末では数えない
+    let test = false;
+    try { test = localStorage.getItem("nova_test") === "1"; } catch (e){}
+    if (test) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: "generate_lead", method: method, link_location: where });
   }
