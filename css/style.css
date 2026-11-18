@@ -722,6 +722,10 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .torque-table td{ padding:11px 8px; border-bottom:1px solid var(--line); color:var(--text-dim); vertical-align:top; }
 .torque-table tr:last-child td{ border-bottom:none; }
 .torque-table .t-part{ color:var(--text); }
+/* a long part name or note must not squeeze its column to one character
+   (the other columns never wrap); the table scrolls sideways instead */
+.torque-table .t-part{ min-width: 8em; }
+.torque-table .t-part:has(small){ min-width: 11em; }
 .torque-table .t-part small{ display:block; color:var(--text-dimmer); font-size:.68rem; margin-top:2px; font-weight:400; }
 .torque-table .t-val{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); white-space:nowrap; }
 .torque-table .t-tool{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); white-space:nowrap; }
@@ -1024,6 +1028,8 @@ a.notice-item-title:hover{ color: var(--cyan); }
 .gear-disclosure{ margin: 14px 0 0; color: var(--text-dim); font-size: .75rem; }
 /* parts-guide articles: one small box per step, sitting under that step */
 .torque-section .gear-box{ margin-top: 20px; }
+/* a box placed mid-article, between tables: keep the next table clear of it */
+.gear-box + .torque-section{ margin-top: 40px; }
 .gear-lead{ max-width: 760px; margin: 0 0 28px; color: var(--text-dim); font-size: .8rem; }
 .gear-lead .gear-pr{ margin-right: 6px; }
 /* one-line tool link placed where the reader needs the tool (e.g. right above a torque table) */
