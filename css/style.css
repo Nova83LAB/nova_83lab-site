@@ -1122,6 +1122,8 @@ a.notice-item-title:hover{ color: var(--cyan); }
     color: var(--dtext); border: 1px solid var(--dline-strong);
   }
   .callbar a.callbar-main{ background: var(--cyan); color: #fff; border-color: var(--cyan); }
+  .callbar a span{ text-align: center; line-height: 1.25; }
+  .callbar a small{ display: block; font-size: .66rem; font-weight: 500; opacity: .8; }
   body.has-callbar{ padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 360px){

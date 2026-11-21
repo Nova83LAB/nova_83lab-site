@@ -12,8 +12,8 @@
     const bar = document.createElement("div");
     bar.className = "callbar";
     bar.innerHTML =
-      '<a class="callbar-main" href="https://line.me/R/ti/p/@841vmhwq" target="_blank" rel="noopener" data-track="callbar"><span data-en="💬 LINE">💬 LINE相談</span></a>' +
-      '<a href="tel:08057232797" data-track="callbar"><span data-en="📞 Call">📞 電話する</span></a>' +
+      '<a class="callbar-main" href="https://line.me/R/ti/p/@841vmhwq" target="_blank" rel="noopener" data-track="callbar"><span data-en="💬 LINE<small>Anytime</small>">💬 LINE相談<small>24時間送れます</small></span></a>' +
+      '<a href="tel:08057232797" data-track="callbar"><span data-en="📞 Call<small>9:00–18:00</small>">📞 電話する<small>9時〜18時</small></span></a>' +
       '<a href="' + (onHome ? "#contact" : "index.html#contact") + '" data-track="callbar"><span data-en="📍 Access">📍 アクセス</span></a>';
     // Pages with a pre-filled LINE button: the call bar opens LINE with the same message.
     const midLine = document.querySelector('.mid-cta a[href*="oaMessage"], .tips-cta-actions a[href*="oaMessage"]');
